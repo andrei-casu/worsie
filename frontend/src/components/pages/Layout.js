@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import UserMenu from './UserMenu';
+import NewsMenu from './NewsMenu';
 
 export default class Layout extends Component{
 
@@ -7,8 +9,11 @@ export default class Layout extends Component{
 		return(
 			<div>
 				<Header/>
-				{this.props.children}
-
+				<div className="container">
+					<UserMenu/>
+					{this.props.children}
+					<NewsMenu/>
+				</div>
 			</div>
 
 		);

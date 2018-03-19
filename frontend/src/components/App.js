@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import { Switch,  Route } from 'react-router-dom';
 import UserBets from './pages/UserBets';
+import Events from './pages/Events';
 import NotFoundPage from './pages/NotFoundPage';
 import '../styles/style.css';
 
@@ -16,10 +17,8 @@ export default class App extends Component {
     return (
       <div>
         <Switch>
-          <Route exact path="/" component={UserBets} />
-          <Route path="/calendar" component={UserBets} />
-          <Route path="/user-history" component={UserBets} />
-          <Route path="/horses-history" component={UserBets}/>
+          <Route path="/events/:type" component={Events} />
+          <Route path="/" component={UserBets} />
           <Route component={NotFoundPage}/>
         </Switch>
       </div>
