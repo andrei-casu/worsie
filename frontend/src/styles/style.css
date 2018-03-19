@@ -1,0 +1,19 @@
+
+
+.header-content{
+	width: 100%;
+	border: 2px solid gray;
+	height: 70px;
+	
+	left: 0;
+	top: 0;
+}
+
+.header-content-link{
+	margin-left:10px;
+	float: left;
+}
+
+.header-content-logo{
+	float: left;
+}
