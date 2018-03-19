@@ -1,0 +1,21 @@
+{
+	"profile":{
+
+		"pending_bets":[
+			{
+				"event_id": "1000",
+				"pair_id": "1234", 
+				"amount": 20
+			},
+			{
+				"event_id": "1003",
+				"pair_id": "1238", 
+				"amount": 18
+			}
+		],
+		"name": "Costica Costel",
+		"avatar": "https://www.timesnewroman.ro/files/attach/images/127/624084/nea_costel_merge_la_vot.jpg",
+		"credit": 275,
+		"history":""
+	}
+}
