@@ -19,22 +19,26 @@
 		"history":[ 
 					  {
 				          "event_id":"1010",
+				          "pair_id": "1243",
 				          "won":true,
 				          "amount":100
 				      },
 				      {
 				          "event_id":"2",
+				          "pair_id": "1243",
 				          "won":true,
 				          "amount": 10
 				      },
 				      {
 				          "event_id":"1301",
+				          "pair_id": "1233",
 				          "won":false,
 				          "amount": 5000
 				      },
 				      {
 
 				          "event_id":"1304",
+				          "pair_id": "1246",
 				          "won":true,
 				          "amount":340
 				      }

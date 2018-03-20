@@ -73,6 +73,14 @@ body {
   cursor: default;
 }
 
+.page .bet-amount.won{
+  color: green;
+}
+
+.page .bet-amount.lost{
+  color: red;
+}
+
 
 .page .bet-short{
   margin-bottom:20px;
@@ -146,6 +154,10 @@ a {
   float: left;
   color: white;
   font-size: 18px;
+}
+
+.header-content-link:hover{
+  color: #fbac21;
 }
 
 .header-content-logo img {
