@@ -1,6 +1,9 @@
 
 body {
   margin: 0px;
+  /* background-color: #F5F5F5; */
+  background-color: #FBFFFE;
+
 }
 
 .header-content{
@@ -14,6 +17,7 @@ body {
 
 .container {
   display: flex;
+  
 }
 
 .user-menu {
@@ -40,6 +44,7 @@ body {
 
 .page {
   width: 60%;
+  background-color: #F5F5F5;
 }
 
 .news-menu {
@@ -98,4 +103,70 @@ a {
   height: 50px;
   width: 50px;
   border-radius: 50px;
+}
+
+
+
+.event{
+  padding: 30px;
+  font-family: "Merriweather";
+  font-size: 18px;
+
+}
+
+.event .margin-bottom{
+  margin-bottom: 10px;
+}
+
+.event .title{
+  font-size: 25px;
+  color: #fbac21;
+  text-align: center;
+  font-weight: bold;
+}
+
+.event .sub-title{
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.event .date{
+
+}
+
+.event .pair{
+  font-size: 16px;
+  margin-bottom: 30px;
+  display: flow-root;
+}
+
+.event .pair .image{
+  width: 330px;
+  float: right;
+  
+}
+
+
+.event .pair .pair-info{
+  float: left;
+  padding: 30px;
+}
+.event .pair .bet{
+  color: #fbac21;
+}
+
+.event .pair .odd{
+  color: #ac1a27;
+}
+
+.event .pair .name{
+  
+}
+
+.event .participants{
+
+}
+
+.event .participants .pair{
+
 }
