@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import Layout from './Layout';
 import Wrapper from '../Wrapper';
-import EventRender from './EventRender';
+import EventItem from './EventItem';
 
 
 // import pair from '../../dummy/pair_info';
@@ -43,7 +43,7 @@ class Events extends Component{
                 {
                   dEvents.map((event, index) => {
                     return (
-                      <EventRender key={index} event={event}/>
+                      <EventItem key={index} event={event}/>
                     );
                   })
                 }

@@ -22,7 +22,7 @@ export default class App extends Component {
           <Route path="/events/:type" component={Events} />
           <Route path="/event/:id" component={Event}/>
           <Route path="/pair/:id" component={Pair}/>
-          <Route path="/" component={UserBets} />
+          <Route path="/user" component={UserBets} />
           <Route component={NotFoundPage}/>
         </Switch>
       </div>

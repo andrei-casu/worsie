@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PairItem from './PairItem';
 
 export default class EventRender extends Component{
 
@@ -19,14 +20,7 @@ export default class EventRender extends Component{
                     {
                         event.pairs.map((pair, index) => {
                             return (
-                                <div key={index} className="pair">
-                                    
-                                    <div className="pair-info">
-                                        <div className="name margin-bottom">{index+1}. {pair.pair.name}</div>
-                                        <div className="description margin-bottom">{pair.pair.description}</div>
-                                    </div>
-                                    <img className="image" src={pair.pair.img_url}/>
-                                </div>
+                                <PairItem key={index} pair={pair.pair} odd={pair.odd} type="short"/>
                             );
                         })
                     }

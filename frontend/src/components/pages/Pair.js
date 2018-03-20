@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import Layout from './Layout';
 import Wrapper from '../Wrapper';
+import PairItem from './PairItem';
 
 class Pair extends Component{
   constructor(props) {
@@ -34,7 +35,7 @@ class Pair extends Component{
         <Layout user={this.props.user.userInfo}>
           <div className="page pairs-page">
               <div className="pairs-container">
-                {JSON.stringify(pair)}
+                <PairItem pair={pair}/>
               </div>
           </div>
         </Layout>

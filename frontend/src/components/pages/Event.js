@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import Layout from './Layout';
 import Wrapper from '../Wrapper';
+import EventItem from './EventItem';
 
 class Event extends Component{
   constructor(props) {
@@ -28,12 +29,13 @@ class Event extends Component{
   render() {
     const {id, events} = this.props;
     const event = events[id];
+    if (event === undefined) return null;
     return (
       <div>
         <Layout user={this.props.user.userInfo}>
           <div className="page events-page">
               <div className="events-container">
-                {JSON.stringify(event)}
+                <EventItem event={event}/>
               </div>
           </div>
         </Layout>
