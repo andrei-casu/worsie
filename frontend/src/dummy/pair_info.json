@@ -1,0 +1,27 @@
+{
+	"pair": {
+			"id": "1234",
+			"img_url": "https://cdn.techinasia.com/wp-content/uploads/2013/06/jockey-horse-5901.png",
+			"name": "Secretariat & Johnny Duck",
+			"description": "Cel mai rapid cal al statului California",
+			"full_description": "Cal de rasa pura, pereche castigatoare a turneului englez",	
+			"history":[
+				{
+					"timestamp":1521454226,
+					"host": "Los Angeles",
+					"place": 2
+				},
+				{
+					"timestamp":1521494226,
+					"host": "New York",
+					"place": 1 
+				},
+				{
+					"timestamp":1521494226,
+					"host": "London",
+					"place": 3
+				} 
+
+			]
+		}
+}
