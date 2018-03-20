@@ -37,6 +37,25 @@ class UserBets extends Component{
                 );
               })
             }
+
+            <div className="page-subtitle">
+                Istoric pariuri:
+            </div>
+            {
+              userInfo.history.map((obj, index) => {
+                return (
+                  <div key={index} className="bet-short">
+                    <Link to={`/event/${obj.event_id}`}>Eveniment</Link><br/>
+                    <Link to={`/pair/${obj.pair_id}`}>Perechea pariata</Link>
+                    <div className="bet-amount">Suma pariata: {obj.amount} lei</div>
+                    <div className={`bet-amount ${obj.won === true? "won" : "lost"}`}>{obj.won === true? 'Castigat' : 'Pierdut'} </div>
+                  </div>
+                );
+              })
+            }
+
+
+
           </div>
         </Layout>
       </div>

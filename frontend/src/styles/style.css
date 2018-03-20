@@ -3,6 +3,7 @@ body {
   margin: 0px;
   /* background-color: #F5F5F5; */
   background-color: #FBFFFE;
+  font-family: "Merriweather";
   
 
 }
@@ -72,6 +73,14 @@ body {
 .page .bet-amount{
   color: #ac1a27;
   cursor: default;
+}
+
+.page .bet-amount.won{
+  color: green;
+}
+
+.page .bet-amount.lost{
+  color: red;
 }
 
 
@@ -147,6 +156,10 @@ a {
   float: left;
   color: white;
   font-size: 18px;
+}
+
+.header-content-link:hover{
+  color: #fbac21;
 }
 
 .header-content-logo img {
