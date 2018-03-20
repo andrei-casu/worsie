@@ -20,7 +20,8 @@ class Events extends Component{
   }
 
   componentDidMount() {
-    this.props.getUserInfo();
+    if (Object.keys(this.props.user.userInfo).length === 0)
+      this.props.getUserInfo();
     this.getEvents(this.props);
   }
 

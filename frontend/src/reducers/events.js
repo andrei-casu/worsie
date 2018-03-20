@@ -1,4 +1,4 @@
-import {LOADING_START, LOADING_END, EVENTS} from '../constants/events';
+import {LOADING_START, LOADING_END, EVENTS, EVENT} from '../constants/events';
 
 export default function eventsReduce(state = {
   loading: false,
@@ -18,6 +18,9 @@ export default function eventsReduce(state = {
       });
     case EVENTS:
       obj[action.eventsType] = action.events;
+      return Object.assign({}, state, obj);
+    case EVENT:
+      obj[action.id] = action.event;
       return Object.assign({}, state, obj);
     default:
       return state;

@@ -2,6 +2,7 @@ import * as types from '../constants/events';
 // import fetch from 'isomorphic-fetch';
 import bestEvents from '../dummy/best_events.json';
 import events from '../dummy/events.json';
+import event from '../dummy/event.json';
 
 
 export function getEvents(type) {
@@ -25,5 +26,17 @@ export function getEvents(type) {
 
 
     dispatch({type: types.LOADING_END});
+  };
+}
+
+export function getEvent(id) {
+  return dispatch => {
+      dispatch({
+        type: types.EVENT,
+        id,
+        event: event.event
+      });
+
+
   };
 }

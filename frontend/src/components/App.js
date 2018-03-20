@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import { Switch,  Route } from 'react-router-dom';
 import UserBets from './pages/UserBets';
 import Events from './pages/Events';
+import Event from './pages/Event';
+import Pair from './pages/Pair';
 import NotFoundPage from './pages/NotFoundPage';
 import '../styles/style.css';
 
@@ -18,6 +20,8 @@ export default class App extends Component {
       <div>
         <Switch>
           <Route path="/events/:type" component={Events} />
+          <Route path="/event/:id" component={Event}/>
+          <Route path="/pair/:id" component={Pair}/>
           <Route path="/" component={UserBets} />
           <Route component={NotFoundPage}/>
         </Switch>

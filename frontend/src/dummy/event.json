@@ -1,0 +1,145 @@
+{
+	"event": {
+		"id": "1000",
+		"name": "Marele cicruit al Californiei",
+		"description": "",
+		"timestamp": 1522540800,
+		"pairs": [
+			{
+				"pair": {
+					"id": "1234",
+					"img_url": "https://cdn.techinasia.com/wp-content/uploads/2013/06/jockey-horse-5901.png",
+					"name": "Secretariat & Johnny Duck",
+					"description": "Cel mai rapid cal al statului California",
+					"full_description": "Cal de rasa pura, pereche castigatoare a turneului englez",
+					"history": [
+						{
+							"timestamp": 1521454226,
+							"host": "Los Angeles",
+							"place": 2
+						},
+						{
+							"timestamp": 1521494226,
+							"host": "New York",
+							"place": 1
+						},
+						{
+							"timestamp": 1521494226,
+							"host": "London",
+							"place": 3
+						}
+					]
+				},
+				"odd": 1.3
+			},
+			{
+				"pair": {
+					"id": "1235",
+					"img_url": "",
+					"name": "War Admiral & Johnny Longden",
+					"description": "Cel mai rapid cal al statului Ohio",
+					"full_description": "Cal de rasa pura, pereche castigatoare a turneului irlandez",
+					"history": [
+						{
+							"timestamp": 1521494226,
+							"host": "Manchester",
+							"place": 3
+						},
+						{
+							"timestamp": 1521494226,
+							"host": "Liverpool",
+							"place": 6
+						},
+						{
+							"timestamp": 1521494226,
+							"host": "Edinburgh",
+							"place": 3
+						}
+					]
+				},
+				"odd": 1.5
+			},
+			{
+				"pair": {
+					"id": "1236",
+					"img_url": "https://i.pinimg.com/736x/73/2c/58/732c5818f8fd25653492b2ac697b912f--sports-tops-race-horses.jpg",
+					"name": "Man o War && Frankie Dettori",
+					"description": "Cel mai rapid cal al Scotiei",
+					"full_description": "Cal de rasa pura, pereche castigatoare a turneului scotian",
+					"history": [
+						{
+							"timestamp": 1521494226,
+							"host": "Paris",
+							"place": 6
+						},
+						{
+							"timestamp": 1521494226,
+							"host": "Sarajevo",
+							"place": 3
+						},
+						{
+							"timestamp": 1521494226,
+							"host": "Zagreb",
+							"place": 8
+						}
+					]
+				},
+				"odd": 1.1
+			},
+			{
+				"pair": {
+					"id": "1237",
+					"img_url": "http://campaign.hkjc.com/en/season-end/most-popular-horse-and-jockey/images/winner_oversea_real.jpg",
+					"name": "Seabiscuit & Ruby Walsh",
+					"description": "Cel mai rapid cal pe vreme ploioasa",
+					"full_description": "Cal de rasa pura, pereche castigatoare a turneului englez",
+					"history": [
+						{
+							"timestamp": 1521494226,
+							"host": "Liverpool",
+							"place": 1
+						},
+						{
+							"timestamp": 1521494226,
+							"host": "West Ham",
+							"place": 3
+						},
+						{
+							"timestamp": 1521494226,
+							"host": "Madrid",
+							"place": 4
+						}
+					]
+				},
+				"odd": 2
+			},
+			{
+				"pair": {
+					"id": "1238",
+					"img_url": "https://cdn.techinasia.com/wp-content/uploads/2013/06/jockey-horse-5901.png",
+					"name": "Whirlaway & Javier Castellano",
+					"description": "O pereche debutanta plina de talent",
+					"full_description": "Cal de rasa pura, pereche castigatoare a turneului englez",
+					"history": [
+						{
+							"timestamp": 1521494226,
+							"host": "Madrid",
+							"place": 2
+						},
+						{
+							"timestamp": 1521494226,
+							"host": "Liverpool",
+							"place": 3
+						},
+						{
+							"timestamp": 1521494226,
+							"host": "West Ham",
+							"place": 1
+						}
+					]
+				},
+				"odd": 2.3
+			}
+		]
+	}
+}
