@@ -32,9 +32,18 @@ export default class PairItem extends Component{
            
                 <img className="image" src={pair.img_url}/>
 
-                <div className="pair-history">
-                  {JSON.stringify(pair.history)}
-                </div>
+                <div className="history-text"> Istoricul perechii:</div>
+                {pair.history.map((obj, index)=>{
+
+                    return (
+                        <div className="pair-history">
+                            <div className="date margin-bottom">{index+1}. Data si ora cursei: {new Date(obj.timestamp).toLocaleDateString('en-US')}</div>
+                            <div className="host margin-bottom">{obj.host}</div>
+                            <div className="place margin-bottom">Locul obtinut: {obj.place}</div>
+                        </div>
+                    );
+                })}
+                
             </div>
         );
     }

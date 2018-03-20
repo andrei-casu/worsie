@@ -28,9 +28,9 @@ class UserBets extends Component{
               userInfo.pending_bets.map((bet, index) => {
                 return (
                   <div key={index} className="bet-short">
-                    <Link to={`/event/${bet.event_id}`}>Event</Link>
+                    <Link to={`/event/${bet.event_id}`}>Event</Link><br/>
                     <Link to={`/pair/${bet.pair_id}`}>Pair</Link>
-                    <div className="bet-amount">{bet.amount}</div>
+                    <div className="bet-amount">Suma pariata: {bet.amount} lei</div>
                   </div>
                 );
               })

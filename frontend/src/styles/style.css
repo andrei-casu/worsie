@@ -45,7 +45,33 @@ body {
 .page {
   width: 60%;
   background-color: #F5F5F5;
+  padding: 30px;
+  font-family: "Merriweather";
 }
+
+.page .page-title{
+  font-size: 25px;
+  color: #fbac21;
+  text-align: center;
+  font-weight: bold;
+}
+
+.page .page-subtitle{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.page .bet-amount{
+  color: #ac1a27;
+  cursor: default;
+}
+
+
+.page .bet-short{
+  margin-bottom:20px;
+  cursor: pointer;
+}
+
 
 .news-menu {
   width: 25%;
@@ -114,7 +140,7 @@ a {
 
 }
 
-.event .margin-bottom{
+.margin-bottom{
   margin-bottom: 10px;
 }
 
@@ -141,7 +167,7 @@ a {
 }
 
 .event .pair .image{
-  width: 330px;
+  width: 250px;
   float: right;
   
 }
@@ -160,13 +186,65 @@ a {
 }
 
 .event .pair .name{
+  color:black;
+  font-size: 18px;
   
 }
 
-.event .participants{
+.one-pair{
+  font-size: 16px;
+  
+  display: flow-root;
+  padding:30px;
+  padding: 30px;
+  font-family: "Merriweather";
+  font-size: 18px;
+}
+
+
+
+.one-pair .image{
+  width: 330px;
+  float: right;
+}
+
+.one-pair .name{
+  color:black;
+  font-size: 24px;
+  color:#fbac21;
+  font-weight: bold;
+  text-align: center;
 
 }
 
-.event .participants .pair{
+.one-pair .pair-history{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
 
+.one-pair .description{
+  color:black;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.one-pair .date{
+  font-size: 16px;
+}
+
+.one-pair .place{
+  font-size: 16px;
+  color:  #ac1a27;
+  margin-left:15px;
+}
+
+.one-pair .history-text{
+  color:#fbac21;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.one-pair .host{
+  margin-left:15px;
 }
