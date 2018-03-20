@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Pair extends Component{
+export default class PairItem extends Component{
     
     constructor(props){
         super(props);
@@ -10,7 +10,7 @@ export default class Pair extends Component{
 
         const {pair} = this.props.pair;
 
-        console.log(pair);
+        // console.log(pair);
         return(
             <div className="one-pair">
                
