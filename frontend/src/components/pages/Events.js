@@ -35,7 +35,7 @@ class Events extends Component{
     let dEvents = events[type];
     return (
       <div>
-        <Layout user={this.props.user.userInfo}>
+        <Layout news={this.props.news.news} user={this.props.user.userInfo}>
           <div className="page events-page">
           {
             dEvents.length > 0 && (

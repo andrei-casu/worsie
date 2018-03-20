@@ -5,10 +5,12 @@ import {bindActionCreators} from 'redux'
 import * as EventsActions from '../actions/events';
 import * as UserActions from '../actions/user';
 import * as PairsActions from '../actions/pairs';
+import * as NewsActions from '../actions/news';
 
 class Wrapper extends Component {
   constructor(props) {
     super(props);
+    props.getNews();
   }
 
   componentDidMount() {
@@ -46,7 +48,8 @@ function mapDispatchToProps(dispatch) {
     {
       ...EventsActions, 
       ...UserActions,
-      ...PairsActions
+      ...PairsActions,
+      ...NewsActions
     }, dispatch);
 }
 

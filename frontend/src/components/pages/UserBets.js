@@ -14,7 +14,7 @@ class UserBets extends Component{
     const {userInfo} = this.props.user;
     return (
       <div>
-        <Layout user={userInfo}>
+        <Layout news={this.props.news.news} user={userInfo}>
            <div className="page">
             <div className="page-title">Your bets</div>
 

@@ -32,7 +32,7 @@ class Pair extends Component{
     const pair = pairs[id];
     return (
       <div>
-        <Layout user={this.props.user.userInfo}>
+        <Layout news={this.props.news.news} user={this.props.user.userInfo}>
           <div className="page pairs-page">
               <div className="pairs-container">
                 <PairItem pair={pair}/>

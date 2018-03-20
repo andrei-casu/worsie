@@ -12,7 +12,7 @@ export default class Layout extends Component{
 				<div className="container">
 					<UserMenu/>
 					{this.props.children}
-					<NewsMenu/>
+					<NewsMenu news={this.props.news}/>
 				</div>
 			</div>
 

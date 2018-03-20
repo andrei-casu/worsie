@@ -32,7 +32,7 @@ class Event extends Component{
     if (event === undefined) return null;
     return (
       <div>
-        <Layout user={this.props.user.userInfo}>
+        <Layout news={this.props.news.news} user={this.props.user.userInfo}>
           <div className="page events-page">
               <div className="events-container">
                 <EventItem event={event}/>
