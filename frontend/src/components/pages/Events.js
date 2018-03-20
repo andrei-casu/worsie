@@ -20,6 +20,7 @@ class Events extends Component{
   }
 
   componentDidMount() {
+    this.props.getUserInfo();
     this.getEvents(this.props);
   }
 
@@ -28,7 +29,7 @@ class Events extends Component{
     let dEvents = events[type];
     return (
       <div>
-        <Layout>
+        <Layout user={this.props.user.userInfo}>
           <div className="page events-page">
           {
             dEvents.length > 0 && (
@@ -45,6 +46,7 @@ class Events extends Component{
                             event.pairs.map((pair, index) => {
                               return (
                                 <div key={index} className="pair">
+                                  <div onClick={null} className="bet"><i className="fas fa-plus-square"/> Bet </div>
                                   <div className="odd">{pair.odd}</div>
                                   <div className="name">{pair.pair.name}</div>
                                   <div className="description">{pair.pair.description}</div>

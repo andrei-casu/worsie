@@ -8,7 +8,7 @@ export default class Layout extends Component{
 	render(){
 		return(
 			<div>
-				<Header/>
+				<Header user={this.props.user}/>
 				<div className="container">
 					<UserMenu/>
 					{this.props.children}

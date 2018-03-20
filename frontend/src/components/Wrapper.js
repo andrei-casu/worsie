@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
 import * as EventsActions from '../actions/events';
+import * as UserActions from '../actions/user';
 
 class Wrapper extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class Wrapper extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({...EventsActions}, dispatch);
+  return bindActionCreators({...EventsActions, ...UserActions}, dispatch);
 }
 
 function mapStateToProps(state) {

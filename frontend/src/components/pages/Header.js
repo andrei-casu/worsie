@@ -5,6 +5,7 @@ import Logo from '../../images/logo.png';
 export default class Header extends Component{
 
 	render(){
+		const {user} = this.props;
 
 		return(
 			<div className="header-content">
@@ -18,6 +19,11 @@ export default class Header extends Component{
 						<NavLink key={nr} className="header-content-link" to={`/events/${nr}`}> {nr} day(s)</NavLink>
 					))
 				}
+				
+				<div className="user-info">
+					<div className="user-name">{user.name}</div>
+					<img className="user-avatar" src={user.avatar}/>
+				</div>
 			</div>
 		);
 	}

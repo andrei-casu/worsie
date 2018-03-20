@@ -59,10 +59,10 @@ a {
 }
 
 .header-content-link{
-  padding: 20px 25px;
+  padding: 20px 15px;
   float: left;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .header-content-logo img {
@@ -80,3 +80,22 @@ a {
 /* .user-menu-element {
   width: 100%;
 } */
+
+
+.user-info {
+  float: right;
+  padding: 7px 0px;
+}
+
+.user-info .user-name {
+  float: left;
+  color: white;
+  padding: 15px 5px;
+}
+
+.user-info .user-avatar {
+  float: left;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+}
