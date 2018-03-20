@@ -16,20 +16,22 @@ class UserBets extends Component{
       <div>
         <Layout news={this.props.news.news} user={userInfo}>
            <div className="page">
-            <div className="page-title">Your bets</div>
+            <div className="page-title margin-bottom">Pariurile tale</div>
+            <div className="page-money">Suma totala disponibila: 104 lei</div>
+
 
             {
               userInfo.pending_bets.length > 0 && 
               <div className="page-subtitle">
-                Pending bets
+                Pariuri in desfasurare
               </div>
             }
             {
               userInfo.pending_bets.map((bet, index) => {
                 return (
                   <div key={index} className="bet-short">
-                    <Link to={`/event/${bet.event_id}`}>Event</Link><br/>
-                    <Link to={`/pair/${bet.pair_id}`}>Pair</Link>
+                    <Link to={`/event/${bet.event_id}`}>Eveniment</Link><br/>
+                    <Link to={`/pair/${bet.pair_id}`}>Perechea pariata</Link>
                     <div className="bet-amount">Suma pariata: {bet.amount} lei</div>
                   </div>
                 );

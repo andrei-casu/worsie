@@ -14,10 +14,9 @@ export default class NewsItem extends Component{
             
             <div className="news">
 
-                <div className="title">{news.title}</div>
-                <div className="description">{news.description}</div>
+                <div className="sub-title">{news.title}</div>
                 <img className="thumbnail" src={news.thumbnail}/>
-
+                <div className="description">{news.description}</div>
             </div>
         );
     }
