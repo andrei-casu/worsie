@@ -312,3 +312,77 @@ a {
 .one-pair .host{
   margin-left:15px;
 }
+
+.login-page{
+
+  background-color: #ac1a27;
+  height: 100vh;
+
+}
+
+.login{
+  
+    position: absolute;
+    width: 300px;  
+    top: 50%;
+    left: 50%;
+    margin: -200px 0 0 -150px;
+}
+
+.login .title{
+  color:#fbac21;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 10px;
+  
+}
+
+.login .input{
+  margin-bottom:10px;
+
+}
+
+.input input {
+  margin: 0px;
+  outline: 0;
+}
+
+.login .input .form-control{
+  border-radius: 20px;
+  padding: 8px;
+  border: none;
+}
+
+.login .checkbox{
+  color:#fbac21;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.login .login-button .btn{
+  
+  background: #F5F5F5;;
+  
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+
+  color:  #ac1a27;
+  font-size: 20px;
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  float: left;
+  margin-left: 10px;
+}
+
+.login .login-button .btn:hover {
+  background: #fbac21;
+  color:  #ac1a27;
+  text-decoration: none;
+}
+
+.register-button{
+  color: black;
+}
+
