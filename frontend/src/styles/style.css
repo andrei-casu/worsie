@@ -347,7 +347,7 @@ a {
   outline: 0;
 }
 
-.login .input .form-control{
+.input .form-control{
   border-radius: 20px;
   padding: 8px;
   border: none;
@@ -359,7 +359,7 @@ a {
   margin-bottom: 10px;
 }
 
-.login .login-button .btn{
+.btn{
   
   background: #F5F5F5;;
   
@@ -376,7 +376,7 @@ a {
   margin-left: 10px;
 }
 
-.login .login-button .btn:hover {
+.btn:hover {
   background: #fbac21;
   color:  #ac1a27;
   text-decoration: none;
@@ -386,3 +386,8 @@ a {
   color: black;
 }
 
+.bet-input .input {
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
