@@ -1,0 +1,5 @@
+de afisat doar titlurile, click pe ele - expand
+
+
+ADMIN PAGE:
+event la fel click pe ele: tabel cu pereche + cota si buton de update
