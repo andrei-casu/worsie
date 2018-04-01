@@ -12,6 +12,8 @@ class UserBets extends Component{
 
   render() {
     const {userInfo} = this.props.user;
+
+    if (Object.keys(userInfo).length === 0) return null; 
     return (
       <div>
         <Layout news={this.props.news.news} user={userInfo}>
