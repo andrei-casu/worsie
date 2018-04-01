@@ -321,18 +321,20 @@ a {
 }
 
 .login{
-  
-    position: absolute;
-    width: 300px;  
-    top: 50%;
-    left: 50%;
-    margin: -200px 0 0 -150px;
+
+  position: fixed;
+  width: 215px;
+  top: 50%;
+  left: 50%;
+  /* margin: -200px 0 0 -200px; */
+  transform: translate(-50%, -50%);  
+  margin-left: 15px;
 }
 
 .login .title{
   color:#fbac21;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 28px;
   margin-bottom: 10px;
   
 }
@@ -359,6 +361,9 @@ a {
   margin-bottom: 10px;
 }
 
+
+
+
 .btn{
   
   background: #F5F5F5;;
@@ -374,6 +379,10 @@ a {
   cursor: pointer;
   float: left;
   margin-left: 10px;
+}
+
+.btn.register{
+  margin-left: 40px;
 }
 
 .btn:hover {

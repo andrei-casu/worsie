@@ -29,7 +29,7 @@ export default class Register extends Component{
                         <div className="login-button register-button">     
                                 <Link className="" to='/login' >
                                 
-                                   <div className="btn"> Register</div>
+                                   <div className="btn register"> Register</div>
                                     
                                 </Link>
                         </div>
