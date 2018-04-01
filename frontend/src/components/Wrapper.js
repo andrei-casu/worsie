@@ -18,6 +18,8 @@ class Wrapper extends Component {
   }
 
   render() {
+
+    console.log(this.props.type);
     const {children} = this.props;
     let childrenArray = [];
 
