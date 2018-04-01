@@ -1,24 +1,17 @@
 (() => {
-  const http = require('http');
+  const routing = require('./routing');
   const {MongoClient} = require('mongodb');
   const port = 3000;
 
-  const requestHandler = (request, response) => {
-    console.log(request);
-    // console.log(request.url)
-    response.end('Hello Node.js Server!');
-  }
-
-  const server = http.createServer(requestHandler);
-
-  server.listen(port, (err) => {
-    if (err) {
-      return console.log('something bad happened', err);
-    }
-
-    console.log(`server is listening on ${port}`);
-    connectToMongo();
+  routing.get('/', (req, res) => {
+    res.end('Marcelee');
   });
+
+  routing.get('/text', (req, res) => {
+    res.end('COSTELEEE');
+  });
+  
+  routing.start(port);
 
   const connectToMongo = () => {
     const url = 'mongodb://localhost:27017';

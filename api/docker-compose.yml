@@ -8,4 +8,8 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - './data:/bitnami'
+      - 'mongodb_data:/bitnami'
+
+volumes:
+  mongodb_data:
+    driver: local
