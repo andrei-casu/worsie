@@ -15,7 +15,9 @@ module.exports = (() => {
 			} else {
 				reject('EXISTA DEJA BA CAP DE PULA');
 			}
-		})
+		}).catch((e) => {
+			console.log(e);
+		});
 
 	});
 
