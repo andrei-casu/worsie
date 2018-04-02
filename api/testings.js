@@ -2,9 +2,7 @@
 	'use strict';
 	const {MongoClient} = require('mongodb');
 
-
-	const {addPair} = require('./pairs.js');
-	const {getPairs, findPair} = require('./pairs.js');
+	const {addPair, getPairs, findPair, removePair} = require('./pairs.js');
 	connectToMongo();
 
 	function connectToMongo() {
@@ -21,11 +19,17 @@
 
       console.log("Connected successfully to server");
       const db = client.db(dbName);
-
-      addPair(db, {id: 12122, name: 'peleu'}).then(() => {
-      	console.log('AM BAGAT PELEUL');
+      
+      addPair(db, {id: 12122, name: 'peleu'}).catch((e) => {
+      	console.log(e);
+      });
+      removePair(db, 12122).then(() => {
+      	getPairs(db).then((pairs) => {
+      		console.log(pairs);
+      	}).catch((e) => {
+      		console.log(e);
+      	})
       }).catch((e) => {
-      	console.log('N-AM BAGAT PELEUL PENTRU CA:\n');
       	console.log(e);
       });
       // getPairs(db).then((pairs) => {

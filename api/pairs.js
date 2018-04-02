@@ -1,19 +1,19 @@
 module.exports = (() => {
 	'use strict';
 
-	const addPair = (db, pair) => new Promise((resolve, reject) =>{
+	const addPair = (db, newPair) => new Promise((resolve, reject) =>{
 		//collection pairs
 		//add
 		const collection = db.collection('pairs');
-		findPair(db, pair.id).then((pair) => {
-			if (pair === null) {
-				console.log(pair);
-				collection.insertOne(pair, function(err, res) {
+		findPair(db, newPair.id).then((oldPair) => {
+			if (oldPair === null) {
+				collection.insertOne(newPair, function(err, res) {
   		 			if (err) reject();
+  		 			console.log('succesfully added object: ' + newPair.toString());
   		 			resolve();
   				});
 			} else {
-				reject('EXISTA DEJA BA CAP DE PULA');
+				reject('object already exists in database');
 			}
 		}).catch((e) => {
 			console.log(e);
@@ -38,8 +38,22 @@ module.exports = (() => {
 		});
 	});
 
+	const removePair = (db, id) => new Promise((resolve, reject) => {
+		const collection = db.collection('pairs');
+		findPair(db, id).then((foundPair) => {
+			if (foundPair === null) {
+				console.log('object does not exist in database');
+			} else {
+				collection.remove(foundPair);
+				console.log('object with id ' + id + ' removed succesfully');
+			}
+		}).catch((e) => {
+			console.log(e);
+		});
+	});
+
 	return {
-		addPair, getPairs, findPair
+		addPair, getPairs, findPair, removePair
 	};
 
 
