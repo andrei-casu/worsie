@@ -97,7 +97,7 @@ body {
   padding: 10px;
   color: white;
   /* height: 100%; */
-  max-height: 450px;
+  max-height: 500px;
   overflow: auto;
   font-family: "Merriweather";
 }
@@ -211,13 +211,30 @@ a {
 .event .title{
   font-size: 25px;
   color: #fbac21;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
+  cursor: pointer;
+}
+
+
+.event-info{
+  
+  padding: 15px;
+  border: 1px dotted #ac1a27;
+  display: inline-block;
+}
+
+.event-info.active{
+  border: none;
+}
+
+.event .title.active{
+  text-align: center;
 }
 
 .event .sub-title{
   font-size: 20px;
-  margin-top: 30px;
+  
 }
 
 .event .date{
@@ -252,6 +269,7 @@ a {
 .event .pair .name{
   color:black;
   font-size: 18px;
+  text-decoration: underline;
   
 }
 
@@ -408,30 +426,47 @@ a {
 
 .header-content .icon {
   display: none;
+  
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .header-content a:not(:first-child) {display: none;}
   .header-content a:first-of-type {margin-top: 60px;}
   .header-content a.icon {
     float: right;
     display: block;
+    margin-right: 15px;
+    margin-left: 15px;
+    top: 30px;
+    right: 0;
+    position: absolute;
+    color: white;
   }
-}
+  .header-content.responsive {
+    position: relative;
+  }
 
-@media screen and (max-width: 700px) {
-  .header-content.responsive {position: relative;}
   .header-content.responsive .icon {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 30px;
+    color: #fbac21;
+    
   }
   .header-content .user-info{
     position: absolute;
     right: 66px;
     top: 10px;
   }
+  .header-content.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
 
+@media screen and (max-width: 700px) {
+ 
   .user-menu, .news-menu{
     display: none;
   }
@@ -441,15 +476,13 @@ a {
     padding: 10px;
   }
 
-  .header-content.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
+ 
 }
 
-
-
-
+@media(max-width: 1070px){
+  .header-content-link{
+    padding: 20px 5px;
+  }
+}
 
 /*RESPONSIVE HEADER*/
