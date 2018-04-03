@@ -6,6 +6,8 @@ import * as EventsActions from '../actions/events';
 import * as UserActions from '../actions/user';
 import * as PairsActions from '../actions/pairs';
 import * as NewsActions from '../actions/news';
+import * as RegisterActions from '../actions/register';
+import * as LoginActions from '../actions/login';
 
 class Wrapper extends Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class Wrapper extends Component {
 
   render() {
 
-    console.log(this.props.type);
+    
     const {children} = this.props;
     let childrenArray = [];
 
@@ -51,7 +53,9 @@ function mapDispatchToProps(dispatch) {
       ...EventsActions, 
       ...UserActions,
       ...PairsActions,
-      ...NewsActions
+      ...NewsActions,
+      ...RegisterActions,
+      ...LoginActions
     }, dispatch);
 }
 
