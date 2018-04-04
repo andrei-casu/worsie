@@ -8,10 +8,10 @@ import Wrapper from '../Wrapper';
     constructor(props){
         super(props);
 
-          this.state = {
+        this.state = {
             username: "",
             password: ""
-        }
+        };
 
         this.inputChange = this.inputChange.bind(this);
         this.loginClick = this.loginClick.bind(this);
@@ -34,7 +34,7 @@ import Wrapper from '../Wrapper';
             const newState = this.state;
             newState[id] = event.target.value;
             this.setState(newState);       
-        }
+        };
             // console.log(id, event.target.value);
     }
 
@@ -66,7 +66,7 @@ import Wrapper from '../Wrapper';
                                
                         </div>
                         <div className="login-button">     
-                                <Link className="" to='/register' >
+                                <Link  to="/register" >
                                 
                                     <div className="btn"> Register</div>
                                     

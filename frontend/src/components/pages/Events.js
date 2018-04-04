@@ -13,21 +13,23 @@ class Events extends Component{
     super(props);
   }
 
-  getEvents(props) {
-    const {type, events} = props;
-    if (events[type].length === 0) {
-      props.getEvents(type);
-    }
+  
+
+  componentDidMount() {
+    if (Object.keys(this.props.user.userInfo).length === 0)
+      this.props.getUserInfo();
+    this.getEvents(this.props);
   }
 
   componentWillReceiveProps(newProps) {
       this.getEvents(newProps);
   }
 
-  componentDidMount() {
-    if (Object.keys(this.props.user.userInfo).length === 0)
-      this.props.getUserInfo();
-    this.getEvents(this.props);
+  getEvents(props) {
+    const {type, events} = props;
+    if (events[type].length === 0) {
+      props.getEvents(type);
+    }
   }
 
   render() {

@@ -28,6 +28,11 @@ export default function loginReduce(state = {
       });
     
     default:
-      return state;
+      return {
+              token: "",
+              success: false,
+              loading: false,
+              message: ""
+            }
   }
 }

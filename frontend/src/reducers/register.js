@@ -27,6 +27,10 @@ export default function registerReduce(state = {
       });
     
     default:
-      return state;
+      return {
+              success: false,
+              loading: false,
+              message: ""
+             }
   }
 }

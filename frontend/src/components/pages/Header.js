@@ -16,7 +16,7 @@ export default class Header extends Component {
 
 	}
 
-	componentWillReceiveProps(props){
+	componentWillReceiveProps(){
 		this.setState({showMenu: false});
 	}
 
@@ -55,7 +55,7 @@ export default class Header extends Component {
 					))
 				}
 				
-				<a className="icon"> <i className="fas fa-bars" onClick={this.menuClick}></i> </a>
+				<a className="icon"> <i className="fas fa-bars" onClick={this.menuClick}/></a>
 				
 
 

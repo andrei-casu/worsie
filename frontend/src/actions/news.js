@@ -1,6 +1,6 @@
 import * as types from '../constants/news';
 // import fetch from 'isomorphic-fetch';
-import news from '../dummy/news.json';
+import news from '../dummy/news';
 
 
 export function getNews() {

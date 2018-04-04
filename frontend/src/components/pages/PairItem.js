@@ -57,7 +57,7 @@ export default class PairItem extends Component{
                 {pair.history.map((obj, index)=>{
 
                     return (
-                        <div className="pair-history">
+                        <div key={index} className="pair-history">
                             <div className="date margin-bottom">{index+1}. Data si ora cursei: {new Date(obj.timestamp).toLocaleDateString('en-US')}</div>
                             <div className="host margin-bottom">{obj.host}</div>
                             <div className="place margin-bottom">Locul obtinut: {obj.place}</div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import Wrapper from '../Wrapper';
 
 
@@ -11,8 +11,9 @@ class Register extends Component{
         this.state = {
             username: "",
             email: "",
-            password: ""
-        }
+            password: "",
+            cPassword: ""
+        };
 
         this.inputChange = this.inputChange.bind(this);
         this.registerClick = this.registerClick.bind(this);
@@ -25,7 +26,14 @@ class Register extends Component{
     }
 
     registerClick(){
-        this.props.startRegister(this.state);
+
+        let obj = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password
+        };
+        
+        this.props.startRegister(obj);
     }
 
     inputChange(id) {
@@ -35,13 +43,12 @@ class Register extends Component{
             const newState = this.state;
             newState[id] = event.target.value;
             this.setState(newState);       
-        }
-            // console.log(id, event.target.value);
+        };
     }
 
     render(){
 
-        const {name, password, email} = this.state;
+        const {name, password, email, cPassword} = this.state;
         
         return(
 
@@ -57,11 +64,16 @@ class Register extends Component{
                     <div className="input">
                         <input type="password" className="form-control" placeholder="Password" value={password} onChange={this.inputChange("password")}/>
                     </div>
-                    
+                    <div className="input">
+                        <input type="cPassword" className="form-control" placeholder="Confirm Password" value={cPassword} onChange={this.inputChange("cPassword")}/>
+                    </div>
+
 
                         <div className="login-button register-button">     
                             <div className="btn register" onClick={this.registerClick}> Register</div>
                         </div>
+
+
                     
                 </div>
             </div>

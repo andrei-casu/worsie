@@ -8,7 +8,7 @@ export default class EventRender extends Component{
 
         this.state ={
             isEventClicked: false
-        }
+        };
         this.eventNameClick = this.eventNameClick.bind(this);
     }
 

@@ -9,16 +9,8 @@ class Pair extends Component{
     super(props);
   }
 
-  getPair(props) {
-    const {id, pairs} = props;
-    if (pairs[id] === undefined) {
-      props.getPair(id);
-    }
-  }
 
-  componentWillReceiveProps(newProps) {
-    this.getPair(newProps);
-  }
+
 
   componentDidMount() {
     if (Object.keys(this.props.user.userInfo).length === 0)
@@ -26,9 +18,21 @@ class Pair extends Component{
     this.getPair(this.props);
   }
 
+  componentWillReceiveProps(newProps) {
+    this.getPair(newProps);
+  }
+
+  getPair(props) {
+    const {id, pairs} = props;
+    if (pairs[id] === undefined) {
+      props.getPair(id);
+    }
+  }
+
+  
   render() {
     const {id, pairs} = this.props;
-    console.log(this.props);
+    // console.log(this.props);
     const pair = pairs[id];
     return (
       <div>

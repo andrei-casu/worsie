@@ -9,21 +9,23 @@ class Event extends Component{
     super(props);
   }
 
-  getEvent(props) {
-    const {id, events} = props;
-    if (events[id] === undefined) {
-      props.getEvent(id);
-    }
-  }
-
-  componentWillReceiveProps(newProps) {
-      this.getEvent(newProps);
-  }
 
   componentDidMount() {
     if (Object.keys(this.props.user.userInfo).length === 0)
       this.props.getUserInfo();
     this.getEvent(this.props);
+  }
+
+
+  componentWillReceiveProps(newProps) {
+      this.getEvent(newProps);
+  }
+
+  getEvent(props) {
+    const {id, events} = props;
+    if (events[id] === undefined) {
+      props.getEvent(id);
+    }
   }
 
   render() {

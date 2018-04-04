@@ -1,8 +1,8 @@
 import * as types from '../constants/events';
 // import fetch from 'isomorphic-fetch';
-import bestEvents from '../dummy/best_events.json';
-import events from '../dummy/events.json';
-import event from '../dummy/event.json';
+import bestEvents from '../dummy/best_events';
+import events from '../dummy/events';
+import event from '../dummy/event';
 
 
 export function getEvents(type) {
@@ -10,7 +10,7 @@ export function getEvents(type) {
     dispatch({type: types.LOADING_START});
     // fetch()
 
-    console.log(type);
+    // console.log(type);
     if (type === 'main')
       dispatch({
         type: types.EVENTS,

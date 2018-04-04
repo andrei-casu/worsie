@@ -13,7 +13,7 @@ export default class NewsMenu extends Component{
 					news.map((element, index) => {
 						return (
 							<NewsItem key={index} news={element}/>
-						)
+						);
 					})
 				}
 			</div>

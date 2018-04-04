@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux'
+import {bindActionCreators} from 'redux';
 
 import * as EventsActions from '../actions/events';
 import * as UserActions from '../actions/user';
