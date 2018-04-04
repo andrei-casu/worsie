@@ -25,7 +25,7 @@ export function startLogin(obj) {
                 dispatch({
                     type: types.LOGIN_FAILED,
                     success: false,
-                    message: "failed"
+                    message: "Something went wrong! Please try again!"
                 });  
             }
         }, 2000);

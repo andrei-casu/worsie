@@ -369,7 +369,7 @@ a {
 
 .input .form-control{
   border-radius: 20px;
-  padding: 8px;
+  padding: 9px;
   border: none;
 }
 
@@ -470,6 +470,9 @@ a {
   .user-menu, .news-menu{
     display: none;
   }
+  .loader{
+    left: 42% !important; 
+  }
 
   .page{
     width:100%;
@@ -486,3 +489,42 @@ a {
 }
 
 /*RESPONSIVE HEADER*/
+
+
+.input .span, .login-button .span, .register-button .span{
+
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #fbac21;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-button .span, .register-button .span{
+    display: inline-flex;
+}
+
+
+ .loader{
+  position: absolute;
+    width: 70px;
+    top: 45%;
+    left: 47%;
+ }
+
+
+.backdrop{
+   position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    padding: 50px;
+    z-index: 300;
+}
+
+.login .failed-message{
+  position: inline-flex !important;
+}

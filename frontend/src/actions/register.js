@@ -1,11 +1,8 @@
 import * as types from '../constants/register';
 
-
 export function startRegister(obj) {
-  return dispatch => {
-
-        
-
+    return dispatch => {
+    
         dispatch({
           type: types.REGISTER_START
         });    
@@ -25,9 +22,9 @@ export function startRegister(obj) {
                 dispatch({
                     type: types.REGISTER_FAILED,
                     success: false,
-                    message: "failed"
+                    message: "failed because of"
                 });  
             }
         }, 2000);
-      };
+    };
 }

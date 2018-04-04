@@ -31,6 +31,6 @@ export default function registerReduce(state = {
               success: false,
               loading: false,
               message: ""
-             }
+             };
   }
 }

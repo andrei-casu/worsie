@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Wrapper from '../Wrapper';
+import loader from '../../images/orange_circles.gif';
 
 
  class Login extends Component{
@@ -42,6 +43,7 @@ import Wrapper from '../Wrapper';
     render(){
 
         const {username, password} = this.state;
+      const { loading, success, message} = this.props.login;
 
         return(
 
@@ -71,9 +73,11 @@ import Wrapper from '../Wrapper';
                                     <div className="btn"> Register</div>
                                     
                                 </Link>
+                                {loading === false && success === false && <span className="input span">{message}</span>}
                         </div>
                     </div>
                 </div>
+                {loading=== true && <div className="backdrop"><img className="loader" src={loader}/></div>}
             </div>
         
         );
