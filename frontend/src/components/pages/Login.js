@@ -19,13 +19,19 @@ import loader from '../../images/orange_circles.gif';
     }
 
     componentWillReceiveProps(newProps) {
+
         if (newProps.login.success === true){
             this.props.history.push("/events/main");
         }
     }
 
      loginClick(){
-        this.props.startLogin(this.state);
+
+        const obj={
+            "mail": this.state.username,
+            "password": this.state.password
+        };
+        this.props.startLogin(obj);
      }
 
      inputChange(id) {

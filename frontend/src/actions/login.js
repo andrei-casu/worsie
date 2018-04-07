@@ -1,4 +1,8 @@
 import * as types from '../constants/login';
+import axios from 'axios';
+
+
+const apiLink = 'http://0.0.0.0:3000/authenticate';
 
 
 export function startLogin(obj) {
@@ -9,25 +13,30 @@ export function startLogin(obj) {
           type: types.LOGIN_START
         });    
 
-
-        console.log(obj);
         //here comes server call
-        setTimeout(()=>{
-                
-            if (true){
-                dispatch({
-                    type: types.LOGIN_SUCCESS,
-                    token: "45a6sdadasdad",
-                    success: true
-                });
-            }
-            else{
-                dispatch({
-                    type: types.LOGIN_FAILED,
-                    success: false,
-                    message: "Something went wrong! Please try again!"
-                });  
-            }
-        }, 2000);
-      };
+
+         axios.post(apiLink, obj)
+            .then(function (response) {
+               
+               // console.log(response.data);
+               if (response.data.success === true){
+                    dispatch({
+                        type: types.LOGIN_SUCCESS,
+                        token: response.data.token,
+                        success: true
+                    });
+                }
+                else{
+                    dispatch({
+                        type: types.LOGIN_FAILED,
+                        success: false,
+                        message: response.data.message
+                    });  
+                }
+            });
+            // .catch(function (error) {
+            //     // console.log(error);
+            // });
+
+       };
 }

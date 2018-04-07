@@ -35,6 +35,9 @@ class Events extends Component{
   render() {
     const {type, events} = this.props;
     let dEvents = events[type];
+
+    console.log(this.props.login);
+
     return (
       <div>
         <Layout news={this.props.news.news} user={this.props.user.userInfo}>

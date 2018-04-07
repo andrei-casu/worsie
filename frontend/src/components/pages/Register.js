@@ -55,9 +55,9 @@ class Register extends Component{
 
 
         let obj = {
-            username: this.state.username,
-            email: this.state.email,
-            password: this.state.password
+            "name": this.state.username.string,
+            "mail": this.state.email.string,
+            "password": this.state.password.string
         };
         
         this.props.startRegister(obj);

@@ -14,6 +14,7 @@ export default function loginReduce(state = {
         loading: true 
       });
     case LOGIN_SUCCESS:{
+
       return Object.assign({}, state, {
         token: action.token,
         success: action.success,
@@ -24,15 +25,11 @@ export default function loginReduce(state = {
         success: action.success,
         loading: false,
         message: action.message
-
       });
 
     default:
-      return {
-              token: "",
-              success: false,
-              loading: false,
-              message: ""
-            };
+
+      return state;
+    
   }
 }
