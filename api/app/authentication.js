@@ -55,7 +55,7 @@ module.exports = (() => {
       res.json({ success: true });
     }).catch((e) => {
       console.log(e);
-      res.json({ success: false })
+      res.json({ success: false });
     })
   };
 
