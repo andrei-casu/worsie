@@ -36,7 +36,7 @@ module.exports = (() => {
         }
       }
       
-      response.writeHead(404);
+      response.writeHead(200);
       response.end();
     };
 
