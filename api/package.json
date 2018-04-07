@@ -10,7 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jsonwebtoken": "^8.2.1",
     "mongodb": "^3.0.5",
-    "nodemon": "^1.17.3"
+    "mysql": "^2.15.0",
+    "nodemon": "^1.17.3",
+    "squel": "^5.12.1",
+    "url": "^0.11.0"
   }
 }
