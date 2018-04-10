@@ -34,6 +34,10 @@ class Pair extends Component{
     const {id, pairs} = this.props;
     // console.log(this.props);
     const pair = pairs[id];
+
+    if (this.props.login.token.length === 0){
+        this.props.history.push("/login");
+    }
     return (
       <div>
         <Layout news={this.props.news.news} user={this.props.user.userInfo}>
@@ -52,7 +56,7 @@ export default class extends Component {
   render() {
     return (
       <Wrapper id={this.props.match.params.id}>
-        <Pair/>
+        <Pair history={this.props.history}/>
       </Wrapper>
     );
   }

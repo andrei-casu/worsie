@@ -37,7 +37,9 @@ class Events extends Component{
     let dEvents = events[type];
 
     console.log(this.props.login);
-
+    if (this.props.login.token.length === 0){
+      this.props.history.push("/login");
+    }
     return (
       <div>
         <Layout news={this.props.news.news} user={this.props.user.userInfo}>
@@ -68,7 +70,7 @@ export default class extends Component {
   render() {
     return (
       <Wrapper type={this.props.match.params.type}>
-        <Events/>
+        <Events history={this.props.history}/>
       </Wrapper>
     );
   }

@@ -48,8 +48,10 @@ import loader from '../../images/orange_circles.gif';
 
     render(){
 
-        const {username, password} = this.state;
+      const {username, password} = this.state;
       const { loading, success, message} = this.props.login;
+
+      
 
         return(
 

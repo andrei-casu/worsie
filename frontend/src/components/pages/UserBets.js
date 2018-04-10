@@ -13,6 +13,9 @@ class UserBets extends Component{
   render() {
     const {userInfo} = this.props.user;
 
+    if (this.props.login.token.length === 0){
+       this.props.history.push("/login");
+    }
     if (Object.keys(userInfo).length === 0) return null; 
     return (
       <div>
@@ -69,7 +72,7 @@ export default class extends Component {
   render() {
     return (
       <Wrapper> 
-        <UserBets/>
+        <UserBets history={this.props.history}/>
       </Wrapper>
     );
   }

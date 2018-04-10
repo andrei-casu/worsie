@@ -46,6 +46,7 @@ module.exports = (() => {
             jsonString += data;
         });
         request.on('end', function () {
+            // console.log(jsonString);
             request.body = JSON.parse(jsonString);
             matchToHandlers();
         });

@@ -31,7 +31,13 @@ class Event extends Component{
   render() {
     const {id, events} = this.props;
     const event = events[id];
+
+    if (this.props.login.token.length === 0){
+        this.props.history.push("/login");
+    }
+
     if (event === undefined) return null;
+    
     return (
       <div>
         <Layout news={this.props.news.news} user={this.props.user.userInfo}>
@@ -50,7 +56,7 @@ export default class extends Component {
   render() {
     return (
       <Wrapper id={this.props.match.params.id}>
-        <Event/>
+        <Event history={this.props.history}/>
       </Wrapper>
     );
   }

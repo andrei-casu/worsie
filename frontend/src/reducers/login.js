@@ -28,7 +28,6 @@ export default function loginReduce(state = {
       });
 
     default:
-
       return state;
     
   }

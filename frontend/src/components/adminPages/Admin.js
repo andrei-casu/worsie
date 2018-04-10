@@ -37,6 +37,11 @@ class Admin extends Component{
     render() {
       // const {type, events} = this.props;
       // let dEvents = events[type];
+
+
+      if (this.props.login.token.length === 0){
+        this.props.history.push("/login");
+      }
       return (
         <div>
           <LayoutAdmin user={this.props.user.userInfo}>
@@ -51,7 +56,7 @@ export default class extends Component {
   render() {
     return (
       <Wrapper type={this.props.match.params.type}>
-        <Admin/>
+        <Admin history={this.props.history}/>
       </Wrapper>
     );
   }
