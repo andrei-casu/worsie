@@ -13,6 +13,7 @@ export default class Header extends Component {
 			showMenu: false
 		};
 		this.menuClick = this.menuClick.bind(this);
+		this.logoutClick = this.logoutClick.bind(this);
 
 	}
 
@@ -22,6 +23,12 @@ export default class Header extends Component {
 
 	menuClick() {
 		this.setState({ showMenu: !this.state.showMenu });
+	}
+
+
+	logoutClick(){
+		console.log("LOGOUT");
+		localStorage.removeItem("token");
 	}
 
 	render() {
@@ -37,6 +44,10 @@ export default class Header extends Component {
 
 				<NavLink className="header-content-link" to="/events/main"><i className="fas fa-home" /></NavLink>
 
+				{
+					window.innerWidth < 800 &&
+					<NavLink onClick={this.logoutClick} className="header-content-link" to="/login"> <i className="fas fa-sign-out-alt"/>Logout</NavLink>
+				}
 				{
 					window.innerWidth < 700 &&
 					<NavLink className="header-content-link" to="/user/profile"><div><i className="fas fa-user"/> Profile</div></NavLink> 
@@ -63,6 +74,11 @@ export default class Header extends Component {
 				<div className="user-info">
 					<div className="user-name">{user.name}</div>
 					<img className="user-avatar" src={user.avatar} />
+					
+					{
+						window.innerWidth >= 800 && 
+						<NavLink onClick={this.logoutClick} className="user-name" to="/login"> <i className="fas fa-sign-out-alt"/>Logout</NavLink>
+					}
 				</div>
 			</div>
 		);

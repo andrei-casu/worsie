@@ -15,6 +15,12 @@ class Admin extends Component{
    
 
     componentDidMount() {
+
+      const token = localStorage.getItem('token');
+      if (token === null){
+        this.props.history.push("/login");
+      }
+
       if (Object.keys(this.props.user.userInfo).length === 0)
         this.props.getUserInfo();
       this.getEvents(this.props);
@@ -38,10 +44,6 @@ class Admin extends Component{
       // const {type, events} = this.props;
       // let dEvents = events[type];
 
-
-      if (this.props.login.token.length === 0){
-        this.props.history.push("/login");
-      }
       return (
         <div>
           <LayoutAdmin user={this.props.user.userInfo}>

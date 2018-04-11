@@ -20,11 +20,15 @@ export function startLogin(obj) {
                
                // console.log(response.data);
                if (response.data.success === true){
+
+                    localStorage.setItem('token', JSON.stringify(response.data.token));
+
                     dispatch({
                         type: types.LOGIN_SUCCESS,
                         token: response.data.token,
                         success: true
                     });
+                    
                 }
                 else{
                     dispatch({

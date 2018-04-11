@@ -13,6 +13,12 @@ class Pair extends Component{
 
 
   componentDidMount() {
+    
+    const token = localStorage.getItem('token');
+    if (token === null){
+      this.props.history.push("/login");
+    }
+
     if (Object.keys(this.props.user.userInfo).length === 0)
       this.props.getUserInfo();
     this.getPair(this.props);
@@ -35,9 +41,6 @@ class Pair extends Component{
     // console.log(this.props);
     const pair = pairs[id];
 
-    if (this.props.login.token.length === 0){
-        this.props.history.push("/login");
-    }
     return (
       <div>
         <Layout news={this.props.news.news} user={this.props.user.userInfo}>

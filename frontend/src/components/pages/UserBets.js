@@ -6,6 +6,12 @@ import Wrapper from '../Wrapper';
 
 class UserBets extends Component{
   componentDidMount() {
+
+    const token = localStorage.getItem('token');
+    if (token === null){
+      this.props.history.push("/login");
+    }
+    
     if (Object.keys(this.props.user.userInfo).length === 0)
       this.props.getUserInfo();
   }
@@ -13,9 +19,7 @@ class UserBets extends Component{
   render() {
     const {userInfo} = this.props.user;
 
-    if (this.props.login.token.length === 0){
-       this.props.history.push("/login");
-    }
+  
     if (Object.keys(userInfo).length === 0) return null; 
     return (
       <div>

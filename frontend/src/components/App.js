@@ -19,7 +19,7 @@ import Admin from './adminPages/Admin';
 export default class App extends Component {
 
   render() {
-
+    
     return (
       <div>
         <HashRouter>

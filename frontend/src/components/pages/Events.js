@@ -16,12 +16,18 @@ class Events extends Component{
   
 
   componentDidMount() {
+    const token = localStorage.getItem('token');
+    if (token === null){
+      this.props.history.push("/login");
+    }
+
     if (Object.keys(this.props.user.userInfo).length === 0)
       this.props.getUserInfo();
     this.getEvents(this.props);
   }
 
   componentWillReceiveProps(newProps) {
+      
       this.getEvents(newProps);
   }
 
@@ -32,14 +38,12 @@ class Events extends Component{
     }
   }
 
+
   render() {
     const {type, events} = this.props;
     let dEvents = events[type];
 
-    console.log(this.props.login);
-    if (this.props.login.token.length === 0){
-      this.props.history.push("/login");
-    }
+    
     return (
       <div>
         <Layout news={this.props.news.news} user={this.props.user.userInfo}>

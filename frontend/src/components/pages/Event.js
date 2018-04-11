@@ -11,6 +11,10 @@ class Event extends Component{
 
 
   componentDidMount() {
+    const token = localStorage.getItem('token');
+    if (token === null){
+      this.props.history.push("/login");
+    }
     if (Object.keys(this.props.user.userInfo).length === 0)
       this.props.getUserInfo();
     this.getEvent(this.props);
@@ -32,10 +36,7 @@ class Event extends Component{
     const {id, events} = this.props;
     const event = events[id];
 
-    if (this.props.login.token.length === 0){
-        this.props.history.push("/login");
-    }
-
+  
     if (event === undefined) return null;
     
     return (
