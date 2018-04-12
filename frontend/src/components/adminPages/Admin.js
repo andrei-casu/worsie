@@ -23,26 +23,11 @@ class Admin extends Component{
 
       if (Object.keys(this.props.user.userInfo).length === 0)
         this.props.getUserInfo();
-      this.getEvents(this.props);
-    }
-
-
-    componentWillReceiveProps(newProps) {
-        this.getEvents(newProps);
-    }
-
-    getEvents(props) {
-      
-      const {type, events} = props;
-
-      if (events[type].length === 0) {
-        props.getEvents(type);
-      }
     }
 
     render() {
-      // const {type, events} = this.props;
-      // let dEvents = events[type];
+
+
 
       return (
         <div>

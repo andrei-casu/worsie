@@ -1,26 +1,71 @@
 import React, { Component } from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Logo from '../../images/logo.png';
 
-export default class HeaderAdmin extends Component{
+export default class HeaderAdmin extends Component {
 
-	render(){
-		const {user} = this.props;
 
-		return(
-			<div className="header-content">
+	constructor(props) {
+		super(props);
 
-				<div className="header-content-logo"> <img src={Logo}/> </div>
 
-				<NavLink className="header-content-link" to="/admin/main"><i className="fas fa-home"/></NavLink>
-				<NavLink className="header-content-link" to="/admin/general-statistics">Statistici generale</NavLink>
-                <NavLink className="header-content-link" to="/admin/races-statistics">Statistici curse</NavLink>
+		this.state = {
+			showMenu: false
+		};
+		this.menuClick = this.menuClick.bind(this);
+		this.logoutClick = this.logoutClick.bind(this);
+
+	}
+
+	componentWillReceiveProps(){
+		this.setState({showMenu: false});
+	}
+
+	menuClick() {
+		this.setState({ showMenu: !this.state.showMenu });
+	}
+
+
+	logoutClick(){
+		console.log("LOGOUT");
+		localStorage.removeItem("token");
+	}
+
+	render() {
+		const { user } = this.props;
+		const { showMenu } = this.state;
+
+		return (
+			<div className={`header-content ${showMenu === true && "responsive"}`}>
+
+				<div className="header-content-logo"> <img src={Logo} /> </div>
 
 				
+
+				<NavLink className="header-content-link" to="/admin/main"><i className="fas fa-home"/></NavLink>
+ 				<NavLink className="header-content-link" to="/admin/general-statistics">Statistici generale</NavLink>
+	            <NavLink className="header-content-link" to="/admin/races-statistics">Statistici curse</NavLink>
+
+				{
+					window.innerWidth < 800 &&
+					<NavLink onClick={this.logoutClick} className="header-content-link" to="/login"> <i className="fas fa-sign-out-alt"/>Logout</NavLink>
+				}
+				{
+					window.innerWidth < 700 &&
+					<NavLink className="header-content-link" to="/admin/profile"><div><i className="fas fa-user"/> Profile</div></NavLink> 
+				}
+				
+				
+				<a className="icon"> <i className="fas fa-bars" onClick={this.menuClick}/></a>
 				
 				<div className="user-info">
 					<div className="user-name">{user.name}</div>
-					<img className="user-avatar" src={user.avatar}/>
+					<img className="user-avatar" src={user.avatar} />
+					
+					{
+						window.innerWidth >= 800 && 
+						<NavLink onClick={this.logoutClick} className="user-name" to="/login"> <i className="fas fa-sign-out-alt"/>Logout</NavLink>
+					}
 				</div>
 			</div>
 		);

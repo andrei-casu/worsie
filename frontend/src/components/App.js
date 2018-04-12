@@ -27,7 +27,6 @@ export default class App extends Component {
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/events/:type" component={Events} />
-              <Route path="/admin/:type" component={Admin} />
               <Route path="/admin/general-statistics" component={Admin} />
               <Route path="/admin/races-statistics" component={Admin} />
               <Route path="/event/:id" component={Event} />
