@@ -156,6 +156,18 @@ class Register extends Component{
 
             newState.allValid = true;
 
+            if (id === "password" && this.state.cPassword.string.length > 0){
+                const res1 = this.checkConfirmPassword(this.state.cPassword.string);
+                
+                if (res1 === null){
+                    newState.cPassword.status =  true;
+                }
+                else{
+                 newState.cPassword.status = false;
+                 newState.cPassword.msg = res1;
+                }
+            }
+
             this.setState(newState);       
         };
     }

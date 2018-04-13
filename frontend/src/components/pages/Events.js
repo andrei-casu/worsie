@@ -21,8 +21,10 @@ class Events extends Component{
       this.props.history.push("/login");
     }
 
-    if (Object.keys(this.props.user.userInfo).length === 0)
-      this.props.getUserInfo();
+    if (Object.keys(this.props.user.userInfo).length === 0){
+      
+      this.props.getUserInfo(JSON.parse(localStorage.getItem('token')));
+    }
     this.getEvents(this.props);
   }
 

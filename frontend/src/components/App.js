@@ -1,7 +1,7 @@
 /* eslint-disable import/no-named-as-default */
 import React, { Component } from 'react';
 
-import { HashRouter,  Route } from 'react-router-dom';
+import { HashRouter,  Route, Redirect} from 'react-router-dom';
 import UserBets from './pages/UserBets';
 import Events from './pages/Events';
 import Event from './pages/Event';
@@ -22,8 +22,12 @@ export default class App extends Component {
     
     return (
       <div>
+        
         <HashRouter>
             <div>
+              <Route exact path="/" render={() => (
+                  <Redirect to="/login"/>
+              )}/>
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/events/:type" component={Events} />
