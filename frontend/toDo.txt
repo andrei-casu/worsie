@@ -3,3 +3,35 @@ de afisat doar titlurile, click pe ele - expand
 
 ADMIN PAGE:
 event la fel click pe ele: tabel cu pereche + cota si buton de update
+
+
+login centrat pe mobile IPhone SE
+
+
+cand intra pe general-statistics il duce pe main
+de scos Statistici generale din meniu Admin -> Home
+de scos profile pt admin
+adaugare istoric curse in meniu admin
+editare curse in meniu admin
+
+Modificare curse -> Lista curse
+Adaugare curse -> nume pereche: input cu autocomplete
+
+
+pariul a fost adaugat! -> cand adaugi pariul sa arate ceva
+
+
+STATISTICI GENERALE:
+cele mai pariate eventuri
+cele mai pariate perechi
+
+adaugare pagina de news
+
+
+
+MVC:
+In React & Redux, MVC-ul poate fi tradus ca si RCA
+
+Model -> Reducer
+View -> Component
+Controller -> Action

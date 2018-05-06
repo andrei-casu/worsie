@@ -119,7 +119,8 @@ class Register extends Component{
 
 
         const { password } = this.state;
-        if (string.length < password.string.length || password.string.length === 0) return "not ready";
+
+        if (string.length < password.string.length || password.string.length === 0) return "Parolele nu se potrivesc!";
         if (string === password.string){
             return null;
         }

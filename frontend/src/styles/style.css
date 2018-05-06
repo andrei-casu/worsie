@@ -20,6 +20,9 @@ body {
   
 }
 
+.bet-button{
+  cursor: pointer;
+}
 .user-menu {
   width: 15%;
   background: rgb(172, 26, 39);
@@ -258,8 +261,15 @@ a {
   float: left;
   padding: 30px;
 }
-.event .pair .bet{
-  color: #fbac21;
+
+.event .pair .pair-info .description{
+  max-width: 20em;
+}
+
+@media(max-width: 1000px){
+  .event .pair .pair-info .description{
+  max-width: none;
+}
 }
 
 .event .pair .odd{

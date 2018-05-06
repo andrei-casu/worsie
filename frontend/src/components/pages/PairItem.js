@@ -33,7 +33,7 @@ export default class PairItem extends Component{
                 <Link to={`/pair/${pair.id}`}><div className="name margin-bottom">{pair.name}</div></Link>
                 <div className="description margin-bottom">{pair.description}</div>
                 <div className="odd margin-bottom">Cota: {odd}</div>
-                <div onClick={this.onShowBet(true)} className="bet"><i className="fas fa-plus-square" /> Bet </div>
+                <div onClick={this.onShowBet(true)} className="bet"><i className="fas fa-plus-square bet-button" /> Bet </div>
                 {
                     showBetInput === true &&   
                     <div className="bet-input">

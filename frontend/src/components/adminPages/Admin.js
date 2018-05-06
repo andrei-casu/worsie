@@ -41,12 +41,12 @@ class Admin extends Component{
 
       switch (type){
 
-        case "general-statistics":{
+        case "main":{
 
             return (
               <div>
                 <LayoutAdmin user={this.props.user.userInfo}>
-                  <div>ADMIN PAGEbbbbbb</div>
+                  <div>Statistici generale</div>
                 </LayoutAdmin>
               </div>
             );
@@ -69,20 +69,12 @@ class Admin extends Component{
             return (
               <div>
                 <LayoutAdmin user={this.props.user.userInfo}>
-                  <div>ADMIN PAGddddddd</div>
+                  <div>Adaugare de curse</div>
                 </LayoutAdmin>
               </div>
             );
         }
       }
-
-      return (
-        <div>
-          <LayoutAdmin user={this.props.user.userInfo}>
-            <div>ADMIN PAGE </div>
-          </LayoutAdmin>
-        </div>
-      );
     }
 }
 

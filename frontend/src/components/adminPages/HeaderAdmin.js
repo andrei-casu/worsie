@@ -43,8 +43,7 @@ export default class HeaderAdmin extends Component {
 				
 
 				<NavLink className="header-content-link" to="/admin/main"><i className="fas fa-home"/></NavLink>
- 				<NavLink className="header-content-link" to="/admin/general-statistics">Statistici generale</NavLink>
-	            <NavLink className="header-content-link" to="/admin/races-statistics">Curse viitoare</NavLink>
+	            <NavLink className="header-content-link" to="/admin/races-statistics">Modificare curse</NavLink>
 	            <NavLink className="header-content-link" to="/admin/add-races">Adaugare curse</NavLink>
 
 				{

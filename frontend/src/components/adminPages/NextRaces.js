@@ -19,7 +19,14 @@ export default class NextRaces extends Component{
     }
 
     eventNameClick(index){
-        this.setState({isEventClicked : !this.state.isEventClicked, eventIndex: index });
+
+    	const {eventIndex} = this.state;
+    	if (eventIndex !== index){
+        	this.setState({eventIndex: index });
+        }
+       	else{
+       		this.setState({isEventClicked : !this.state.isEventClicked, eventIndex: index });	
+       	}
     }
 	oddInput(e){
 
@@ -66,9 +73,9 @@ export default class NextRaces extends Component{
 							        <tr>
 							            <th>Pereche</th>
 							            {	
-							            	event.pairs.map((pair, index) => {
+							            	event.pairs.map((pair, ind) => {
 							            	
-							            		return (<td key={index}>{(pair.pair.name)}</td>);
+							            		return (<td key={ind}>{(pair.pair.name)}</td>);
 							            	})
 							        	}
 							        </tr>
@@ -77,25 +84,25 @@ export default class NextRaces extends Component{
 							    	<tr>
 							            <th>Id pereche</th>
 							            {	
-							            	event.pairs.map((pair, index) => {
+							            	event.pairs.map((pair, ind) => {
 							            	
-							            		return (<td key={index}>{pair.pair.id}</td>);
+							            		return (<td key={ind}>{pair.pair.id}</td>);
 							            	})
 							        	}
 							        </tr>
 							        <tr>
 							            <th>Cota</th>
 							            {	
-							            	event.pairs.map((pair, index) => {
-							            			if (updateClick === true && index === indexUpdate)
+							            	event.pairs.map((pair, ind) => {
+							            			if (updateClick === true && ind === indexUpdate)
 							            				return (
-							            					<td className="odd margin-bottom" key={index}>
+							            					<td className="odd margin-bottom" key={ind}>
 							            						<input onChange={this.oddInput} className="update-input" placeholder={pair.odd}/>
-							            						<i onClick={()=>{this.updateOdd(0, index);}} className="fas fa-pen-square update-button"/>
+							            						<i onClick={()=>{this.updateOdd(index, ind);}} className="fas fa-pen-square update-button"/>
 							            					</td>
 							            				);
 							            			else
-							            				return (<td className="odd margin-bottom" key={index}>{pair.odd}</td>);
+							            				return (<td className="odd margin-bottom" key={ind}>{pair.odd}</td>);
 							            		
 							            	})
 							        	}
@@ -103,9 +110,9 @@ export default class NextRaces extends Component{
 							        <tr>
 							            <th>Update Cota</th>
 							           {	
-							            	event.pairs.map((pair, index) => {
+							            	event.pairs.map((pair, ind) => {
 							            	
-							            		return (<td key={index} onClick={()=>{this.updateClick(index);}}><i className="fas fa-pen-square update-button-open"/></td>);
+							            		return (<td key={ind} onClick={()=>{this.updateClick(ind);}}><i className="fas fa-pen-square update-button-open"/></td>);
 							            	})
 							        	}
 							        </tr>
