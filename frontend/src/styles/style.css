@@ -546,7 +546,11 @@ a {
 
 table {
     border-collapse: collapse;
-    
+    display: none;
+}
+
+.table-active{
+  display: block;
 }
 
 tr {

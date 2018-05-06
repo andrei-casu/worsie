@@ -8,13 +8,19 @@ export default class NextRaces extends Component{
 		this.state = {
 			updateClick : false,
 			indexUpdate: undefined,
-			newOdd: undefined
+			newOdd: undefined,
+			isEventClicked: false,
+			eventIndex: undefined
 		};
 		this.updateClick = this.updateClick.bind(this);
 		this.updateOdd = this.updateOdd.bind(this);
 		this.oddInput = this.oddInput.bind(this);
-	}
+	 	this.eventNameClick = this.eventNameClick.bind(this);
+    }
 
+    eventNameClick(index){
+        this.setState({isEventClicked : !this.state.isEventClicked, eventIndex: index });
+    }
 	oddInput(e){
 
 		this.setState({newOdd: e.target.value});
@@ -36,90 +42,82 @@ export default class NextRaces extends Component{
 	render(){
 
 		const {events} = this.props;
-		const {updateClick, indexUpdate} = this.state;
+		const {updateClick, indexUpdate, isEventClicked, eventIndex} = this.state;
 		
-
-		let event = events[0];
-		
-
+			
 		if (events.length === 0 ) return null;
 
         return (
+        	<div>
+            {
+            	events.map((event, index) => {
+            	  return (
+            	  	<div key={index}>
+		              <div  className="event admin">
+		                 <div className={`title margin-bottom ${isEventClicked === true && index === eventIndex && "active"}`} onClick={()=>{this.eventNameClick(index);}}>{event.name}</div>
+                    		<div className={`event-info ${isEventClicked == true && index === eventIndex && "active"}`}>
+		                        <div className="sub-title margin-bottom">{event.bet_description}</div>
+		                        <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleDateString('en-US')}</div>
+		                    </div>
+		                    <div className="participants margin-bottom">
 
-            
-              <div>
-
-              <div  className="event admin">
-                <div className={`title margin-bottom active`}>{event.name}</div>
-                    <div className={`event-info active`}>
-                        <div className="sub-title margin-bottom">{event.bet_description}</div>
-                        <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleDateString('en-US')}</div>
-                    </div>
-                    <div className="participants margin-bottom">
-
-					<table>
-					    <thead>
-					        <tr>
-					            <th>Pereche</th>
-					            {	
-					            	event.pairs.map((pair, index) => {
-					            	
-					            		return (<td key={index}>{(pair.pair.name)}</td>);
-					            	})
-					        	}
-					        </tr>
-					    </thead>
-					    <tbody>
-					    	<tr>
-					            <th>Id pereche</th>
-					            {	
-					            	event.pairs.map((pair, index) => {
-					            	
-					            		return (<td key={index}>{pair.pair.id}</td>);
-					            	})
-					        	}
-					        </tr>
-					        <tr>
-					            <th>Cota</th>
-					            {	
-					            	event.pairs.map((pair, index) => {
-					            		
-					            		
-					            			if (updateClick === true && index === indexUpdate)
-					            				return (
-					            					<td className="odd margin-bottom" key={index}>
-					            						<input onChange={this.oddInput} className="update-input" placeholder={pair.odd}/>
-					            						<i onClick={()=>{this.updateOdd(0, index);}} className="fas fa-pen-square update-button"/>
-					            					</td>
-					            				);
-					            			else
-					            				return (<td className="odd margin-bottom" key={index}>{pair.odd}</td>);
-					            		
-					            	})
-					        	}
-					        </tr>
-					        <tr>
-					            <th>Update Cota</th>
-					           {	
-					            	event.pairs.map((pair, index) => {
-					            	
-					            		return (<td key={index} onClick={()=>{this.updateClick(index);}}><i className="fas fa-pen-square update-button-open"/></td>);
-					            	})
-					        	}
-					        </tr>
-					    </tbody>
-					</table>
-
-                
-                    
-                    </div>
-                </div>
-
-				
-              	
-              </div>
-          
+							<table className={`${isEventClicked === true && index === eventIndex && "table-active"}`}>
+							    <thead>
+							        <tr>
+							            <th>Pereche</th>
+							            {	
+							            	event.pairs.map((pair, index) => {
+							            	
+							            		return (<td key={index}>{(pair.pair.name)}</td>);
+							            	})
+							        	}
+							        </tr>
+							    </thead>
+							    <tbody>
+							    	<tr>
+							            <th>Id pereche</th>
+							            {	
+							            	event.pairs.map((pair, index) => {
+							            	
+							            		return (<td key={index}>{pair.pair.id}</td>);
+							            	})
+							        	}
+							        </tr>
+							        <tr>
+							            <th>Cota</th>
+							            {	
+							            	event.pairs.map((pair, index) => {
+							            			if (updateClick === true && index === indexUpdate)
+							            				return (
+							            					<td className="odd margin-bottom" key={index}>
+							            						<input onChange={this.oddInput} className="update-input" placeholder={pair.odd}/>
+							            						<i onClick={()=>{this.updateOdd(0, index);}} className="fas fa-pen-square update-button"/>
+							            					</td>
+							            				);
+							            			else
+							            				return (<td className="odd margin-bottom" key={index}>{pair.odd}</td>);
+							            		
+							            	})
+							        	}
+							        </tr>
+							        <tr>
+							            <th>Update Cota</th>
+							           {	
+							            	event.pairs.map((pair, index) => {
+							            	
+							            		return (<td key={index} onClick={()=>{this.updateClick(index);}}><i className="fas fa-pen-square update-button-open"/></td>);
+							            	})
+							        	}
+							        </tr>
+							    </tbody>
+							</table>
+		                    </div>
+		                </div>
+		              </div>
+              		);
+            	})
+        	}
+        </div>
         );
-
 	}
 }
