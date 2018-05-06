@@ -14,7 +14,6 @@ class Events extends Component{
   }
 
   
-
   componentDidMount() {
     const token = localStorage.getItem('token');
     if (token === null){
@@ -34,7 +33,9 @@ class Events extends Component{
   }
 
   getEvents(props) {
+
     const {type, events} = props;
+
     if (events[type].length === 0) {
       props.getEvents(type);
     }
@@ -43,8 +44,9 @@ class Events extends Component{
 
   render() {
     const {type, events} = this.props;
-    let dEvents = events[type];
 
+    console.log(type, events);
+    let dEvents = events[type];
     
     return (
       <div>

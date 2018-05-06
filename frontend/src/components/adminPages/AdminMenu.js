@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 
-export default class UserMenu extends Component{
+export default class AdminMenu extends Component{
 
 	render(){
 

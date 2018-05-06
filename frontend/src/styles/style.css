@@ -543,3 +543,40 @@ a {
 .login .failed-message{
   position: inline-flex !important;
 }
+
+table {
+    border-collapse: collapse;
+    
+}
+
+tr {
+    border: 2px solid #ac1a27;
+    width: 100px;    
+    padding: 5px;
+}
+
+th, td{
+    text-align: center;  
+    border: 2px solid #ac1a27;
+    width: 100px;    
+    padding: 5px;
+}
+
+td{
+  cursor: pointer;
+}
+
+
+.admin .update-button-open{
+  
+}
+
+.admin .update-button{
+  cursor: pointer;
+  float: right;
+}
+
+.admin .update-input{
+  width: 70px;
+  float: left;
+}
