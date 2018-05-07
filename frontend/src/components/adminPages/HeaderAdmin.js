@@ -40,19 +40,17 @@ export default class HeaderAdmin extends Component {
 
 				<div className="header-content-logo"> <img src={Logo} /> </div>
 
-				<NavLink className="header-content-link" to="/admin/main"><i className="fas fa-home"/></NavLink>
-	            <NavLink className="header-content-link" to="/admin/races-list">Lista curse viitoare</NavLink>
-	            <NavLink className="header-content-link" to="/admin/add-races">Adaugare curse</NavLink>
-	            <NavLink className="header-content-link" to="/admin/races-history">Istoric curse</NavLink>
+				<NavLink className="header-content-link" to="/admin/main"><i className="fas fa-home"/></NavLink> 
+				<NavLink className="header-content-link" to="/admin/races_list">Lista curse viitoare</NavLink>
+				<NavLink className="header-content-link" to="/admin/add_races">Adaugare curse</NavLink>
+				<NavLink className="header-content-link" to="/admin/add_pairs">Adaugare perechi</NavLink>
+				<NavLink className="header-content-link" to="/admin/races_history">Istoric curse</NavLink>
 
 				{
 					window.innerWidth < 800 &&
 					<NavLink onClick={this.logoutClick} className="header-content-link" to="/login"> <i className="fas fa-sign-out-alt"/>Logout</NavLink>
 				}
-				{
-					window.innerWidth < 700 &&
-					<NavLink className="header-content-link" to="/admin/profile"><div><i className="fas fa-user"/> Profile</div></NavLink> 
-				}
+				
 				
 				
 				<a className="icon"> <i className="fas fa-bars" onClick={this.menuClick}/></a>

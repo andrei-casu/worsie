@@ -352,6 +352,128 @@ a {
 
 }
 
+
+.add-races-button{
+  text-align: center;
+}
+
+.add-races-wrapper{
+  margin: 0 auto;
+}
+.add-races{
+  width: auto;
+  padding: 30px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.input-display{
+  display: inline-flex;
+}
+
+.margin-auto{
+  margin: 0 auto;
+}
+
+@media(max-width: 800px){
+  .add-races{
+    display: inherit; 
+    padding: 0px;
+  }
+  .add-races .input {
+    
+    text-align: center;
+  }
+
+  .add-races .races, .add-races .pairs{
+    
+    margin-top: 20px;
+    margin-right: 0px !important;
+  }
+
+  .add-races .input .form-control-mobile{
+    width: 150px;
+  }
+
+  .add-races-button{
+    
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+  }
+}
+
+.add-races-button .btn1{
+  
+  background: #F5F5F5;;
+  
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+
+  color:  #ac1a27;
+  font-size: 20px;
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 15px;
+  
+}
+
+.add-races .title{
+
+      font-family: "Merriweather";
+      font-size: 25px;
+      font-weight: bold;
+      text-align: center;
+}
+
+.add-races .races, .add-races .pairs{
+  border: 1px dotted #ac1a27;
+  padding: 30px;
+  margin-right: 50px;
+}
+
+.add-races .input{
+  margin-bottom:20px;
+
+}
+
+.add-races .input input {
+  margin: 0px;
+  outline: 0;
+}
+
+.add-races .input .form-control{
+  outline: none;
+  border-radius: 20px;
+  padding: 9px;
+  border: 1px solid #ac1a27;
+  font-family: "Merriweather";
+}
+
+
+.add-races .input .form-control-odd{
+  outline: none;
+  font-family: "Merriweather";
+  border-radius: 20px;
+  padding: 8px;
+  width: 50px;
+  border: 1px solid #ac1a27;
+  margin-left: 10px;
+}
+
+.input .text{
+  font-family: "Merriweather";
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+}
+
+
+
 .login{
 
   position: fixed;
@@ -393,8 +515,6 @@ a {
   font-weight: bold;
   margin-bottom: 10px;
 }
-
-
 
 
 .btn{

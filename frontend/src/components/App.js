@@ -29,6 +29,7 @@ export default class App extends Component {
                   <Redirect to="/login"/>
               )}/>
               <Route path="/login" component={Login} />
+
               <Route path="/register" component={Register} />
               <Route path="/events/:type" component={Events} />
               <Route path="/admin/:type" component={Admin} />

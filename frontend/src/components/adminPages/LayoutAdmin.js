@@ -11,7 +11,7 @@ export default class LayoutAdmin extends Component{
 			<div>
 				<HeaderAdmin user={this.props.user}/>
 				<div className="container">
-					<AdminMenu/>
+					{/* <AdminMenu/> */}
 					{this.props.children}
 				</div>
 			</div>
