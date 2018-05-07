@@ -52,7 +52,7 @@ class Admin extends Component{
             );
         }
 
-        case "races-statistics":{
+        case "races-list":{
 
             return (
               <div>
@@ -70,6 +70,17 @@ class Admin extends Component{
               <div>
                 <LayoutAdmin user={this.props.user.userInfo}>
                   <div>Adaugare de curse</div>
+                </LayoutAdmin>
+              </div>
+            );
+        }
+
+        case "races-history":{
+
+            return (
+              <div>
+                <LayoutAdmin user={this.props.user.userInfo}>
+                  <div>Istoric curse</div>
                 </LayoutAdmin>
               </div>
             );

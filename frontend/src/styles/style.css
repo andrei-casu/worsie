@@ -34,6 +34,10 @@ body {
   height: 100%;
 }
 
+.user-menu-none{
+  width: 15%;
+}
+
 .user-menu-element div{
   color: white;
   padding: 10px 5px;

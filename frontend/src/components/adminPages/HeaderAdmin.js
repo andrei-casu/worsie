@@ -40,11 +40,10 @@ export default class HeaderAdmin extends Component {
 
 				<div className="header-content-logo"> <img src={Logo} /> </div>
 
-				
-
 				<NavLink className="header-content-link" to="/admin/main"><i className="fas fa-home"/></NavLink>
-	            <NavLink className="header-content-link" to="/admin/races-statistics">Modificare curse</NavLink>
+	            <NavLink className="header-content-link" to="/admin/races-list">Lista curse viitoare</NavLink>
 	            <NavLink className="header-content-link" to="/admin/add-races">Adaugare curse</NavLink>
+	            <NavLink className="header-content-link" to="/admin/races-history">Istoric curse</NavLink>
 
 				{
 					window.innerWidth < 800 &&
