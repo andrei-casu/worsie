@@ -57,26 +57,34 @@ export default class AddRaces extends Component {
                         <div className="input">
                             <div className="text">Perechea 2</div>
 
-                            <input className="form-control" placeholder="Numele perechii" />
-                            <input className="form-control-odd" placeholder="Cota" />
+                            <div className="input-display">
+                                <Autosuggest className="form-control" placeholder="Numele perechii" />
+                                <input className="form-control-odd" placeholder="Cota" />
+                            </div>
                         </div>
                         <div className="input">
                             <div className="text">Perechea 3</div>
 
-                            <input className="form-control" placeholder="Numele perechii" />
-                            <input className="form-control-odd" placeholder="Cota" />
+                            <div className="input-display">
+                                <Autosuggest className="form-control" placeholder="Numele perechii" />
+                                <input className="form-control-odd" placeholder="Cota" />
+                            </div>
                         </div>
                         <div className="input">
                             <div className="text">Perechea 4</div>
 
-                            <input className="form-control" placeholder="Numele perechii" />
-                            <input className="form-control-odd" placeholder="Cota" />
+                            <div className="input-display">
+                                <Autosuggest className="form-control" placeholder="Numele perechii" />
+                                <input className="form-control-odd" placeholder="Cota" />
+                            </div>
                         </div>
                         <div className="input">
                             <div className="text">Perechea 5</div>
 
-                            <input className="form-control" placeholder="Numele perechii" />
-                            <input className="form-control-odd" placeholder="Cota" />
+                            <div className="input-display">
+                                <Autosuggest className="form-control" placeholder="Numele perechii" />
+                                <input className="form-control-odd" placeholder="Cota" />
+                            </div>
                         </div>
                     </div>
                 </div>

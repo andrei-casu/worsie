@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import countries from './countries';
+import pairsName from './pairsName';
 
 
 export default class Autosuggest extends Component {
@@ -37,8 +37,8 @@ export default class Autosuggest extends Component {
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
       
-        return inputLength <= 1 ? [] : countries.filter(lang =>
-          lang.toLowerCase().slice(0, inputLength) === inputValue
+        return inputLength <= 1 ? [] : pairsName.filter(pair =>
+          pair.toLowerCase().slice(0, inputLength) === inputValue
         );
     }
 
@@ -126,12 +126,13 @@ export default class Autosuggest extends Component {
                     onKeyDown={this.handleKeyPress} 
                     autoComplete="off"
                 />
-                <div className={`dropdown-content col-md-12 ${suggestions.length > 0 && "block"}`}>
+                <div className={`dropdown-content ${suggestions.length > 0 && "block"}`}>
 
                     {
                         suggestions.map((value, index)=>{
                             return(
-                                <div className={`options ${keyIndex === index && "keyHover"}`} key={index} onClick={()=>{this.onOptionClick(value);}}>{value}</div>
+                                <div className={`options ${keyIndex === index && "keyHover"}`} key={index}
+                                 onClick={()=>{this.onOptionClick(value);}}>{value}</div>
                             );
                         })
                     }

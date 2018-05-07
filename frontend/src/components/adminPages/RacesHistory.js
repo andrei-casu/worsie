@@ -55,6 +55,7 @@ export default class RacesHistory extends Component{
                                         <div className="sub-title margin-bottom">Perechea Castigatoare: {this.searchWinnerName(event)}</div>
                                         <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleDateString('en-US')}</div>
                                         <div className="date margin-bottom">Cota: {this.searchWinnerOdd(event)}</div>
+                                        <div className="date margin-bottom">Profit obtinut: {event.profit}</div>
                                     </div>
                                 </div>
                             </div>

@@ -36,11 +36,19 @@ export default class NextRaces extends Component {
     updateOdd(eventIndex, pairIndex) {
 
         //API UPDATE CALL HERE
-        if (this.state.newOdd !== undefined){
-            this.props.events[eventIndex].pairs[pairIndex].odd = this.state.newOdd;
-        }
-        this.setState({ updateClick: false });
 
+        const { newOdd } = this.state;
+        console.log(newOdd)
+
+        
+        if (newOdd !== undefined){
+
+            if (newOdd.length !== 0){
+                this.props.events[eventIndex].pairs[pairIndex].odd = newOdd;
+            }
+        }
+        
+        this.setState({ updateClick: false });
     }
 
 
@@ -57,7 +65,7 @@ export default class NextRaces extends Component {
         if (events.length === 0) return null;
 
         return (
-            <div class="margin-auto">
+            <div className="margin-auto">
                 {
                     events.map((event, index) => {
                         return (

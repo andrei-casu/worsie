@@ -3,7 +3,7 @@ body {
   margin: 0px;
   /* background-color: #F5F5F5; */
   background-color: #FBFFFE;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Merriweather";
 }
 
 .header-content{
@@ -365,6 +365,7 @@ a {
   padding: 30px;
   margin: 0 auto;
   display: flex;
+
 }
 
 .input-display{
@@ -373,6 +374,24 @@ a {
 
 .margin-auto{
   margin: 0 auto;
+  background-color: #F5F5F5;
+}
+
+@media(max-height: 800px){
+  .add-races{
+    padding: 10px;
+  }
+
+  .add-races .races, .add-races .pairs{ 
+    padding: 10px !important;
+
+  }
+
+  .add-races .input{
+    margin-bottom:10px !important;
+
+  }
+
 }
 
 @media(max-width: 800px){
@@ -403,6 +422,13 @@ a {
   }
 }
 
+.add-races-button .btn1:hover {
+  background: #fbac21;
+  color:  #ac1a27;
+  text-decoration: none;
+}
+
+
 .add-races-button .btn1{
   
   background: #F5F5F5;;
@@ -432,10 +458,11 @@ a {
   border: 1px dotted #ac1a27;
   padding: 30px;
   margin-right: 50px;
+  background-color: #F5F5F5;
 }
 
 .add-races .input{
-  margin-bottom:20px;
+  margin-bottom:40px;
 
 }
 
@@ -717,4 +744,53 @@ td{
 .admin .update-input{
   width: 70px;
   float: left;
+  text-align: center;
+  font-family: "Merriweather";
+  outline-color:  #ac1a27;
+  border-radius: 20px;
+  
+  
+  border: none;
+}
+
+/*dropdown autosuggest*/
+
+.dropdown-content .options{
+  
+  font-family: 'Merriweather';
+  font-size: 14px;
+  color: #5c6062;
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 36px;
+  height: 37px;
+  text-indent: 10px;
+}
+
+
+ .dropdown-content {
+   position: absolute;
+   background-color: white;
+  display: none;
+  z-index: 100;
+  border: 1px solid #ac1a27;
+  padding: 0;
+  border-radius: 20px;
+  width: 216px;
+}
+ .dropdown-content div {
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+ .dropdown-content div:hover{
+    background: #fbac21;
+}
+
+ .options.keyHover{
+    background: #fbac21;
+}
+ 
+ .dropdown-content.block {
+  display: block;
 }

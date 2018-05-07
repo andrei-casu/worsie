@@ -6,6 +6,7 @@
 			"description": "",
             "timestamp": 1522540800,
             "winner_id": "1234",
+            "profit": "1300 lei",
 			"pairs":[
 				{
 					"pair": {
@@ -156,6 +157,7 @@
 			"description": "",
             "timestamp": 1523059200,
             "winner_id": "1235",
+            "profit": "12000 lei",
 			"pairs":[
 				{
 					"pair": {
@@ -306,6 +308,7 @@
 			"description": "",
 			"timestamp": 1523491200,
 			"winner_id": "1234",
+			"profit": "8500 lei",
 			"pairs":[
 				{
 					"pair": {
@@ -456,6 +459,7 @@
 			"description": "",
             "timestamp": 1524096000,
             "winner_id": "1243",
+            "profit": "3000 lei",
 			"pairs":[
 				{
 					"pair": {

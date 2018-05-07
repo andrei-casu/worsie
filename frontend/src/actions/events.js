@@ -11,49 +11,68 @@ export function getEvents(type) {
     dispatch({type: types.LOADING_START});
     // fetch()
 
-    if (type === 'main')
+    switch(type){
 
-      dispatch({
-        type: types.EVENTS,
-        eventsType: type,
-        events: bestEvents.best_events
-      });
-
-    if (type === 'races_list'){
+      case 'main':{
 
         dispatch({
           type: types.EVENTS,
           eventsType: type,
           events: bestEvents.best_events
+        });
+        break;
+      }
+
+      case 'races_list': {
+
+          dispatch({
+            type: types.EVENTS,
+            eventsType: type,
+            events: bestEvents.best_events
+          })
+          break;
+      }
+
+      case 'races_history': {
+
+        dispatch({
+          type: types.EVENTS,
+          eventsType: type,
+          events: events_history.events_history
         })
-    }
-
-    if (type === 'races_history'){
-      dispatch({
-        type: types.EVENTS,
-        eventsType: type,
-        events: events_history.events_history
-      })
-    }
-    
-    if (type === "add_races"){
+        break;
+      }
       
-      dispatch({
-        type: types.EVENTS,
-        eventsType: type,
-        events: events.events
-      });
-    }
+     case "add_races": {
+        
+        dispatch({
+          type: types.EVENTS,
+          eventsType: type,
+          events: events.events
+        });
+        break;
+      }
 
-    if (type === "add_pairs"){
-      
-      dispatch({
-        type: types.EVENTS,
-        eventsType: type,
-        events: events.events
-      });
+      case "add_pairs": {
+        
+        dispatch({
+          type: types.EVENTS,
+          eventsType: type,
+          events: events.events
+        });
+        break;
+      }
+
+      default: {
+        
+        dispatch({
+          type: types.EVENTS,
+          eventsType: type,
+          events: events.events
+        });
+        break;
+      }
     }
-    
 
 
     dispatch({type: types.LOADING_END});
