@@ -19,8 +19,9 @@ import loader from '../../images/orange_circles.gif';
     }
 
     componentWillReceiveProps(newProps) {
-
+        
         if (newProps.login.success === true){
+
             this.props.history.push("/events/main");
         }
     }

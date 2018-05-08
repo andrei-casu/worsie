@@ -442,7 +442,9 @@ a {
   padding: 10px;
   text-decoration: none;
   cursor: pointer;
-  margin-right: 15px;
+  margin-right: 40px;
+
+  border: 1px solid  #ac1a27;
   
 }
 
@@ -793,4 +795,24 @@ td{
  
  .dropdown-content.block {
   display: block;
+}
+
+.main-admin .title{
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  
+}
+
+.main-admin{
+  
+  text-align: center;
+  padding: 30px;
+}
+
+.main-admin .subtitle{
+
+  text-align: left;
+  margin-bottom: 30px;  
+  font-size: 25px;
 }

@@ -8,7 +8,7 @@ export default class AdminMenu extends Component{
 		return(
 			<div className="user-menu-none">
 
-
+				null;
 
 			</div>
 		);

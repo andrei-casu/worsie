@@ -23,13 +23,23 @@ export function getEvents(type) {
         break;
       }
 
+      case 'main_admin':{
+
+        dispatch({
+          type: types.EVENTS,
+          eventsType: type,
+          events: bestEvents.best_events
+        });
+        break;
+      }
+
       case 'races_list': {
 
           dispatch({
             type: types.EVENTS,
             eventsType: type,
             events: bestEvents.best_events
-          })
+          });
           break;
       }
 
@@ -39,7 +49,7 @@ export function getEvents(type) {
           type: types.EVENTS,
           eventsType: type,
           events: events_history.events_history
-        })
+        });
         break;
       }
       

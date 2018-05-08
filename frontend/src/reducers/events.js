@@ -3,6 +3,7 @@ import {LOADING_START, LOADING_END, EVENTS, EVENT} from '../constants/events';
 export default function eventsReduce(state = {
   loading: false,
   main: [],
+  main_admin: [],
   races_history: [],
   races_list: [],
   add_races: [],

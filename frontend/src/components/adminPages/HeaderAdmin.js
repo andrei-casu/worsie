@@ -27,7 +27,7 @@ export default class HeaderAdmin extends Component {
 
 
 	logoutClick(){
-		console.log("LOGOUT");
+		// console.log("LOGOUT");
 		localStorage.removeItem("token");
 	}
 
@@ -40,7 +40,7 @@ export default class HeaderAdmin extends Component {
 
 				<div className="header-content-logo"> <img src={Logo} /> </div>
 
-				<NavLink className="header-content-link" to="/admin/main"><i className="fas fa-home"/></NavLink> 
+				<NavLink className="header-content-link" to="/admin/main_admin"><i className="fas fa-home"/></NavLink> 
 				<NavLink className="header-content-link" to="/admin/races_list">Lista curse viitoare</NavLink>
 				<NavLink className="header-content-link" to="/admin/add_races">Adaugare curse</NavLink>
 				<NavLink className="header-content-link" to="/admin/add_pairs">Adaugare perechi</NavLink>

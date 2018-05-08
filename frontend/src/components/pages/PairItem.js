@@ -22,7 +22,7 @@ export default class PairItem extends Component{
 
 
     render(){
-        const {pair, odd, type} = this.props;
+        const {pair, odd, type, hideBet} = this.props;
         const {showBetInput} = this.state;
         if (pair === undefined) return null;
 
@@ -33,15 +33,20 @@ export default class PairItem extends Component{
                 <Link to={`/pair/${pair.id}`}><div className="name margin-bottom">{pair.name}</div></Link>
                 <div className="description margin-bottom">{pair.description}</div>
                 <div className="odd margin-bottom">Cota: {odd}</div>
-                <div onClick={this.onShowBet(true)} className="bet"><i className="fas fa-plus-square bet-button" /> Bet </div>
-                {
-                    showBetInput === true &&   
-                    <div className="bet-input">
-                        <div className="input"><input className="form-control" type="text" placeholder="MONEY"/></div>
-                        <div onClick={this.onShowBet(false)} className="btn">Continue</div>
-                    </div>
+
+                {hideBet !== true &&
+                    
+                    <div onClick={this.onShowBet(true)} className="bet"><i className="fas fa-plus-square bet-button" /> Bet </div>
                 }
-              </div>
+                    {
+                        showBetInput === true &&   
+                        <div className="bet-input">
+                            <div className="input"><input className="form-control" type="text" placeholder="MONEY"/></div>
+                            <div onClick={this.onShowBet(false)} className="btn">Continue</div>
+                        </div>
+                    }
+                </div>
+                
               <img className="image" src={pair.img_url} />
             </div>
           );

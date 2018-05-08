@@ -27,7 +27,7 @@ export default class Header extends Component {
 
 
 	logoutClick(){
-		console.log("LOGOUT");
+		
 		localStorage.removeItem("token");
 	}
 

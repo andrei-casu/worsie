@@ -15,7 +15,7 @@ export default class RacesHistory extends Component{
 
         for (let index in pairs){
             if (pairs[index].pair.id === winner_id){
-                console.log();
+                
                 return pairs[index].odd;
             }
         }
@@ -29,7 +29,7 @@ export default class RacesHistory extends Component{
 
         for (let index in pairs){
             if (pairs[index].pair.id === winner_id){
-                console.log();
+                
                 return pairs[index].pair.name;
             }
         }

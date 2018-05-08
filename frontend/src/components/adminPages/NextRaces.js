@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default class NextRaces extends Component {
 
@@ -38,7 +38,7 @@ export default class NextRaces extends Component {
         //API UPDATE CALL HERE
 
         const { newOdd } = this.state;
-        console.log(newOdd)
+        
 
         
         if (newOdd !== undefined){

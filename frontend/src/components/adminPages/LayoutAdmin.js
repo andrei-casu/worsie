@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HeaderAdmin from './HeaderAdmin';
 // import UserMenu from './UserMenu';
-import AdminMenu from './AdminMenu';
+// import AdminMenu from './AdminMenu';
 
 
 export default class LayoutAdmin extends Component{

@@ -6,6 +6,7 @@ import NextRaces from './NextRaces';
 import RacesHistory from './RacesHistory';
 import AddRaces from './AddRaces';
 import AddPairs from './AddPairs';
+import AdminMain from './AdminMain';
 
 
 class Admin extends Component{
@@ -17,8 +18,6 @@ class Admin extends Component{
       this.addPairClick = this.addPairClick.bind(this);
     
     }
-
-
 
     componentDidMount() {
       const token = localStorage.getItem('token');
@@ -48,28 +47,30 @@ class Admin extends Component{
     }
   }
 
-  addRaceClick(obj){
-    console.log("ADD RACE BLICK", obj);
+  addRaceClick(){
+    
+    // console.log("ADD RACE BLICK", obj);
   }
 
-  addPairClick(obj){
-    console.log("ADD Pair CLICK", obj);
+  addPairClick(){
+    
+    // console.log("ADD Pair CLICK", obj);
   }
 
 
     render() {
 
-      const { type, events } = this.props;
+      const { type, events, user } = this.props;
       
 
       switch (type){
 
-        case "main":{
+        case "main_admin":{
 
             return (
               <div>
                 <LayoutAdmin user={this.props.user.userInfo}>
-                  <div>Statistici generale</div>
+                  <AdminMain events={events[type]} user={user}/>
                 </LayoutAdmin>
               </div>
             );

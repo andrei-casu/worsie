@@ -13,7 +13,7 @@ export function getUserInfo(token) {
     apiLink += token;
     axios.get(apiLink)
       .then(function(response){
-          // console.log(response);
+          
           profile.profile.name = response.data.user.name;
           dispatch({type: types.USER, user: profile.profile});
       });

@@ -15,7 +15,10 @@ class Events extends Component{
 
   
   componentDidMount() {
+    // console.log("COMPONENT DID MOUNT");
+    
     const token = localStorage.getItem('token');
+    
     if (token === null){
       this.props.history.push("/login");
     }
@@ -45,7 +48,7 @@ class Events extends Component{
   render() {
     const {type, events} = this.props;
 
-    console.log(type, events);
+    
     let dEvents = events[type];
     
     return (

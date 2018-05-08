@@ -90,7 +90,7 @@ export default class AddRaces extends Component {
                 </div>
 
                 <div className="add-races-button">
-                    <Link to="/admin/main" className="btn1" >
+                    <Link to="/admin/main_admin" className="btn1" >
                       Adauga Cursa
                     </Link>
                     {/* {loading === false && success === false && <span className="input span">{message}</span>} */}
