@@ -63,6 +63,9 @@ Response: {
 }
 ```
 
+## GET /atom
+Response: atom feed
+
 
 ```
 Bet: {
