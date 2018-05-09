@@ -66,6 +66,7 @@ State-urile initiale din reducere sunt:
 
 ### Rutele aplicatiei: 
 
+```
 /register -> Register in aplicatie
 /login -> Login in aplicatie
 /events/:type -> view eventuri pe tipuri (urmatoarele 3 ore, 1 zi, 2 zile, evenimente “hot”)
@@ -73,3 +74,4 @@ State-urile initiale din reducere sunt:
 /pair:/:id -> informatii despre o pereche
 /user -> infromatiile userului (pariurile facute, starea acestora)
 /admin/:type -> (board-ul de control al aplicatiei ce permite adaugarea & updatarea unei curse, adaugarea unei perechi noi, statistici generale ale aplicatiei).
+```
