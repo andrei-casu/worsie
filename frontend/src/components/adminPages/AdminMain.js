@@ -33,7 +33,7 @@ export default class AdminMain extends Component{
             <div className=" margin-auto main-admin"> 
                 <div className="title">Statistici generale </div>
                 <div className="subtitle"> Numar total de pariuri: 6347 </div>
-                <div className="subtitle"> Profitul total din ultima luna: 215643 lei </div>
+                <div className="subtitle"> Profitul total: 215643 lei </div>
                 <div className="subtitle"> Evenimentele cu cele mai mari pariuri: </div>
 
                 {

@@ -37,7 +37,6 @@ export default class App extends Component {
               <Route path="/event/:id" component={Event} />
               <Route path="/pair/:id" component={Pair} />
               <Route path="/user" component={UserBets} />
-              <Route path="/admin/profile" component={UserBets} />
               {/* <Route component={NotFoundPage}/> */}
             </div>
         </HashRouter>

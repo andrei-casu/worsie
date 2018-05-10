@@ -62,7 +62,6 @@ class Admin extends Component{
 
       const { type, events, user } = this.props;
       
-
       switch (type){
 
         case "main_admin":{
@@ -119,6 +118,17 @@ class Admin extends Component{
                 </LayoutAdmin>
               </div>
             );
+        }
+
+        default: {
+
+          return (
+            <div>
+              <LayoutAdmin user={this.props.user.userInfo}>
+                <AdminMain events={events[type]} user={user}/>
+              </LayoutAdmin>
+            </div>
+          );
         }
       }
     }

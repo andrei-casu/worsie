@@ -15,14 +15,14 @@ adaugare istoric curse in meniu admin
 editare curse in meniu admin
 
 DONE Modificare curse -> Lista curse
-Adaugare curse -> nume pereche: input cu autocomplete
+DONE Adaugare curse -> nume pereche: input cu autocomplete
 
 
 pariul a fost adaugat! -> cand adaugi pariul sa arate ceva
 
 
-STATISTICI GENERALE:
-cele mai pariate eventuri
+DONE STATISTICI GENERALE:
+DONE cele mai pariate eventuri
 cele mai pariate perechi
 adaugare pagina de news pe mobile
 
