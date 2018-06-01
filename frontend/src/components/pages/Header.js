@@ -53,8 +53,8 @@ export default class Header extends Component {
 					<NavLink className="header-content-link" to="/user/profile"><div><i className="fas fa-user"/> Profile</div></NavLink> 
 				}
 				{
-					window.innerWidth < 700 &&
-					<NavLink className="header-content-link" to="/user/bets"><div><i className="fas fa-money-bill-alt"/> My bets</div></NavLink>
+					// window.innerWidth < 700 &&
+					// <NavLink className="header-content-link" to="/user/bets"><div><i className="fas fa-money-bill-alt"/> My bets</div></NavLink>
 				}
 
 				<NavLink className="header-content-link" to="/events/finished">Finished</NavLink>
@@ -62,7 +62,7 @@ export default class Header extends Component {
 
 
 				{
-					[1, 2, 3, 4, 5].map((nr) => (
+					[1, 2, 3].map((nr) => (
 						<NavLink key={nr} className="header-content-link" to={`/events/${nr}`}> {nr} day(s)</NavLink>
 					))
 				}

@@ -2,7 +2,9 @@ import * as types from '../constants/login';
 import axios from 'axios';
 
 
-const apiLink = 'http://192.168.2.170:3000/authenticate';
+
+const hostName="206.189.30.132:3000";
+const apiLink = `http://${hostName}/authenticate`;
 
 
 export function startLogin(obj) {

@@ -11,7 +11,7 @@ export default class UserMenu extends Component{
 				<div className="user-menu-element simple">User</div>
 
 				<NavLink className="user-menu-element" to="/user/profile"><div><i className="fas fa-user"/> Profile</div></NavLink>
-				<NavLink className="user-menu-element" to="/user/bets"><div><i className="fas fa-money-bill-alt"/> My bets</div></NavLink>
+				{/*<NavLink className="user-menu-element" to="/user/bets"><div><i className="fas fa-money-bill-alt"/> My bets</div></NavLink>*/}
 			</div>
 		);
 	}

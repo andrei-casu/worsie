@@ -30,15 +30,16 @@ class Events extends Component{
       this.props.getUserInfo(localStorage.getItem('token'));
     }
 
-    // debugger;
-    console.log("DID MOUNT")
     this.getEvents(this.props);
   }
 
   componentWillReceiveProps(newProps) {
       
-      console.log("DE AICI");
-      // this.getEvents(newProps);
+      // console.log(newProps.events.loading);
+      if (newProps.events.loading === false){
+
+          this.getEvents(newProps);
+      }
       
   }
 
@@ -46,7 +47,7 @@ class Events extends Component{
 
     const {type, events} = props;
 
-    if (events[type].length === 0) {
+    if (events[type] === null) {
         props.getEvents(type);
     }
   }
@@ -58,20 +59,26 @@ class Events extends Component{
   render() {
     const {type, events} = this.props;
 
-    console.log("PROPSSS");
-    console.log(this.props);
+    // console.log("PROPSSS");
+    // console.log(this.props);
     let dEvents = events[type];    
     return (
       <div>
         <Layout news={this.props.news.news} user={this.props.user.userInfo}>
           <div className="page events-page">
           {
-            dEvents.length > 0 && (
+            dEvents !== null && (
               <div className="events-container">
                 {
                   dEvents.map((event, index) => {
                     return (
-                      <EventItem key={index} event={event} pairs={this.props.pairs} sendBet={this.sendBet}/>
+                         <EventItem 
+                            key={index} 
+                            event={event} 
+                            pairs={this.props.pairs} 
+                            sendBet={this.sendBet}
+                            page_type={this.props.type}
+                        />
                     );
                   })
                 }

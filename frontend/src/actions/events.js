@@ -10,7 +10,7 @@ import event from '../dummy/event';
 const threeH_mili = 10800000;
 const oneD_mili = threeH_mili * 8;
 const token = localStorage.getItem("token");
-const hostName = "192.168.2.170:3000";
+const hostName = '206.189.30.132:3000';
 const currentDate_mili =  new Date().getTime();
 
 export function getEvents(type) {
@@ -38,8 +38,7 @@ export function getEvents(type) {
         axios.get(apiLink)
         .then(function(response){ 
 
-          console.log("DATAAAAAAAA");
-          console.log(response.data);
+          // console.log(response.data);
 
           if (response.data.success === true){
 
@@ -76,6 +75,7 @@ export function getEvents(type) {
         break;
       }
 
+      //////////////*ADMIN*////////////
       case 'main_admin':{
 
         dispatch({
@@ -86,7 +86,7 @@ export function getEvents(type) {
         break;
       }
 
-      //////////////*ADMIN*////////////
+      
       case 'races_list': {
 
           dispatch({
@@ -167,13 +167,17 @@ export function getEvent(id) {
 export function sendBet(obj){
     return dispatch => {
 
-        console.log(obj);
+        // console.log(obj);
         let apiLink = `http://${hostName}/api/bet?token=${token}`;
         dispatch({type: types.LOADING_START});
 
-        // axios.post(apiLink, obj)
-        // .then(function(response){
-        //   dispatch({type: types.LOADING_END});
-        // });
-      }
-};
+        axios.post(apiLink, obj)
+        .then(function(response){
+
+          if (response.success === false){
+            //fa dispatch la ceva cu error: true
+          }
+          dispatch({type: types.LOADING_END});
+        });
+      };
+}

@@ -2,15 +2,15 @@ import {LOADING_START, LOADING_END, EVENTS, EVENT} from '../constants/events';
 
 export default function eventsReduce(state = {
   loading: false,
-  main: [],
-  main_admin: [],
-  races_history: [],
-  races_list: [],
-  add_races: [],
-  add_pairs: [],
-  '3_hours': [],
-  'finished': [],
-  1: [], 2: [], 3: [], 4: [], 5: []
+  main: null,
+  main_admin: null,
+  races_history: null,
+  races_list: null,
+  add_races: null,
+  add_pairs: null,
+  '3_hours': null,
+  'finished': null,
+  1: null, 2: null, 3: null
 }, action) {
       const obj = {};
     
