@@ -12,31 +12,31 @@ class UserBets extends Component{
       this.props.history.push("/login");
     }
     
-    if (Object.keys(this.props.user.userInfo).length === 0)
+    
+    // if (Object.keys(this.props.user.userInfo).length === 0)
       this.props.getUserInfo();
   }
 
   render() {
     const {userInfo} = this.props.user;
 
-  
     if (Object.keys(userInfo).length === 0) return null; 
     return (
       <div>
         <Layout news={this.props.news.news} user={userInfo}>
            <div className="page">
             <div className="page-title margin-bottom">Pariurile tale</div>
-            <div className="page-money">Suma totala disponibila: 104 lei</div>
+            <div className="page-money">Suma totala disponibila: {userInfo.credit} lei</div>
 
 
             {
-              userInfo.pending_bets.length > 0 && 
+              userInfo.pending.length > 0 && 
               <div className="page-subtitle">
                 Pariuri in desfasurare
               </div>
             }
             {
-              userInfo.pending_bets.map((bet, index) => {
+              userInfo.pending.map((bet, index) => {
                 return (
                   <div key={index} className="bet-short">
                     <Link to={`/event/${bet.event_id}`}>Eveniment</Link><br/>
@@ -57,7 +57,7 @@ class UserBets extends Component{
                     <Link to={`/event/${obj.event_id}`}>Eveniment</Link><br/>
                     <Link to={`/pair/${obj.pair_id}`}>Perechea pariata</Link>
                     <div className="bet-amount">Suma pariata: {obj.amount} lei</div>
-                    <div className={`bet-amount ${obj.won === true? "won" : "lost"}`}>{obj.won === true? 'Castigat' : 'Pierdut'} </div>
+                    <div className={`bet-amount ${obj.status === "won"? "won" : "lost"}`}>{obj.status === "won"? 'Castigat' : 'Pierdut'} </div>
                   </div>
                 );
               })

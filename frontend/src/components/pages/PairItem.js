@@ -63,9 +63,9 @@ export default class PairItem extends Component{
     render(){
         const {pair, odd, type, hideBet, pairs, page_type, place} = this.props;
         const {showBetInput, index} = this.state;
-        
-        if (pair === undefined || (index === undefined && type === "short")) return null;
 
+
+        if (pair === undefined || (index === undefined && type === "short")) return null;
     
         if (type === 'short')
           return (
@@ -108,7 +108,7 @@ export default class PairItem extends Component{
 
                     return (
                         <div key={index} className="pair-history">
-                            <div className="date margin-bottom">{index+1}. Data si ora cursei: {new Date(obj.timestamp).toLocaleDateString('en-US')}</div>
+                            <div className="date margin-bottom">{index+1}. Data si ora cursei: {new Date(obj.timestamp).toLocaleString('en-US')}</div>
                             <div className="host margin-bottom">{obj.host}</div>
                             <div className="place margin-bottom">Locul obtinut: {obj.place}</div>
                         </div>

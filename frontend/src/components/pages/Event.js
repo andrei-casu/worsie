@@ -11,10 +11,14 @@ class Event extends Component{
 
 
   componentDidMount() {
+
+
     const token = localStorage.getItem('token');
     if (token === null){
       this.props.history.push("/login");
     }
+
+     this.props.getPairs();
     if (Object.keys(this.props.user.userInfo).length === 0)
       this.props.getUserInfo();
     this.getEvent(this.props);
@@ -38,13 +42,16 @@ class Event extends Component{
 
   
     if (event === undefined) return null;
+
+
+    console.log(this.props);
     
     return (
       <div>
         <Layout news={this.props.news.news} user={this.props.user.userInfo}>
           <div className="page events-page">
               <div className="events-container">
-                <EventItem event={event}/>
+                <EventItem event={event} page_type="finished" pairs={this.props.pairs}/>
               </div>
           </div>
         </Layout>

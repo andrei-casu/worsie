@@ -155,10 +155,17 @@ export function getEvents(type) {
 export function getEvent(id) {
   return dispatch => {
 
-      dispatch({
-        type: types.EVENT,
-        id,
-        event: event.event
+      let apiLink = `http://${hostName}/api/event?id=${id}&token=${token}`;
+      axios.get(apiLink)
+      .then(function(response){
+
+        if (response.data.success === true){
+          dispatch({
+            type: types.EVENT,
+            id,
+            event: response.data.event
+          });
+        }
       });
   };
 }
