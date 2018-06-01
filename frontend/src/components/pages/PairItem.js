@@ -19,14 +19,17 @@ export default class PairItem extends Component{
 
 
     componentDidMount(){
-        this.getPairInfo();
+
+        if (this.props.type === "short"){
+            this.getPairInfo();
+        }
     }
 
     onShowBet(to) {
         return () => {
 
     
-            if (this.state.inputVal.length !== 0){
+            if (this.state.inputVal.length !== 0 && to === false){
                 this.props.sendBet({"bet":{ 
                     "event_id": this.props.event_id,
                     "pair_id" : this.props.pair,
@@ -56,13 +59,14 @@ export default class PairItem extends Component{
 
         this.setState({inputVal: val});
     }
+
     render(){
-        const {pair, odd, type, hideBet, pairs} = this.props;
+        const {pair, odd, type, hideBet, pairs, page_type, place} = this.props;
         const {showBetInput, index} = this.state;
-
-        if (pair === undefined || index === undefined) return null;
-
         
+        if (pair === undefined || (index === undefined && type === "short")) return null;
+
+    
         if (type === 'short')
           return (
             <div className="pair">
@@ -70,13 +74,14 @@ export default class PairItem extends Component{
                 <Link to={`/pair/${pair}`}><div className="name margin-bottom">{pairs[index].name}</div></Link>
                 <div className="description margin-bottom">{pairs[index].description}</div>
                 <div className="odd margin-bottom">Cota: {odd}</div>
+                {page_type === "finished" && <div className="odd margin-bottom">Loc obtinut: {place}</div>}
 
-                {hideBet !== true &&
+                {page_type !== "finished" && hideBet !== true &&
                     
                     <div onClick={this.onShowBet(true)} className="bet"><i className="fas fa-plus-square bet-button" /> Bet </div>
                 }
                     {
-                        showBetInput === true &&   
+                        page_type !== "finished" && showBetInput === true &&   
                         <div className="bet-input">
                             <div className="input"><input onChange={this.inputChange} className="form-control" type="text" placeholder="MONEY"/></div>
                             <div onClick={this.onShowBet(false)} className="btn">Continue</div>
@@ -87,6 +92,9 @@ export default class PairItem extends Component{
               <img className="image" src={"https://cdn.techinasia.com/wp-content/uploads/2013/06/jockey-horse-5901.png"} />
             </div>
           );
+
+
+
         return(
             <div className="one-pair">
                

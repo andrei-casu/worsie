@@ -4,7 +4,12 @@ import profile from '../dummy/profile';
 import axios from 'axios';
 
 
-let apiLink = 'http://0.0.0.0:3000/api/user';
+
+
+const hostName="206.189.30.132:3000";
+let apiLink = `http://${hostName}/api/user`;
+
+
 
 export function getUserInfo(token) {
   return dispatch => {
@@ -19,4 +24,4 @@ export function getUserInfo(token) {
       });
     
   };
-}
+}	

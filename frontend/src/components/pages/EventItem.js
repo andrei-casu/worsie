@@ -22,7 +22,7 @@ export default class EventRender extends Component{
 
         const {event} = this.props;
         const {isEventClicked} = this.state;
-        
+
         return(
             <div  className="event">
                 <div className={`title margin-bottom ${isEventClicked === true && "active"}`} onClick={this.eventNameClick}>{event.name}</div>
@@ -38,7 +38,17 @@ export default class EventRender extends Component{
 
 
                             return (
-                                <PairItem sendBet={this.props.sendBet} key={index} pair={pair.pair} odd={pair.odd} type="short" pairs={this.props.pairs} event_id={event._id}/>
+                                <PairItem 
+                                    sendBet={this.props.sendBet} 
+                                    key={index} 
+                                    pair={pair.pair} 
+                                    odd={pair.odd}
+                                    place={pair.result}
+                                    type="short" 
+                                    pairs={this.props.pairs} 
+                                    event_id={event._id}
+                                    page_type={this.props.page_type}
+                                />
                             );
                         })
                     }

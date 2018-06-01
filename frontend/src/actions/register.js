@@ -2,7 +2,12 @@ import * as types from '../constants/register';
 import axios from 'axios';
 
 
-const apiLink = 'http://0.0.0.0:3000/register';
+
+
+const hostName="206.189.30.132:3000";
+const apiLink = `http://${hostName}/register`;
+
+
 
 export function startRegister(obj) {
     return dispatch => {

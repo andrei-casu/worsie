@@ -10,8 +10,6 @@ class Pair extends Component{
   }
 
 
-
-
   componentDidMount() {
     
     const token = localStorage.getItem('token');
@@ -19,8 +17,8 @@ class Pair extends Component{
       this.props.history.push("/login");
     }
 
-    if (Object.keys(this.props.user.userInfo).length === 0)
-      this.props.getUserInfo();
+    // if (Object.keys(this.props.user.userInfo).length === 0)
+    //   this.props.getUserInfo();
     this.getPair(this.props);
   }
 
@@ -30,6 +28,7 @@ class Pair extends Component{
 
   getPair(props) {
     const {id, pairs} = props;
+
     if (pairs[id] === undefined) {
       props.getPair(id);
     }
