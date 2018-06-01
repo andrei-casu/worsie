@@ -67,6 +67,7 @@ module.exports = (() => {
                 pair.result = rand;
 
                 getPairs({_id: ObjectID(pair.pair)}).then((pairs) => {
+                  if (pairs.length === 0) return;
                   const pair = pairs[0];
                   const {history} = pair;
                   history.push({place: rand, timestamp: event.timestamp});
