@@ -40,7 +40,6 @@ module.exports = (() => {
         mail, password
       }).valueOf()
       .then((res) => {
-        // console.log(res);
         if (res.length > 1)
           return null;
         return res[0];

@@ -9,8 +9,8 @@ module.exports = (() => {
 
     if (token) {
       jwt.verify(token, secret, function (err, decoded) {
-        console.log('decoded');
-        console.log(decoded);
+        // console.log('decoded');
+        // console.log(decoded);
         if (err) {
           return res.json({ success: false, message: 'Failed to authenticate token.' });
         } else {
