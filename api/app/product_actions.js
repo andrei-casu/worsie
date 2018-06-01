@@ -3,6 +3,7 @@ module.exports = (() => {
   const {addPair, getPairs, updatePair} = require('./actions')('Pair', 'pairs');
   const {addEvent, getEvents, updateEvent} = require('./actions')('Event', 'events');
   const {getBets, updateBet} = require('./actions')('Bet', 'bets');
+  const {getCredits, updateCredit} = require('./actions')('Credit', 'credits');
   const {ObjectID} = require('mongodb');
   const faker = require('faker');
 
@@ -49,7 +50,7 @@ module.exports = (() => {
     // do smth
     addNewEvent();
 
-    getEvents({timestamp: {$lt: new Date().getTime()}}).then((events) => {
+    getEvents({timestamp: {$lt: new Date().getTime(), $gt: new Date().getTime() - 1000 * 60 * 1000}}).then((events) => {
       // console.log(JSON.stringify(events, true, 2));
       console.log('AAAAAAAA');
       // return;
@@ -57,6 +58,7 @@ module.exports = (() => {
 
       events.map((event) => {
         if (event.pairs[0].result === undefined) {
+          console.log(event);
           const pairs =  event.pairs;
           const used = {};
           pairs.map((pair) => {
@@ -65,6 +67,12 @@ module.exports = (() => {
               if (used[rand] === undefined) {
                 used[rand] = 1;
                 pair.result = rand;
+
+                // console.log(event._id, pair.pair);
+                // getBets({event_id: event._id + '', pair_id: pair.pair + ''}).then((bets) => {
+                //   console.log(bets);
+                //   be
+                // });
 
                 getPairs({_id: ObjectID(pair.pair)}).then((pairs) => {
                   if (pairs.length === 0) return;
@@ -82,25 +90,30 @@ module.exports = (() => {
           });
           //update bets
 
-          getBets({event_id: event._id}).then((bets) => {
-            console.log('BEEEEEEEEETS');
-            console.log(bets);
+          getBets({event_id: event._id + ''}).then((bets) => {
             bets.map((bet) => {
               const {pair_id} = bet;
               let status;
 
               pairs.map((pair) => {
-                if (pair._id === pair_id) {
-                  if (pair.result === 1) status = 'won';
+                if (pair.pair + '' === pair_id) {
+                  if (pair.result === 1) {
+                    status = 'won';
+                    getCredits({user_id: bet.user_id}).then((credits) => {
+                      const credit = credits[0];
+                      updateCredit({user_id: bet.user_id}, {$set: {amount: credit.amount + pair.odd * bet.amount}});
+                    });
+                  }
                   else status = 'lost';
                 }
               });
 
+              console.log(status);
               updateBet({_id: ObjectID(bet._id)}, {$set: {status}}).then(() => {
                 console.log('updated bet');
               });
             });
-          })
+          });
 
           updateEvent({_id: ObjectID(event._id)}, {$set: {pairs}}).then(() => {
             console.log('updated');
@@ -123,7 +136,6 @@ module.exports = (() => {
     };
 
     return;
-
     getPairs().then((pairs) => {
       console.log(pairs);
     });
