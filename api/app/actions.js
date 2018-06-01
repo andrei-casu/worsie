@@ -9,7 +9,7 @@ module.exports = (() => {
 
       // pair.id = uniqid();
       elements.insertOne(element, (err, res) => {
-        if (err) return reject();
+        if (err) return reject(err);
         resolve(element);
       });
     });
@@ -19,8 +19,9 @@ module.exports = (() => {
     getMongo().then((db) => {
       const elements = db.collection(type);
 
+      console.log(update);
       elements.updateOne(query, update, (err, result) => {
-        if (err) return reject();
+        if (err) return reject(err);
         resolve();
       });
     });
@@ -32,8 +33,8 @@ module.exports = (() => {
       if (query === undefined) query = {};
 
       elements.find(query).toArray((err, elements) => {
-        if (err) return reject();
-        resolve(elements);
+        if (err) return reject(err);
+        resolve(elements.reverse());
       });
     });
   })
