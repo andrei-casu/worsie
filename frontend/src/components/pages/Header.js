@@ -57,19 +57,18 @@ export default class Header extends Component {
 					<NavLink className="header-content-link" to="/user/bets"><div><i className="fas fa-money-bill-alt"/> My bets</div></NavLink>
 				}
 
+				<NavLink className="header-content-link" to="/events/finished">Finished</NavLink>
 				<NavLink className="header-content-link" to="/events/3_hours">Next 3 hours</NavLink>
 
 
 				{
-					[1, 2, 3, 4, 5, 6, 7].map((nr) => (
+					[1, 2, 3, 4, 5].map((nr) => (
 						<NavLink key={nr} className="header-content-link" to={`/events/${nr}`}> {nr} day(s)</NavLink>
 					))
 				}
 				
 				<a className="icon"> <i className="fas fa-bars" onClick={this.menuClick}/></a>
 				
-
-
 
 				<div className="user-info">
 					<div className="user-name">{user.name}</div>

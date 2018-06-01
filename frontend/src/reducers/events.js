@@ -9,7 +9,8 @@ export default function eventsReduce(state = {
   add_races: [],
   add_pairs: [],
   '3_hours': [],
-  1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: []
+  'finished': [],
+  1: [], 2: [], 3: [], 4: [], 5: []
 }, action) {
       const obj = {};
     
@@ -24,6 +25,7 @@ export default function eventsReduce(state = {
       });
     case EVENTS:
       obj[action.eventsType] = action.events;
+      // obj.loading = false;
 
       return Object.assign({}, state, obj);
     case EVENT:

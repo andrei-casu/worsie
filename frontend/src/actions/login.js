@@ -2,7 +2,7 @@ import * as types from '../constants/login';
 import axios from 'axios';
 
 
-const apiLink = 'http://0.0.0.0:3000/authenticate';
+const apiLink = 'http://192.168.2.170:3000/authenticate';
 
 
 export function startLogin(obj) {
@@ -21,7 +21,7 @@ export function startLogin(obj) {
                // console.log(response.data);
                if (response.data.success === true){
 
-                    localStorage.setItem('token', JSON.stringify(response.data.token));
+                    localStorage.setItem('token', response.data.token);
 
                     dispatch({
                         type: types.LOGIN_SUCCESS,

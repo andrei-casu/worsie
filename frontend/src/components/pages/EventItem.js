@@ -22,23 +22,23 @@ export default class EventRender extends Component{
 
         const {event} = this.props;
         const {isEventClicked} = this.state;
-
-
-
+        
         return(
             <div  className="event">
                 <div className={`title margin-bottom ${isEventClicked === true && "active"}`} onClick={this.eventNameClick}>{event.name}</div>
                     <div className={`event-info ${isEventClicked == true && "active"}`}>
                         <div className="sub-title margin-bottom">{event.bet_description}</div>
-                        <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleDateString('en-US')}</div>
+                        <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleString('en-US')}</div>
                     </div>
                     <div className="participants margin-bottom">
 
                 
                     { isEventClicked === true &&
                         event.pairs.map((pair, index) => {
+
+
                             return (
-                                <PairItem key={index} pair={pair.pair} odd={pair.odd} type="short"/>
+                                <PairItem sendBet={this.props.sendBet} key={index} pair={pair.pair} odd={pair.odd} type="short" pairs={this.props.pairs} event_id={event._id}/>
                             );
                         })
                     }

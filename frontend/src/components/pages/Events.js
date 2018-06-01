@@ -11,28 +11,35 @@ import EventItem from './EventItem';
 class Events extends Component{
   constructor(props) {
     super(props);
+    this.sendBet = this.sendBet.bind(this);
   }
+
 
   
   componentDidMount() {
     // console.log("COMPONENT DID MOUNT");
-    
-    const token = localStorage.getItem('token');
-    
     if (token === null){
       this.props.history.push("/login");
     }
 
+    this.props.getPairs();
+    const token = localStorage.getItem('token');
+    
     if (Object.keys(this.props.user.userInfo).length === 0){
       
-      this.props.getUserInfo(JSON.parse(localStorage.getItem('token')));
+      this.props.getUserInfo(localStorage.getItem('token'));
     }
+
+    // debugger;
+    console.log("DID MOUNT")
     this.getEvents(this.props);
   }
 
   componentWillReceiveProps(newProps) {
       
-      this.getEvents(newProps);
+      console.log("DE AICI");
+      // this.getEvents(newProps);
+      
   }
 
   getEvents(props) {
@@ -40,17 +47,20 @@ class Events extends Component{
     const {type, events} = props;
 
     if (events[type].length === 0) {
-      props.getEvents(type);
+        props.getEvents(type);
     }
   }
 
+  sendBet(obj){
+    this.props.sendBet(obj);
+  }
 
   render() {
     const {type, events} = this.props;
 
-    
-    let dEvents = events[type];
-    
+    console.log("PROPSSS");
+    console.log(this.props);
+    let dEvents = events[type];    
     return (
       <div>
         <Layout news={this.props.news.news} user={this.props.user.userInfo}>
@@ -61,7 +71,7 @@ class Events extends Component{
                 {
                   dEvents.map((event, index) => {
                     return (
-                      <EventItem key={index} event={event}/>
+                      <EventItem key={index} event={event} pairs={this.props.pairs} sendBet={this.sendBet}/>
                     );
                   })
                 }
@@ -69,7 +79,6 @@ class Events extends Component{
             )
           }
 
-          {/* <Pair pair={pair}/> */}
           </div>
         </Layout>
       </div>
