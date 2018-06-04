@@ -35,6 +35,7 @@ export default class Header extends Component {
 		const { user } = this.props;
 		const { showMenu } = this.state;
 
+
 		return (
 			<div className={`header-content ${showMenu === true && "responsive"}`}>
 

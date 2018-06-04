@@ -10,7 +10,9 @@ export default class PairItem extends Component{
         this.state = {
             showBetInput: false,
             index: undefined,
-            inputVal: ""
+            inputVal: "",
+            amountError: false,
+            betAdded: false
         };
 
         this.getPairInfo = this.getPairInfo.bind(this);
@@ -27,8 +29,13 @@ export default class PairItem extends Component{
 
     onShowBet(to) {
         return () => {
+            
+            if (this.state.inputVal > this.props.userCredit){
 
-    
+                this.setState({amountError: true});
+                return;
+            }
+
             if (this.state.inputVal.length !== 0 && to === false){
                 this.props.sendBet({"bet":{ 
                     "event_id": this.props.event_id,
@@ -36,8 +43,10 @@ export default class PairItem extends Component{
                     "amount" : parseInt(this.state.inputVal)
                 }});
             }
+
             this.setState({
-                showBetInput: to
+                showBetInput: to,
+                betAdded: !to
             });
         };
     }
@@ -57,12 +66,12 @@ export default class PairItem extends Component{
     inputChange(e){
         const val = e.target.value;
 
-        this.setState({inputVal: val});
+        this.setState({inputVal: val, amountError: false});
     }
 
     render(){
         const {pair, odd, type, hideBet, pairs, page_type, place} = this.props;
-        const {showBetInput, index} = this.state;
+        const {showBetInput, index, amountError, betAdded, inputVal} = this.state;
 
 
         if (pair === undefined || (index === undefined && type === "short")) return null;
@@ -74,6 +83,7 @@ export default class PairItem extends Component{
                 <Link to={`/pair/${pair}`}><div className="name margin-bottom">{pairs[index].name}</div></Link>
                 <div className="description margin-bottom">{pairs[index].description}</div>
                 <div className="odd margin-bottom">Cota: {odd}</div>
+                {betAdded === true && <div className="bet-added"> Pariu adaugat! Castig potential: {(odd * inputVal).toFixed(2)} lei</div>}
                 {page_type === "finished" && <div className="odd margin-bottom">Loc obtinut: {place}</div>}
 
                 {page_type !== "finished" && hideBet !== true &&
@@ -84,7 +94,9 @@ export default class PairItem extends Component{
                         page_type !== "finished" && showBetInput === true &&   
                         <div className="bet-input">
                             <div className="input"><input onChange={this.inputChange} className="form-control" type="text" placeholder="MONEY"/></div>
+                            {amountError === true && <div className="amount-error"> Eroare! Creditul tau: {this.props.userCredit}</div>}
                             <div onClick={this.onShowBet(false)} className="btn">Continue</div>
+                            
                         </div>
                     }
                 </div>

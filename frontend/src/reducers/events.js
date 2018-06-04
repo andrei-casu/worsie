@@ -26,7 +26,6 @@ export default function eventsReduce(state = {
     case EVENTS:
       obj[action.eventsType] = action.events;
       // obj.loading = false;
-
       return Object.assign({}, state, obj);
     case EVENT:
       obj[action.id] = action.event;

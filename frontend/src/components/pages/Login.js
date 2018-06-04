@@ -16,13 +16,21 @@ import loader from '../../images/orange_circles.gif';
 
         this.inputChange = this.inputChange.bind(this);
         this.loginClick = this.loginClick.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     componentWillReceiveProps(newProps) {
         
         if (newProps.login.success === true){
-
+            this.props.makeSuccessFalse();
             this.props.history.push("/events/main");
+        }
+    }
+
+    handleKeyPress(event){
+        
+        if (event.key === "Enter"){
+            this.loginClick();
         }
     }
 
@@ -56,7 +64,7 @@ import loader from '../../images/orange_circles.gif';
 
         return(
 
-            <div className="login-page">
+            <div className="login-page" onKeyDown={this.handleKeyPress} >
                 <div className="login">
                     <div className="title">Worsie Login</div>
                     <div className="input">

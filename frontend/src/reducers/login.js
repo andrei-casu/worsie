@@ -1,4 +1,4 @@
-import {LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILED} from '../constants/login';
+import {LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILED, SUCCESS_FALSE} from '../constants/login';
 
 export default function loginReduce(state = {
   token: "",
@@ -25,6 +25,10 @@ export default function loginReduce(state = {
         success: action.success,
         loading: false,
         message: action.message
+      });
+    case SUCCESS_FALSE:
+      return Object.assign({}, state, {
+        success: false
       });
 
     default:

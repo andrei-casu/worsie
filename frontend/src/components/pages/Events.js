@@ -18,35 +18,38 @@ class Events extends Component{
   
   componentDidMount() {
     // console.log("COMPONENT DID MOUNT");
+
+    const token = localStorage.getItem('token');
     if (token === null){
       this.props.history.push("/login");
     }
 
-    this.props.getPairs();
-    const token = localStorage.getItem('token');
+
+    if (Object.keys(this.props.pairs).length === 0){
+      this.props.getPairs();
+    }
+
     
     if (Object.keys(this.props.user.userInfo).length === 0){
-      
-      this.props.getUserInfo(localStorage.getItem('token'));
+      this.props.getUserInfo();
     }
 
     this.getEvents(this.props);
   }
 
-  componentWillReceiveProps(newProps) {
+  // componentWillReceiveProps(newProps) {
       
-      // console.log(newProps.events.loading);
-      if (newProps.events.loading === false){
 
-          this.getEvents(newProps);
-      }
+  //     if (newProps.events.loading === false){
+  //         this.getEvents(newProps);
+  //     }
       
-  }
+  // }
 
   getEvents(props) {
 
     const {type, events} = props;
-
+     // debugger;
     if (events[type] === null) {
         props.getEvents(type);
     }
@@ -59,8 +62,8 @@ class Events extends Component{
   render() {
     const {type, events} = this.props;
 
-    // console.log("PROPSSS");
-    // console.log(this.props);
+    console.log("PROPSSS");
+    console.log(this.props);
     let dEvents = events[type];    
     return (
       <div>
@@ -78,6 +81,7 @@ class Events extends Component{
                             pairs={this.props.pairs} 
                             sendBet={this.sendBet}
                             page_type={this.props.type}
+                            userCredit={this.props.user.userInfo.credit}
                         />
                     );
                   })

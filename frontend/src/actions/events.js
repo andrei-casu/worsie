@@ -4,7 +4,7 @@ import axios from 'axios';
 import bestEvents from '../dummy/best_events';
 import events from '../dummy/events';
 import events_history from '../dummy/events_history';
-import event from '../dummy/event';
+// import event from '../dummy/event';
 
 
 const threeH_mili = 10800000;
@@ -21,11 +21,25 @@ export function getEvents(type) {
 
       case 'main':{
 
-        dispatch({
-          type: types.EVENTS,
-          eventsType: type,
-          events: bestEvents.best_events
+        const data_end = currentDate_mili + threeH_mili;
+        let apiLink = `http://${hostName}/api/events?start_date=${currentDate_mili}&end_date=${data_end}&token=${token}`;
+
+        axios.get(apiLink)
+        .then(function(response){ 
+
+          // console.log(response.data);
+
+          if (response.data.success === true){
+
+            dispatch({
+              type: types.EVENTS,
+              eventsType: type,
+              events: response.data.events
+            });
+          }
+          dispatch({type: types.LOADING_END});
         });
+        
         break;
       }
 

@@ -46,3 +46,13 @@ export function startLogin(obj) {
 
        };
 }
+
+
+export function makeSuccessFalse(){
+  return dispatch => {
+
+        dispatch({
+          type: types.SUCCESS_FALSE
+        });    
+  };
+}
