@@ -12,6 +12,7 @@ export default class PairItem extends Component{
             index: undefined,
             inputVal: "",
             amountError: false,
+            inputError: false,
             betAdded: false
         };
 
@@ -27,21 +28,37 @@ export default class PairItem extends Component{
         }
     }
 
-    onShowBet(to) {
+    onShowBet(to, place) {
         return () => {
             
-            if (this.state.inputVal > this.props.userCredit){
+            if (place === true){
+                this.setState({
+                    showBetInput: !this.state.showBetInput
+                });
+                return;
+            }
+            
+
+            const {inputError, inputVal} = this.state;
+
+            if (inputError === false && inputVal > this.props.userCredit ){
 
                 this.setState({amountError: true});
                 return;
             }
 
-            if (this.state.inputVal.length !== 0 && to === false){
-                this.props.sendBet({"bet":{ 
-                    "event_id": this.props.event_id,
-                    "pair_id" : this.props.pair,
-                    "amount" : parseInt(this.state.inputVal)
-                }});
+            if (inputVal.length !== 0 && to === false && inputError === false){
+                this.props.sendBet({
+                    "bet":{ 
+                        "event_id": this.props.event_id,
+                        "pair_id" : this.props.pair,
+                        "amount" : parseInt(inputVal)
+                    }
+                });
+            }
+
+            if (inputError === true){
+                return;
             }
 
             this.setState({
@@ -66,7 +83,12 @@ export default class PairItem extends Component{
     inputChange(e){
         const val = e.target.value;
 
-        this.setState({inputVal: val, amountError: false});
+        if ((/^\d+$/).test(val) === true){
+            this.setState({inputVal: val, amountError: false, inputError: false, betAdded: false});
+        }
+        else{
+            this.setState({inputError: true});   
+        }
     }
 
     render(){
@@ -88,7 +110,7 @@ export default class PairItem extends Component{
 
                 {page_type !== "finished" && hideBet !== true &&
                     
-                    <div onClick={this.onShowBet(true)} className="bet"><i className="fas fa-plus-square bet-button" /> Bet </div>
+                    <div onClick={this.onShowBet(true, true)} className="bet"><i className="fas fa-plus-square bet-button" /> Bet </div>
                 }
                     {
                         page_type !== "finished" && showBetInput === true &&   

@@ -14,7 +14,6 @@ class Events extends Component{
     this.sendBet = this.sendBet.bind(this);
   }
 
-
   
   componentDidMount() {
     // console.log("COMPONENT DID MOUNT");
@@ -35,7 +34,11 @@ class Events extends Component{
     }
 
     this.getEvents(this.props);
+
+     this.interval = setInterval(() => location.reload(), 300000);
   }
+
+  
 
   componentWillReceiveProps(newProps) {
       
@@ -44,6 +47,10 @@ class Events extends Component{
           this.getEvents(newProps);
       }
       
+  }
+
+  componentWillUnmount() {
+   clearInterval(this.interval);
   }
 
   getEvents(props) {
@@ -62,8 +69,8 @@ class Events extends Component{
   render() {
     const {type, events} = this.props;
 
-    console.log("PROPSSS");
-    console.log(this.props);
+    // console.log("PROPSSS");
+    // console.log(this.props);
     let dEvents = events[type];    
     return (
       <div>

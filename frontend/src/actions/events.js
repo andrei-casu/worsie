@@ -78,6 +78,14 @@ export function getEvents(type) {
         axios.get(apiLink)
         .then(function(response){
 
+          for (let index in response.data.events){
+          
+            response.data.events[index].pairs.sort(function(a, b){
+
+              if (a.result < b.result) return -1;
+              if (a.result > b.result) return 1;
+            });
+          }
           dispatch({
             type: types.EVENTS,
             eventsType: type,
