@@ -7,7 +7,7 @@ const hostName="206.189.30.132:3000";
 const apiLink = `http://${hostName}/authenticate`;
 
 
-export function startLogin(obj) {
+export function startLogin(obj, props) {
   return dispatch => {
 
         
@@ -30,6 +30,8 @@ export function startLogin(obj) {
                         token: response.data.token,
                         success: true
                     });
+
+                    props.history.push("/events/main");
                     
                 }
                 else{

@@ -37,14 +37,14 @@ class Events extends Component{
     this.getEvents(this.props);
   }
 
-  // componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(newProps) {
       
 
-  //     if (newProps.events.loading === false){
-  //         this.getEvents(newProps);
-  //     }
+      if (newProps.events.loading === false){
+          this.getEvents(newProps);
+      }
       
-  // }
+  }
 
   getEvents(props) {
 

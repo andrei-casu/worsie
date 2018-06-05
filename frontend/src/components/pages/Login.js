@@ -23,7 +23,7 @@ import loader from '../../images/orange_circles.gif';
         
         if (newProps.login.success === true){
             this.props.makeSuccessFalse();
-            this.props.history.push("/events/main");
+            // this.props.history.push("/events/main");
         }
     }
 
@@ -40,7 +40,7 @@ import loader from '../../images/orange_circles.gif';
             "mail": this.state.username,
             "password": this.state.password
         };
-        this.props.startLogin(obj);
+        this.props.startLogin(obj, this.props);
      }
 
      inputChange(id) {
