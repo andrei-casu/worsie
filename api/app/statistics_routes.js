@@ -5,7 +5,7 @@ module.exports = (() => {
   const {isAdmin} = require('./authentication');
   const {getBets, updateBet} = require('./actions')('Bet', 'bets');
   
-  const getEvents = (req, res) => {
+  const getEventsStatistics = (req, res) => {
     if (isAdmin(req.decoded.user.id) !== true) return res.json({success: false});
     getEvents().then((events) => {
       console.log(events.length);
@@ -30,6 +30,6 @@ module.exports = (() => {
   };
   
   return {
-    getAtomFeed
+    getEventsStatistics
   };
 })();
