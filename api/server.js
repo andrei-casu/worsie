@@ -27,7 +27,7 @@
   routing.get('/api/events', getEventsRoute);
   routing.get('/api/event', getEventRoute);
 
-  routing.get('/api/stastics_events', getEventsStatistics);
+  routing.get('/api/statistics_events', getEventsStatistics);
 
   routing.post('/api/bet', addBetRoute);
   routing.get('/api/bets', getBetsRoute);
