@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PairItem from './PairItem';
+import CountDown from '../CountDown';
 
 export default class EventRender extends Component{
 
@@ -24,13 +25,17 @@ export default class EventRender extends Component{
         const {isEventClicked} = this.state;
 
         // console.log(event);
-
+        console.log(this.props);
         return(
             <div className="event">
                 <div className={`title margin-bottom ${isEventClicked === true && "active"}`} onClick={this.eventNameClick}>{event.name}</div>
                     <div className={`event-info ${isEventClicked == true && "active"}`}>
                         <div className="sub-title margin-bottom">{event.bet_description}</div>
                         <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleString('en-US')}</div>
+                        {this.props.page_type !== "finished" && 
+                            <CountDown eventTime={event.timestamp} getEvents={this.props.getEvents} eventType={this.props.eventType}/>
+                        }
+
                     </div>
                     <div className="participants margin-bottom">
 

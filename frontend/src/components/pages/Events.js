@@ -16,7 +16,7 @@ class Events extends Component{
 
   
   componentDidMount() {
-    // console.log("COMPONENT DID MOUNT");
+    console.log("COMPONENT DID MOUNT");
 
     const token = localStorage.getItem('token');
     if (token === null){
@@ -39,10 +39,9 @@ class Events extends Component{
   }
 
   
-
   componentWillReceiveProps(newProps) {
-      
-
+      console.log(newProps);
+      console.log("RECEIVE PROPS");
       if (newProps.events.loading === false){
           this.getEvents(newProps);
       }
@@ -56,7 +55,7 @@ class Events extends Component{
   getEvents(props) {
 
     const {type, events} = props;
-     // debugger;
+    
     if (events[type] === null) {
         props.getEvents(type);
     }
@@ -72,7 +71,10 @@ class Events extends Component{
     // console.log("PROPSSS");
     // console.log(this.props);
     let dEvents = events[type];    
+
     return (
+
+
       <div>
         <Layout news={this.props.news.news} user={this.props.user.userInfo}>
           <div className="page events-page">
@@ -89,6 +91,8 @@ class Events extends Component{
                             sendBet={this.sendBet}
                             page_type={this.props.type}
                             userCredit={this.props.user.userInfo.credit}
+                            getEvents = {this.props.getEvents}
+                            eventType={this.props.type}
                         />
                     );
                   })

@@ -17,8 +17,8 @@ export default class Header extends Component {
 
 	}
 
-	componentWillReceiveProps(){
-		this.setState({showMenu: false});
+	componentWillReceiveProps() {
+		this.setState({ showMenu: false });
 	}
 
 	menuClick() {
@@ -26,13 +26,14 @@ export default class Header extends Component {
 	}
 
 
-	logoutClick(){
-		
+	logoutClick() {
+
 		localStorage.removeItem("token");
 	}
 
 	render() {
 		const { user } = this.props;
+		const { credit } = user;
 		const { showMenu } = this.state;
 
 
@@ -41,17 +42,17 @@ export default class Header extends Component {
 
 				<div className="header-content-logo"> <img src={Logo} /> </div>
 
+
 				
-
 				<NavLink className="header-content-link" to="/events/main"><i className="fas fa-home" /></NavLink>
-
+				{window.innerWidth < 800 && <a className="header-content-link">Credit: {credit}</a>}
 				{
 					window.innerWidth < 800 &&
-					<NavLink onClick={this.logoutClick} className="header-content-link" to="/login"> <i className="fas fa-sign-out-alt"/>Logout</NavLink>
+					<NavLink onClick={this.logoutClick} className="header-content-link" to="/login"> <i className="fas fa-sign-out-alt" />Logout</NavLink>
 				}
 				{
 					window.innerWidth < 700 &&
-					<NavLink className="header-content-link" to="/user/profile"><div><i className="fas fa-user"/> Profile</div></NavLink> 
+					<NavLink className="header-content-link" to="/user/profile"><div><i className="fas fa-user" /> Profile</div></NavLink>
 				}
 				{
 					// window.innerWidth < 700 &&
@@ -67,17 +68,19 @@ export default class Header extends Component {
 						<NavLink key={nr} className="header-content-link" to={`/events/${nr}`}> {nr} day(s)</NavLink>
 					))
 				}
-				
-				<a className="icon"> <i className="fas fa-bars" onClick={this.menuClick}/></a>
-				
+
+				<a className="icon"> <i className="fas fa-bars" onClick={this.menuClick} /></a>
+
 
 				<div className="user-info">
+
+					{window.innerWidth >= 800 && <div className="user-name">Credit: {credit}</div>}
 					<div className="user-name">{user.name}</div>
 					<img className="user-avatar" src={user.avatar} />
-					
+
 					{
-						window.innerWidth >= 800 && 
-						<NavLink onClick={this.logoutClick} className="user-name" to="/login"> <i className="fas fa-sign-out-alt"/>Logout</NavLink>
+						window.innerWidth >= 800 &&
+						<NavLink onClick={this.logoutClick} className="user-name" to="/login"> <i className="fas fa-sign-out-alt" />Logout</NavLink>
 					}
 				</div>
 			</div>
