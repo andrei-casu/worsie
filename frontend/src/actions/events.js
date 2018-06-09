@@ -1,9 +1,9 @@
 import * as types from '../constants/events';
 // import fetch from 'isomorphic-fetch';
 import axios from 'axios';
-import bestEvents from '../dummy/best_events';
+// import bestEvents from '../dummy/best_events';
 // import events from '../dummy/events';
-import events_history from '../dummy/events_history';
+// import events_history from '../dummy/events_history';
 // import event from '../dummy/event';
 
 

@@ -35,7 +35,7 @@ class Events extends Component{
 
     this.getEvents(this.props);
 
-     this.interval = setInterval(() => this.props.getEvents(this.props.type), 180000) 
+     this.interval = setInterval(() => this.props.getEvents(this.props.type), 180000); 
   }
 
   

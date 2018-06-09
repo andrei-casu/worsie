@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PairItem from '../pages/PairItem';
+// import PairItem from '../pages/PairItem';
 
 export default class AdminMain extends Component{
     constructor(props){
@@ -29,9 +29,12 @@ export default class AdminMain extends Component{
 
     render(){
         
+        if (this.props.events === null) return null;
+
         const {generalStatistics, events, userStatistics} = this.props.events;
         const {isEventClicked, eventIndex} = this.state;
 
+        
 
         return(
             <div className=" margin-auto main-admin"> 

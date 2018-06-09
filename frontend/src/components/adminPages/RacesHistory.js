@@ -44,14 +44,11 @@ export default class RacesHistory extends Component{
 
 
     render(){
-        const {events} = this.props.events;
 
-        console.log(events);
 
-        if (this.props.events === null) return;
+        if (this.props.events === null) return null;
 
-     
-     
+        const {events} = this.props.events;     
     
         return (
             <div className="margin-auto"> 

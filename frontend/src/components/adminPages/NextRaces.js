@@ -58,6 +58,8 @@ export default class NextRaces extends Component {
 
     render() {
 
+        if (this.props.events === null) return null;
+        
         const { events, pairs } = this.props;
         const { updateClick, indexUpdate, isEventClicked, eventIndex } = this.state;
 

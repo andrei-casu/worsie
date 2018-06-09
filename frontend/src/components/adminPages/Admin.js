@@ -65,7 +65,7 @@ class Admin extends Component{
       let dEvents = events[type];    
       
 
-      if (dEvents === null) return null;
+      
 
       switch (type){
 
