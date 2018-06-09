@@ -9,11 +9,11 @@ import events_history from '../dummy/events_history';
 
 const threeH_mili = 10800000;
 const oneD_mili = threeH_mili * 8;
-const token = localStorage.getItem("token");
 const hostName = '206.189.30.132:3000';
-const currentDate_mili =  new Date().getTime();
 
 export function getEvents(type) {
+  const token = localStorage.getItem("token");
+  const currentDate_mili =  new Date().getTime();
   return dispatch => {
     dispatch({type: types.LOADING_START});
 
@@ -176,6 +176,7 @@ export function getEvents(type) {
 
 export function getEvent(id) {
   return dispatch => {
+      const token = localStorage.getItem("token");
 
       let apiLink = `http://${hostName}/api/event?id=${id}&token=${token}`;
       axios.get(apiLink)
@@ -195,6 +196,7 @@ export function getEvent(id) {
 
 export function sendBet(obj){
     return dispatch => {
+        const token = localStorage.getItem("token");
 
         // console.log(obj);
         let apiLink = `http://${hostName}/api/bet?token=${token}`;
