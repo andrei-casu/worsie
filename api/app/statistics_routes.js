@@ -40,7 +40,7 @@ module.exports = (() => {
   const getUserStatistics = () => new Promise((resolve, reject) => {
     getAllUsers().then((users) => {
       Promise.all(users.map((user) => {
-        return getBets({user_id: user.id + ''}).then((bets) => {
+        return getBets({user_id: user.id}).then((bets) => {
           let totalSum = 0;
           let totalBets = bets.length;
           let won = 0;
