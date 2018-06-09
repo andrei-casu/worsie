@@ -32,7 +32,7 @@ module.exports = (() => {
       const elements = db.collection(type);
       if (query === undefined) query = {};
 
-      elements.find(query).toArray((err, elements) => {
+      elements.find(query).sort({timestamp: 1}).toArray((err, elements) => {
         if (err) return reject(err);
         resolve(elements.reverse());
       });
