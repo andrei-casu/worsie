@@ -12,56 +12,65 @@ import AdminMain from './AdminMain';
 class Admin extends Component{
     constructor(props) {
       super(props);
-
-
-      this.addRaceClick = this.addRaceClick.bind(this);
-      this.addPairClick = this.addPairClick.bind(this);
-    
     }
 
     componentDidMount() {
+      // console.log("COMPONENT DID MOUNT");
+
       const token = localStorage.getItem('token');
       if (token === null){
         this.props.history.push("/login");
       }
 
-      if (Object.keys(this.props.user.userInfo).length === 0){
-        
-        this.props.getUserInfo(JSON.parse(localStorage.getItem('token')));
+
+      if (Object.keys(this.props.pairs).length === 0){
+        this.props.getPairs();
       }
+
+      
+      if (Object.keys(this.props.user.userInfo).length === 0){
+        this.props.getUserInfo();
+      }
+
       this.getEvents(this.props);
-  }
+
+      this.interval = setInterval(() => location.reload(), 300000);
+    }
 
 
     componentWillReceiveProps(newProps) {
+      console.log(newProps);
+
+      if (newProps.events.loading === false){
+          this.getEvents(newProps);
+      }
       
-      this.getEvents(newProps);
     }
 
-  getEvents(props) {
-
-    const {events, type} = props;
-  
-    if (events[type].length === 0) {
-      props.getEvents(type);
+    componentWillUnmount() {
+      clearInterval(this.interval);
     }
-  }
 
-  addRaceClick(){
+    getEvents(props) {
+
+      const {type, events} = props;
+      
+      if (events[type] === null) {
+          props.getEvents(type);
+      }
+    }
     
-    // console.log("ADD RACE BLICK", obj);
-  }
-
-  addPairClick(){
-    
-    // console.log("ADD Pair CLICK", obj);
-  }
-
-
     render() {
 
       const { type, events, user } = this.props;
       
+      let dEvents = events[type];    
+      
+
+      if (dEvents === null) return null;
+
+      
+      console.log(this.props.pairs);
       switch (type){
 
         case "main_admin":{
@@ -69,7 +78,7 @@ class Admin extends Component{
             return (
               <div>
                 <LayoutAdmin user={this.props.user.userInfo}>
-                  <AdminMain events={events[type]} user={user}/>
+                  <AdminMain events={dEvents} user={user} />
                 </LayoutAdmin>
               </div>
             );
@@ -80,41 +89,18 @@ class Admin extends Component{
             return (
               <div>
                 <LayoutAdmin user={this.props.user.userInfo}>
-                  <NextRaces events={events[type]}/>
+                  <NextRaces events={dEvents} pairs={this.props.pairs} />
                 </LayoutAdmin>
               </div>
             );
         }
-        
-
-        case "add_races":{
-
-            return (
-              <div>
-                <LayoutAdmin user={this.props.user.userInfo}>
-                  <AddRaces addRace={this.addRaceClick}/>
-                </LayoutAdmin>
-              </div>
-            );
-        }
-
-        case "add_pairs":{
-
-          return (
-            <div>
-              <LayoutAdmin user={this.props.user.userInfo}>
-                <AddPairs addPair={this.addPairClick}/>
-              </LayoutAdmin>
-            </div>
-          );
-      }
 
         case "races_history":{
 
             return (
               <div>
                 <LayoutAdmin user={this.props.user.userInfo}>
-                  <RacesHistory events={events[type]}/>
+                  <RacesHistory events={dEvents}/>
                 </LayoutAdmin>
               </div>
             );
@@ -125,7 +111,7 @@ class Admin extends Component{
           return (
             <div>
               <LayoutAdmin user={this.props.user.userInfo}>
-                <AdminMain events={events[type]} user={user}/>
+                <AdminMain events={dEvents} user={user}/>
               </LayoutAdmin>
             </div>
           );

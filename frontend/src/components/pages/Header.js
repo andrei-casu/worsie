@@ -60,14 +60,16 @@ export default class Header extends Component {
 				}
 
 				<NavLink className="header-content-link" to="/events/finished">Finished</NavLink>
+				<NavLink className="header-content-link" to="/events/1_hour">Next hour</NavLink>
+				<NavLink className="header-content-link" to="/events/2_hours">Next 2 hours</NavLink>
 				<NavLink className="header-content-link" to="/events/3_hours">Next 3 hours</NavLink>
 
-
+{/* 
 				{
 					[1, 2, 3].map((nr) => (
 						<NavLink key={nr} className="header-content-link" to={`/events/${nr}`}> {nr} day(s)</NavLink>
 					))
-				}
+				} */}
 
 				<a className="icon"> <i className="fas fa-bars" onClick={this.menuClick} /></a>
 

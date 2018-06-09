@@ -8,6 +8,8 @@ import events_history from '../dummy/events_history';
 
 
 const threeH_mili = 10800000;
+const twoH_mili = 7200000;
+const oneH_mili = 3600000;
 const oneD_mili = threeH_mili * 8;
 const hostName = '206.189.30.132:3000';
 
@@ -21,7 +23,7 @@ export function getEvents(type) {
 
       case 'main':{
 
-        const data_end = currentDate_mili + threeH_mili;
+        const data_end = currentDate_mili + oneH_mili;
         let apiLink = `http://${hostName}/api/events?start_date=${currentDate_mili}&end_date=${data_end}&token=${token}`;
 
         axios.get(apiLink)
@@ -43,10 +45,63 @@ export function getEvents(type) {
         break;
       }
 
+      
+      case '1_hour':{
+        
+        const data_end = currentDate_mili + oneH_mili;
+        let apiLink = `http://${hostName}/api/events?start_date=${currentDate_mili}&end_date=${data_end}&token=${token}`;
+        
+
+        axios.get(apiLink)
+        .then(function(response){ 
+
+          // console.log(response.data);
+          
+          if (response.data.success === true){
+
+            dispatch({
+              type: types.EVENTS,
+              eventsType: type,
+              events: response.data.events
+            });
+          }
+
+          dispatch({type: types.LOADING_END});
+
+        });
+        break;
+      }
+
+      case '2_hours':{
+        
+        const data_end = currentDate_mili + twoH_mili;
+        let apiLink = `http://${hostName}/api/events?start_date=${currentDate_mili+oneH_mili}&end_date=${data_end}&token=${token}`;
+        
+
+        axios.get(apiLink)
+        .then(function(response){ 
+
+          // console.log(response.data);
+          
+          if (response.data.success === true){
+
+            dispatch({
+              type: types.EVENTS,
+              eventsType: type,
+              events: response.data.events
+            });
+          }
+
+          dispatch({type: types.LOADING_END});
+
+        });
+        break;
+      }
+
       case '3_hours':{
         
         const data_end = currentDate_mili + threeH_mili;
-        let apiLink = `http://${hostName}/api/events?start_date=${currentDate_mili}&end_date=${data_end}&token=${token}`;
+        let apiLink = `http://${hostName}/api/events?start_date=${currentDate_mili+twoH_mili}&end_date=${data_end}&token=${token}`;
         
 
         axios.get(apiLink)
@@ -105,16 +160,32 @@ export function getEvents(type) {
           eventsType: type,
           events: bestEvents.best_events
         });
+        
+        dispatch({type: types.LOADING_END});
         break;
       }
 
       
       case 'races_list': {
-
-          dispatch({
-            type: types.EVENTS,
-            eventsType: type,
-            events: bestEvents.best_events
+        
+          const data_end = currentDate_mili + threeH_mili;
+          let apiLink = `http://${hostName}/api/events?start_date=${currentDate_mili}&end_date=${data_end}&token=${token}`;
+          
+  
+          axios.get(apiLink)
+          .then(function(response){ 
+            
+            if (response.data.success === true){
+  
+              dispatch({
+                type: types.EVENTS,
+                eventsType: type,
+                events: response.data.events
+              });
+            }
+  
+            dispatch({type: types.LOADING_END});
+  
           });
           break;
       }
@@ -126,46 +197,17 @@ export function getEvents(type) {
           eventsType: type,
           events: events_history.events_history
         });
-        break;
-      }
-      
-     case "add_races": {
-        
-        dispatch({
-          type: types.EVENTS,
-          eventsType: type,
-          events: events.events
-        });
-        break;
-      }
 
-      case "add_pairs": {
-        
-        dispatch({
-          type: types.EVENTS,
-          eventsType: type,
-          events: events.events
-        });
+        dispatch({type: types.LOADING_END});
         break;
       }
       //////////////*ADMIN*////////////
 
       default: {
       
-        const data_start = currentDate_mili + type*oneD_mili;
-        const data_end = data_start + oneD_mili;
-        let apiLink = `http://${hostName}/api/events?start_date=${data_start}&end_date=${data_end}&token=${token}`;
-
-        axios.get(apiLink)
-        .then(function(response){
-
-          dispatch({
-            type: types.EVENTS,
-            eventsType: type,
-            events: response.data.events
-          });
-          dispatch({type: types.LOADING_END});
-        });
+        
+        dispatch({type: types.LOADING_END});
+        
         break;
       }
     }

@@ -20,7 +20,7 @@ export function startLogin(obj, props) {
          axios.post(apiLink, obj)
             .then(function (response) {
                
-               // console.log(response.data);
+               console.log(response.data);
                if (response.data.success === true){
 
                     localStorage.setItem('token', response.data.token);

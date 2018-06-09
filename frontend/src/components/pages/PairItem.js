@@ -70,7 +70,9 @@ export default class PairItem extends Component{
 
     getPairInfo(){
         const {pairs, pair} = this.props;
+        
 
+        console.log(pairs);
         for(let index in pairs){
             if (pairs[index]._id === pair){
                 this.setState({index: index});

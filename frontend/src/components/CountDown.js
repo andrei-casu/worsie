@@ -21,14 +21,13 @@ export default class CountDown extends Component {
 
                                 setTimeout(()=>{
                                     this.props.getEvents(this.props.eventType);
-                                }, 2000)
+                                }, 2000);
                                 
                                 // location.reload();
                                 return;
                             }
                             this.setState({now: new Date()});
-
-                        },1000)
+                        },1000);
     }
 
     componentWillUnmount() {

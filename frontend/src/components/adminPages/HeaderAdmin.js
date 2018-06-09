@@ -42,8 +42,6 @@ export default class HeaderAdmin extends Component {
 
 				<NavLink className="header-content-link" to="/admin/main_admin"><i className="fas fa-home"/></NavLink> 
 				<NavLink className="header-content-link" to="/admin/races_list">Lista curse viitoare</NavLink>
-				<NavLink className="header-content-link" to="/admin/add_races">Adaugare curse</NavLink>
-				<NavLink className="header-content-link" to="/admin/add_pairs">Adaugare perechi</NavLink>
 				<NavLink className="header-content-link" to="/admin/races_history">Istoric curse</NavLink>
 
 				{

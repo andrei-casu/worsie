@@ -16,7 +16,7 @@ class Events extends Component{
 
   
   componentDidMount() {
-    console.log("COMPONENT DID MOUNT");
+    // console.log("COMPONENT DID MOUNT");
 
     const token = localStorage.getItem('token');
     if (token === null){
@@ -40,8 +40,8 @@ class Events extends Component{
 
   
   componentWillReceiveProps(newProps) {
-      console.log(newProps);
-      console.log("RECEIVE PROPS");
+      // console.log(newProps);
+      // console.log("RECEIVE PROPS");
       if (newProps.events.loading === false){
           this.getEvents(newProps);
       }

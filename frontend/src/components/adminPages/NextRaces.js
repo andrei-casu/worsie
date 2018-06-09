@@ -58,12 +58,22 @@ export default class NextRaces extends Component {
 
     render() {
 
-        const { events } = this.props;
+        const { events, pairs } = this.props;
         const { updateClick, indexUpdate, isEventClicked, eventIndex } = this.state;
 
+        let newPairs = [];
 
-        if (events.length === 0) return null;
+        console.log(this.props);
 
+        if (events.length === 0 && pairs.length === 0) return null;
+         
+
+        for(let index in pairs){
+            newPairs[index] = pairs[index];
+        }
+
+        
+        
         return (
             <div className="margin-auto">
                 {
@@ -74,7 +84,7 @@ export default class NextRaces extends Component {
                                     <div className={`title margin-bottom ${isEventClicked === true && index === eventIndex && "active"}`} onClick={() => { this.eventNameClick(index); }}>{event.name}</div>
                                     <div className={`event-info ${isEventClicked == true && index === eventIndex && "active"}`}>
                                         <div className="sub-title margin-bottom">{event.bet_description}</div>
-                                        <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleDateString('en-US')}</div>
+                                        <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleString('en-US')}</div>
                                     </div>
                                     <div className="participants margin-bottom">
 
@@ -83,19 +93,10 @@ export default class NextRaces extends Component {
                                                 <tr>
                                                     <th>Pereche</th>
                                                     {
-                                                        event.pairs.map((pair, ind) => {
+                                                        newPairs.map((pair, ind) => {
 
-                                                            return (<td key={ind}>{(pair.pair.name)}</td>);
-                                                            // return (
-                                                            //     <td key={ind}>
-                                                            //         <Link to={`/pair/${pair.pair.id}`}>
-                                                            //         <div className="name margin-bottom">
-                                                            //             {pair.pair.name}
-                                                            //         </div>
-                                                            //         </Link>
-                                                            //     </td>
-                                                            // );
-                                                            
+                                                            return (<td key={ind}>{(pair.name)}</td>);
+       
                                                         })
                                                     }
                                                 </tr>
@@ -127,7 +128,7 @@ export default class NextRaces extends Component {
                                                         })
                                                     }
                                                 </tr>
-                                                <tr>
+                                                {/* <tr>
                                                     <th>Update Cota</th>
                                                     {
                                                         event.pairs.map((pair, ind) => {
@@ -135,7 +136,7 @@ export default class NextRaces extends Component {
                                                             return (<td key={ind} onClick={() => { this.updateClick(ind); }}><i className="fas fa-pen-square update-button-open" /></td>);
                                                         })
                                                     }
-                                                </tr>
+                                                </tr> */}
                                             </tbody>
                                         </table>
                                     </div>

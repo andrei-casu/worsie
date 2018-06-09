@@ -9,6 +9,8 @@ export default function eventsReduce(state = {
   add_races: null,
   add_pairs: null,
   '3_hours': null,
+  '2_hours': null,
+  '1_hour': null,
   'finished': null,
   1: null, 2: null, 3: null
 }, action) {

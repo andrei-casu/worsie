@@ -25,7 +25,7 @@ export default class EventRender extends Component{
         const {isEventClicked} = this.state;
 
         // console.log(event);
-        console.log(this.props);
+        // console.log(this.props);
         return(
             <div className="event">
                 <div className={`title margin-bottom ${isEventClicked === true && "active"}`} onClick={this.eventNameClick}>{event.name}</div>
