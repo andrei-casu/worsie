@@ -61,19 +61,12 @@ export default class NextRaces extends Component {
         const { events, pairs } = this.props;
         const { updateClick, indexUpdate, isEventClicked, eventIndex } = this.state;
 
-        let newPairs = [];
 
-        console.log(this.props);
+        if (events.length === 0 || Object.keys(pairs).length === 0) return null;
 
-        if (events.length === 0 && pairs.length === 0) return null;
-         
 
-        for(let index in pairs){
-            newPairs[index] = pairs[index];
-        }
 
-        
-        
+
         return (
             <div className="margin-auto">
                 {
@@ -88,14 +81,43 @@ export default class NextRaces extends Component {
                                     </div>
                                     <div className="participants margin-bottom">
 
+
+                                        {window.innerWidth < 1000 && isEventClicked === true && index === eventIndex && 
+
+                                            event.pairs.map((pair, ind) => {
+
+                                                 let index;  
+                                                 for (index in pairs){
+                                                    if (pairs[index]._id === pair.pair){
+                                                        break;
+                                                    }
+                                                 }
+
+                                                return (<div key={ind} className="next-races active-users">
+                                                            Pereche: {(pairs[index].name)}<br/>
+                                                            Id pereche: {pair.pair}<br/>
+                                                            Cota: {pair.odd}<br/>
+                                                        </div>);
+                                            })
+
+                                        }
+                                        {window.innerWidth >= 1000 &&
                                         <table className={`${isEventClicked === true && index === eventIndex && "table-active"}`}>
                                             <thead>
                                                 <tr>
                                                     <th>Pereche</th>
                                                     {
-                                                        newPairs.map((pair, ind) => {
+                                                        event.pairs.map((pair, ind) => {
 
-                                                            return (<td key={ind}>{(pair.name)}</td>);
+
+                                                             let index;  
+                                                             for (index in pairs){
+                                                                if (pairs[index]._id === pair.pair){
+                                                                    break;
+                                                                }
+                                                             }
+
+                                                            return (<td key={ind}>{(pairs[index].name)}</td>);
        
                                                         })
                                                     }
@@ -107,7 +129,7 @@ export default class NextRaces extends Component {
                                                     {
                                                         event.pairs.map((pair, ind) => {
 
-                                                            return (<td key={ind}>{pair.pair.id}</td>);
+                                                            return (<td key={ind}>{pair.pair}</td>);
                                                         })
                                                     }
                                                 </tr>
@@ -139,6 +161,7 @@ export default class NextRaces extends Component {
                                                 </tr> */}
                                             </tbody>
                                         </table>
+                                        }
                                     </div>
                                 </div>
                             </div>

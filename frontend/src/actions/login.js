@@ -31,7 +31,13 @@ export function startLogin(obj, props) {
                         success: true
                     });
 
-                    props.history.push("/events/main");
+                    if (response.data.admin === true){
+                        props.history.push("/admin/main_admin");
+                    }
+
+                    if (response.data.admin === false){
+                      props.history.push("/events/main");
+                    }
                     
                 }
                 else{

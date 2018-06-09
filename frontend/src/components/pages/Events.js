@@ -29,13 +29,13 @@ class Events extends Component{
     }
 
     
-    if (Object.keys(this.props.user.userInfo).length === 0){
+    // if (Object.keys(this.props.user.userInfo).length === 0){
       this.props.getUserInfo();
-    }
+    // }
 
     this.getEvents(this.props);
 
-     this.interval = setInterval(() => location.reload(), 300000);
+     this.interval = setInterval(() => this.props.getEvents(this.props.type), 180000) 
   }
 
   

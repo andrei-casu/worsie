@@ -23,6 +23,7 @@ body {
 .bet-button{
   cursor: pointer;
 }
+
 .user-menu {
   width: 15%;
   background: rgb(172, 26, 39);
@@ -730,11 +731,6 @@ th, td{
     padding: 5px;
 }
 
-td{
-  cursor: pointer;
-}
-
-
 .admin .update-button-open{
   
 }
@@ -802,20 +798,51 @@ td{
   font-size: 28px;
   margin-bottom: 20px;
   font-weight: bold;
+  text-align: center;
   
+}
+
+.main-admin .participants{
+  text-align: center;
+}
+.main-admin .active-users{
+    border: 1px dotted #AC1A27;
+    display: inline-table;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.next-races.active-users{
+    border: 1px dotted #AC1A27;
+    display: inline-table;
+    padding: 20px;
+    margin: 20px;
+    text-align: left;
 }
 
 .main-admin{
   
-  text-align: center;
+  /*text-align: center;*/
   padding: 30px;
+  text-align: center;
 }
 
 .main-admin .subtitle{
 
-  text-align: left;
+  text-align: center;
   margin-bottom: 30px;  
   font-size: 25px;
+}
+
+.main-admin .sub-title{
+
+  margin-bottom: 30px; 
+  
+}
+
+.main-admin .event-info{
+  margin-bottom: 20px; 
 }
 
 .amount-error{
@@ -831,4 +858,11 @@ td{
     color: green;
     margin-bottom: 10px;
 
+}
+
+.participants td{
+    max-width: 16vw;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

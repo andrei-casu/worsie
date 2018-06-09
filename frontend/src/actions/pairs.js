@@ -37,7 +37,6 @@ export function getPairs() {
     axios.get(apiLink)
     .then(function(response ){
 
-        console.log(response.data);
         if (response.data.success === true){
           dispatch({
             type: types.PAIRS,

@@ -25,45 +25,68 @@ export default class AdminMain extends Component{
         }
     }
 
+
+
     render(){
-        const {events} = this.props;
+        
+        const {generalStatistics, events, userStatistics} = this.props.events;
         const {isEventClicked, eventIndex} = this.state;
+
 
         return(
             <div className=" margin-auto main-admin"> 
                 <div className="title">Statistici generale </div>
-                <div className="subtitle"> Numar total de pariuri: 6347 </div>
-                <div className="subtitle"> Profitul total: 215643 lei </div>
+                <div className="subtitle"> Numar total de pariuri: {generalStatistics.totalBets} </div>
+                <div className="subtitle"> Profitul total: {generalStatistics.totalProfit} lei </div>
+                <div className="subtitle"> Cei mai activi pariori: </div>
+                <div className="participants margin-bottom">
+                    {
+                        userStatistics.map((user, index)=>{
+                            return(
+                                <div key={index} className="active-users">
+                                    <div className="sub-title"> Nume parior: {user.name}</div>
+                                    <div className="sub-title"> Suma totala pariata: {user.totalSum} lei</div>
+                                    <div className="sub-title"> Numar total de pariuri: {user.totalBets}</div>
+                                    <div className="sub-title"> Rata de succes: {user.successRate}%</div>
+                                </div>
+
+                            );
+                        })
+                    }
+                </div>
                 <div className="subtitle"> Evenimentele cu cele mai mari pariuri: </div>
 
                 {
                     events.map((event, index)=>{
+
+                    if (index > 30) return;
+                    if (event.totalBets === 0) return;
+                    
                     return (
                         <div key={index} className="event">
-                            <div className={`title margin-bottom ${isEventClicked === true && index === eventIndex && "active"}`} onClick={()=>{this.eventNameClick(index);}}>{event.name}</div>
+                            {/*<div className={`title margin-bottom ${isEventClicked === true && index === eventIndex && "active"}`} onClick={()=>{this.eventNameClick(index);}}>{event.name}</div>*/}
+                            <div className={`title margin-bottom `}>{event.name}</div>
                                 <div className={`event-info ${isEventClicked == true && index === eventIndex && "active"}`}>
-                                    <div className="sub-title margin-bottom">{event.bet_description}</div>
-                                    <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleDateString('en-US')}</div>
+                                    
+                                    <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleString('en-US')}</div>
                                 </div>
-                                <div className="participants margin-bottom">
-
-                            
-                                { isEventClicked === true && index === eventIndex &&
-                                    event.pairs.map((pair, index) => {
-                                        return (
-                                            <PairItem key={index} pair={pair.pair} odd={pair.odd} type="short" hideBet={true}/>
-                                        );
-                                    })
-                                }
-                                <div className="sub-title"> Suma totala pariata: 1300 lei</div>
-                                </div>
+                                <div className="sub-title"> Numar total de pariuri: {event.totalBets}</div>
+                                <div className="sub-title"> Suma totala pariata: {event.totalSum} lei</div>
+                                 <div className="sub-title"> Profitul total: {event.totalProfit} lei</div>
+                                 <div className="sub-title"> Pierderi: {event.totalSumWon} lei</div>
+                                {/*<div className="participants margin-bottom">
+                                    { isEventClicked === true && index === eventIndex &&
+                                        event.pairs.map((pair, index) => {
+                                            return (
+                                                <PairItem key={index} pair={pair.pair} odd={pair.odd} type="short" hideBet={true}/>
+                                            );
+                                        })
+                                    }
+                                </div> */}
                         </div>
                     );
                 })
-                }
-                <div className="subtitle"> Cei mai activi pariori:</div>
-       
-
+                }       
             </div>
         );
     }

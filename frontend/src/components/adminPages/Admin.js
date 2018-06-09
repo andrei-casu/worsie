@@ -4,8 +4,8 @@ import LayoutAdmin from './LayoutAdmin';
 import Wrapper from '../Wrapper';
 import NextRaces from './NextRaces';
 import RacesHistory from './RacesHistory';
-import AddRaces from './AddRaces';
-import AddPairs from './AddPairs';
+// import AddRaces from './AddRaces';
+// import AddPairs from './AddPairs';
 import AdminMain from './AdminMain';
 
 
@@ -27,10 +27,9 @@ class Admin extends Component{
         this.props.getPairs();
       }
 
+
+      this.props.getUserInfo();
       
-      if (Object.keys(this.props.user.userInfo).length === 0){
-        this.props.getUserInfo();
-      }
 
       this.getEvents(this.props);
 
@@ -39,8 +38,7 @@ class Admin extends Component{
 
 
     componentWillReceiveProps(newProps) {
-      console.log(newProps);
-
+  
       if (newProps.events.loading === false){
           this.getEvents(newProps);
       }
@@ -62,15 +60,13 @@ class Admin extends Component{
     
     render() {
 
-      const { type, events, user } = this.props;
+      const { type, user, events } = this.props;
       
       let dEvents = events[type];    
       
 
       if (dEvents === null) return null;
 
-      
-      console.log(this.props.pairs);
       switch (type){
 
         case "main_admin":{
@@ -100,7 +96,7 @@ class Admin extends Component{
             return (
               <div>
                 <LayoutAdmin user={this.props.user.userInfo}>
-                  <RacesHistory events={dEvents}/>
+                  <RacesHistory events={dEvents} pairs={this.props.pairs}/>
                 </LayoutAdmin>
               </div>
             );

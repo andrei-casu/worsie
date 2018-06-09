@@ -2,7 +2,7 @@ import * as types from '../constants/events';
 // import fetch from 'isomorphic-fetch';
 import axios from 'axios';
 import bestEvents from '../dummy/best_events';
-import events from '../dummy/events';
+// import events from '../dummy/events';
 import events_history from '../dummy/events_history';
 // import event from '../dummy/event';
 
@@ -10,7 +10,7 @@ import events_history from '../dummy/events_history';
 const threeH_mili = 10800000;
 const twoH_mili = 7200000;
 const oneH_mili = 3600000;
-const oneD_mili = threeH_mili * 8;
+// const oneD_mili = threeH_mili * 8;
 const hostName = '206.189.30.132:3000';
 
 export function getEvents(type) {
@@ -155,14 +155,29 @@ export function getEvents(type) {
       //////////////*ADMIN*////////////
       case 'main_admin':{
 
-        dispatch({
-          type: types.EVENTS,
-          eventsType: type,
-          events: bestEvents.best_events
-        });
-        
-        dispatch({type: types.LOADING_END});
-        break;
+          let apiLink = `http://${hostName}/api/statistics_events?token=${token}`;
+
+          axios.get(apiLink)
+          .then(function(response){ 
+            
+            if (response.data.success === true){
+              
+
+              const events = response.data.events;
+              const generalStatistics = response.data.generalStatistics;
+              const userStatistics = response.data.userStatistics;
+
+              dispatch({
+                type: types.EVENTS,
+                eventsType: type,
+                events: {events, generalStatistics, userStatistics}
+              });
+            }
+  
+            dispatch({type: types.LOADING_END});
+  
+          });
+          break;
       }
 
       
@@ -170,8 +185,7 @@ export function getEvents(type) {
         
           const data_end = currentDate_mili + threeH_mili;
           let apiLink = `http://${hostName}/api/events?start_date=${currentDate_mili}&end_date=${data_end}&token=${token}`;
-          
-  
+
           axios.get(apiLink)
           .then(function(response){ 
             
@@ -192,14 +206,29 @@ export function getEvents(type) {
 
       case 'races_history': {
 
-        dispatch({
-          type: types.EVENTS,
-          eventsType: type,
-          events: events_history.events_history
-        });
+        let apiLink = `http://${hostName}/api/statistics_events?token=${token}`;
 
-        dispatch({type: types.LOADING_END});
-        break;
+          axios.get(apiLink)
+          .then(function(response){ 
+            
+            if (response.data.success === true){
+              
+
+              const events = response.data.events;
+              const generalStatistics = response.data.generalStatistics;
+              const userStatistics = response.data.userStatistics;
+
+              dispatch({
+                type: types.EVENTS,
+                eventsType: type,
+                events: {events, generalStatistics, userStatistics}
+              });
+            }
+  
+            dispatch({type: types.LOADING_END});
+  
+          });
+          break;
       }
       //////////////*ADMIN*////////////
 
