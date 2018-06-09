@@ -32,7 +32,7 @@ export default class EventRender extends Component{
                     <div className={`event-info ${isEventClicked == true && "active"}`}>
                         <div className="sub-title margin-bottom">{event.bet_description}</div>
                         <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleString('en-US')}</div>
-                        {this.props.page_type !== "finished" && 
+                        {this.props.page_type !== "finished" && isEventClicked === true &&
                             <CountDown eventTime={event.timestamp} getEvents={this.props.getEvents} eventType={this.props.eventType}/>
                         }
 

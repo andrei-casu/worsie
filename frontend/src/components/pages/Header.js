@@ -46,14 +46,8 @@ export default class Header extends Component {
 				
 				<NavLink className="header-content-link" to="/events/main"><i className="fas fa-home" /></NavLink>
 				{window.innerWidth < 800 && <a className="header-content-link">Credit: {credit}</a>}
-				{
-					window.innerWidth < 800 &&
-					<NavLink onClick={this.logoutClick} className="header-content-link" to="/login"> <i className="fas fa-sign-out-alt" />Logout</NavLink>
-				}
-				{
-					window.innerWidth < 700 &&
-					<NavLink className="header-content-link" to="/user/profile"><div><i className="fas fa-user" /> Profile</div></NavLink>
-				}
+				
+				
 				{
 					// window.innerWidth < 700 &&
 					// <NavLink className="header-content-link" to="/user/bets"><div><i className="fas fa-money-bill-alt"/> My bets</div></NavLink>
@@ -63,6 +57,14 @@ export default class Header extends Component {
 				<NavLink className="header-content-link" to="/events/1_hour">Next hour</NavLink>
 				<NavLink className="header-content-link" to="/events/2_hours">Next 2 hours</NavLink>
 				<NavLink className="header-content-link" to="/events/3_hours">Next 3 hours</NavLink>
+				{
+					window.innerWidth < 700 &&
+					<NavLink className="header-content-link" to="/user/profile"><div><i className="fas fa-user" /> Profile</div></NavLink>
+				}
+				{
+					window.innerWidth < 800 &&
+					<NavLink onClick={this.logoutClick} className="header-content-link" to="/login"> <i className="fas fa-sign-out-alt" />Logout</NavLink>
+				}
 
 {/* 
 				{
@@ -78,7 +80,7 @@ export default class Header extends Component {
 
 					{window.innerWidth >= 800 && <div className="user-name">Credit: {credit}</div>}
 					<div className="user-name">{user.name}</div>
-					<img className="user-avatar" src={user.avatar} />
+					<img className="user-avatar" src={"https://www.timesnewroman.ro/files/attach/images/127/624084/nea_costel_merge_la_vot.jpg"} />
 
 					{
 						window.innerWidth >= 800 &&

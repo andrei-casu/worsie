@@ -55,7 +55,7 @@ export default class HeaderAdmin extends Component {
 				
 				<div className="user-info">
 					<div className="user-name">{user.name}</div>
-					<img className="user-avatar" src={user.avatar} />
+					<img className="user-avatar" src={"https://www.timesnewroman.ro/files/attach/images/127/624084/nea_costel_merge_la_vot.jpg"} />
 					
 					{
 						window.innerWidth >= 800 && 
