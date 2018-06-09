@@ -4,6 +4,11 @@ module.exports = (() => {
   const { getUser, newUser } = require('./user_actions');
   const { secret } = require('./config/config');
 
+  const isAdmin = (id) => {
+    if (id === 4) return true;
+    return false;
+  }
+
   const checkAuthenticated = (req, res, next) => {
     var token = req.body.token || req.query.token;
 
@@ -35,7 +40,7 @@ module.exports = (() => {
         });
 
         let admin = false;
-        if (user.id === 4) {
+        if (isAdmin(user.id) === true) {
           admin = true;
         }
 
@@ -69,5 +74,6 @@ module.exports = (() => {
     authenticate,
     register,
     checkAuthenticated,
+    isAdmin
   };
 })();
