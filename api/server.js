@@ -34,7 +34,7 @@
   routing.start(port);
   intervalPairs();
   intervalEvents();
-  // interval1Day();
+  interval1Day();
   interval2Day();
   interval3Day();
 })();
