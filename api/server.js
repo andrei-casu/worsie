@@ -8,7 +8,7 @@
   const {getEventsRoute, getEventRoute} = require('./app/event_routes');
   const {addBetRoute, getBetsRoute} = require('./app/bet_routes');
   const {getAtomFeed} = require('./app/feed_routes');
-  const {getEventsStatistics} = require('./app/statistics_routes');
+  const {getEventsStatistics, getUserStatistics} = require('./app/statistics_routes');
   const port = 3000;
 
   routing.applyMiddleware('/api', checkAuthenticated);
@@ -28,6 +28,7 @@
   routing.get('/api/event', getEventRoute);
 
   routing.get('/api/statistics_events', getEventsStatistics);
+  routing.get('/api/statistics_users', getUserStatistics);
 
   routing.post('/api/bet', addBetRoute);
   routing.get('/api/bets', getBetsRoute);
