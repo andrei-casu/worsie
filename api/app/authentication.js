@@ -33,11 +33,17 @@ module.exports = (() => {
         const token = jwt.sign({ user }, secret, {
           expiresIn: 86400
         });
+
+        let admin = false;
+        if (user.id === 4) {
+          admin = true;
+        }
+
         res.json({
           success: true,
           message: 'Enjoy your token!',
           token: token,
-          amazon_account: user.amazon_account
+          admin
         });
       }
       else {

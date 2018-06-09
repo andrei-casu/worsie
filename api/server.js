@@ -7,12 +7,15 @@
   const {getPairsRoute, getPairRoute} = require('./app/pair_routes');
   const {getEventsRoute, getEventRoute} = require('./app/event_routes');
   const {addBetRoute, getBetsRoute} = require('./app/bet_routes');
+  const {getAtomFeed} = require('./app/feed_routes');
   const port = 3000;
 
   routing.applyMiddleware('/api', checkAuthenticated);
 
   routing.post('/authenticate', authenticate);
   routing.post('/register', register);
+
+  routing.get('/feed', getAtomFeed);
 
 
   routing.get('/api/user', getUserRoute);
@@ -25,11 +28,10 @@
 
   routing.post('/api/bet', addBetRoute);
   routing.get('/api/bets', getBetsRoute);
-  
   routing.start(port);
   intervalPairs();
   intervalEvents();
-  interval1Day();
+  // interval1Day();
   interval2Day();
   interval3Day();
 })();
