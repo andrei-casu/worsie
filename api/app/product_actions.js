@@ -7,17 +7,19 @@ module.exports = (() => {
   const {ObjectID} = require('mongodb');
   const faker = require('faker');
 
-  const interval = 5 * 60 * 1000; // 5 minutes
+  const interval = 2 * 60 * 1000; // 2 minutes
+  const day1 = 24 * 60 * 60 * 1000; // 2 minutes
+  const min5 = 5 * 60 * 1000;
   const intervalP = 24 * 60 * 60 * 1000; // 24 hours
 
-  const addNewEvent = () => {
+  const addNewEvent = (diff) => {
     // generate random event
 
     // 5 pairs for event
     const event = {
       name: faker.lorem.sentence(),
       description: faker.lorem.paragraph(),
-      timestamp: new Date().getTime() + 5 * 60 * 1000,
+      timestamp: new Date().getTime() + diff,
       pairs: []
     }
 
@@ -46,15 +48,39 @@ module.exports = (() => {
 
   };
 
+  const interval1Day = () => {
+    for (let i = 0; i < day1 / min5; ++i) {
+      console.log(i);
+      addNewEvent(min5 * i);
+    }
+    // addNewEvent(day1 + min5 * 5);
+    // addNewEvent(day1 + min5 * 15);
+
+    setTimeout(interval1Day, day1);
+  };
+
+  const interval2Day = () => {
+    return;
+    addNewEvent(2 * day1 + min5 * 5);
+    addNewEvent(2 * day1 + min5 * 15);
+
+    setTimeout(interval2Day, 2 * day1);
+  };
+
+  const interval3Day = () => {
+    return;
+    addNewEvent(3 * day1 + min5 * 5);
+    addNewEvent(3 * day1 + min5 * 15);
+
+    setTimeout(interval3Day, 3 * day1);
+  };
+
   const intervalEvents = () => {
     // do smth
-    addNewEvent();
+    // addNewEvent(interval);
+    // addNewEvent(min5);
 
     getEvents({timestamp: {$lt: new Date().getTime(), $gt: new Date().getTime() - 1000 * 60 * 1000}}).then((events) => {
-      // console.log(JSON.stringify(events, true, 2));
-      console.log('AAAAAAAA');
-      // return;
-      // for each events update the result
 
       events.map((event) => {
         if (event.pairs[0].result === undefined) {
@@ -152,6 +178,9 @@ module.exports = (() => {
   
   return {
     intervalEvents,
+    interval1Day,
+    interval2Day,
+    interval3Day,
     intervalPairs
   }
 })();
