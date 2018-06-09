@@ -22,7 +22,10 @@ module.exports = (() => {
       for (i = 0; i < handlers.length; ++i) {
         const handler = handlers[i];
         if (handler.route === parsed.pathname && handler.type === method) {
-          response.writeHead(200, {"Content-Type": "application/json"});
+          if (handler.route === '/feed') 
+            response.writeHead(200, {'Content-Type': 'application/atom+xml'});
+          else
+            response.writeHead(200, {"Content-Type": "application/json"});
           for (j = 0; j < middlewares.length; ++j) {
             const middleware = middlewares[j];
 
