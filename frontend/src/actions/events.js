@@ -53,7 +53,7 @@ export function getEvents(type) {
         .then(function(response){ 
 
           // console.log(response.data);
-
+          
           if (response.data.success === true){
 
             dispatch({

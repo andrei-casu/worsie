@@ -7,12 +7,12 @@ import axios from 'axios';
 
 
 const hostName="206.189.30.132:3000";
-const token = localStorage.getItem("token");
-let apiLink = `http://${hostName}/api/user?token=${token}`;
-
-
 
 export function getUserInfo(){
+  
+  const token = localStorage.getItem("token");
+  let apiLink = `http://${hostName}/api/user?token=${token}`;
+
   return dispatch => {
 
     axios.get(apiLink)

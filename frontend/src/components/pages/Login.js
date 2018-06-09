@@ -74,10 +74,10 @@ import loader from '../../images/orange_circles.gif';
                         <input type="password"  className="form-control" placeholder="Password" value={password} onChange={this.inputChange("password")} />
                     </div>
                     <div>
-                        <div className="checkbox">
+                        {/* <div className="checkbox">
                             <input id="checkbox1" type="checkbox" name="remember"/>
                             <label htmlFor="checkbox1">Remember Me</label>   
-                        </div>
+                        </div> */}
 
                         <div className="login-button">     
                                 

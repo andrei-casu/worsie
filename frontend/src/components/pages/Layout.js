@@ -6,6 +6,7 @@ import NewsMenu from './NewsMenu';
 export default class Layout extends Component{
 
 	render(){
+
 		return(
 			<div>
 				<Header user={this.props.user}/>
