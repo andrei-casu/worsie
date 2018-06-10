@@ -25,7 +25,7 @@ module.exports = (() => {
           if (handler.route === '/feed') 
             response.writeHead(200, {'Content-Type': 'application/atom+xml'});
           else
-            response.writeHead(200, {"Content-Type": "application/json"});
+            response.writeHead(200, {"Content-Type": "application/json", 'Access-Control-Allow-Origin': '*'});
           for (j = 0; j < middlewares.length; ++j) {
             const middleware = middlewares[j];
 
@@ -39,7 +39,7 @@ module.exports = (() => {
         }
       }
       
-      response.writeHead(200);
+      response.writeHead(200, {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type,Accept'});
       response.end();
     };
 
