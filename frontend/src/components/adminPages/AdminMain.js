@@ -52,7 +52,7 @@ export default class AdminMain extends Component{
                                     <div className="sub-title"> Nume parior: {user.name}</div>
                                     <div className="sub-title"> Suma totala pariata: {user.totalSum} lei</div>
                                     <div className="sub-title"> Numar total de pariuri: {user.totalBets}</div>
-                                    <div className="sub-title"> Profit user: {(user.totalSum * user.successRate / 100).toFixed(2)} lei</div>
+                                    <div className="sub-title"> Suma castigata: {(user.totalSum * user.successRate / 100).toFixed(2)} lei</div>
                                     <div className="sub-title"> Rata de succes: {user.successRate}%</div>
                                 </div>
 
