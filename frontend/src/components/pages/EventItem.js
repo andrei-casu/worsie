@@ -13,7 +13,14 @@ export default class EventRender extends Component{
         this.eventNameClick = this.eventNameClick.bind(this);
     }
 
+    componentDidMount(){
+        // console.log("DID MOUNT EVENTITEM");
+    }
 
+    componentWillReceiveProps(){
+
+        this.setState({isEventClicked : false});
+    }
 
     eventNameClick(){
         this.setState({isEventClicked : !this.state.isEventClicked});
@@ -26,7 +33,7 @@ export default class EventRender extends Component{
 
         // console.log(event);
         // console.log(this.props);
-        console.log(isEventClicked);
+        // console.log(isEventClicked);
         return(
             <div className="event">
                 <div className={`title margin-bottom ${isEventClicked === true && "active"}`} onClick={this.eventNameClick}>{event.name}</div>
@@ -44,7 +51,6 @@ export default class EventRender extends Component{
                     { isEventClicked === true &&
                         event.pairs.map((pair, index) => {
 
-                            console.log(pair);
                             return (
                                 <PairItem 
                                     sendBet={this.props.sendBet} 
@@ -57,6 +63,7 @@ export default class EventRender extends Component{
                                     event_id={event._id}
                                     page_type={this.props.page_type}
                                     userCredit = {userCredit}
+                                    event_timestamp={event.timestamp}
                                 />
                             );
                         })

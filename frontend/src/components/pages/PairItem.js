@@ -13,7 +13,8 @@ export default class PairItem extends Component{
             inputVal: "",
             amountError: false,
             inputError: false,
-            betAdded: false
+            betAdded: false,
+            timeExpired: false
         };
 
         this.getPairInfo = this.getPairInfo.bind(this);
@@ -22,6 +23,9 @@ export default class PairItem extends Component{
 
 
     componentDidMount(){
+
+
+        // console.log("DID MOUNT PAIR");
 
         if (this.props.type === "short"){
             this.getPairInfo();
@@ -48,6 +52,10 @@ export default class PairItem extends Component{
             }
 
             if (inputVal.length !== 0 && to === false && inputError === false){
+                if (this.props.event_timestamp < new Date().getTime()){
+                    this.setState({timeExpired: true});
+                    return;
+                }
                 this.props.sendBet({
                     "bet":{ 
                         "event_id": this.props.event_id,
@@ -55,6 +63,8 @@ export default class PairItem extends Component{
                         "amount" : parseInt(inputVal)
                     }
                 });
+
+                console.log("DID BET");
             }
 
             if (inputError === true){
@@ -93,7 +103,8 @@ export default class PairItem extends Component{
 
     render(){
         const {pair, odd, type, hideBet, pairs, page_type, place} = this.props;
-        const {showBetInput, index, amountError, betAdded, inputVal} = this.state;
+        const {showBetInput, index, amountError, betAdded, inputVal, timeExpired} = this.state;
+
 
         if (pair === undefined || (index === undefined && type === "short")) return null;
     
@@ -116,6 +127,7 @@ export default class PairItem extends Component{
                         <div className="bet-input">
                             <div className="input"><input onChange={this.inputChange} className="form-control" type="text" placeholder="MONEY"/></div>
                             {amountError === true && <div className="amount-error"> Eroare! Creditul tau: {this.props.userCredit}</div>}
+                            {timeExpired === true && <div className="amount-error"> Eroare! Cursa a inceput!</div>}
                             <div onClick={this.onShowBet(false)} className="btn">Continue</div>
                             
                         </div>

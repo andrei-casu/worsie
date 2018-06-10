@@ -74,8 +74,7 @@ class Events extends Component{
     const {loading} = events;
 
 
-  
-    console.log(this.props.pairs);
+
     // console.log("PROPSSS");
     // console.log(loading);
     let dEvents = events[type];    
@@ -91,6 +90,7 @@ class Events extends Component{
               <div className="events-container">
                 {
                   dEvents.map((event, index) => {
+
                     return (
                          <EventItem 
                             key={index} 

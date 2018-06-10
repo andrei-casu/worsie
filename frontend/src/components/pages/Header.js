@@ -46,7 +46,7 @@ export default class Header extends Component {
 
 				
 				<NavLink className="header-content-link" to="/events/main"><i className="fas fa-home" /></NavLink>
-				{window.innerWidth < 800 && <a className="header-content-link">Credit: {credit.toFixed(2)}</a>}
+				{window.innerWidth < 800 && <a className="header-content-link">Credit: {credit.toFixed(2)} lei</a>}
 				
 				
 				{
@@ -79,7 +79,7 @@ export default class Header extends Component {
 
 				<div className="user-info">
 
-					{window.innerWidth >= 800 && <div className="user-name">Credit: {credit.toFixed(2)}</div>}
+					{window.innerWidth >= 800 && <div className="user-name">Credit: {credit.toFixed(2)} lei</div>}
 					<div className="user-name">{user.name}</div>
 					<img className="user-avatar" src={"https://www.timesnewroman.ro/files/attach/images/127/624084/nea_costel_merge_la_vot.jpg"} />
 
