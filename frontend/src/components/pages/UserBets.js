@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import Layout from './Layout';
 import Wrapper from '../Wrapper';
+import loader from '../../images/orange_circles.gif';
 
 class UserBets extends Component{
   componentDidMount() {
@@ -18,7 +19,7 @@ class UserBets extends Component{
   }
 
   render() {
-    const {userInfo} = this.props.user;
+    const {userInfo, loading} = this.props.user;
 
     if (Object.keys(userInfo).length === 0) return null; 
     return (
@@ -62,10 +63,8 @@ class UserBets extends Component{
                 );
               })
             }
-
-
-
           </div>
+          {loading === true && <div className="backdrop"><img className="loader" src={loader}/></div>}
         </Layout>
       </div>
     );

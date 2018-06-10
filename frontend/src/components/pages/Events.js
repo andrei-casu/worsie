@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Layout from './Layout';
 import Wrapper from '../Wrapper';
 import EventItem from './EventItem';
+import loader from '../../images/orange_circles.gif';
 
 
 // import pair from '../../dummy/pair_info';
@@ -67,9 +68,10 @@ class Events extends Component{
 
   render() {
     const {type, events} = this.props;
+    const {loading} = events;
 
     // console.log("PROPSSS");
-    // console.log(this.props);
+    // console.log(loading);
     let dEvents = events[type];    
 
     return (
@@ -102,6 +104,7 @@ class Events extends Component{
           }
 
           </div>
+           {loading === true && <div className="backdrop"><img className="loader" src={loader}/></div>}
         </Layout>
       </div>
     );

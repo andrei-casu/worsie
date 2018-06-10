@@ -95,7 +95,6 @@ export default class PairItem extends Component{
         const {pair, odd, type, hideBet, pairs, page_type, place} = this.props;
         const {showBetInput, index, amountError, betAdded, inputVal} = this.state;
 
-
         if (pair === undefined || (index === undefined && type === "short")) return null;
     
         if (type === 'short')

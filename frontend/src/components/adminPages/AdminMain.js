@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import PairItem from '../pages/PairItem';
 
+
 export default class AdminMain extends Component{
     constructor(props){
         super(props);
@@ -34,7 +35,6 @@ export default class AdminMain extends Component{
         const {generalStatistics, events, userStatistics} = this.props.events;
         const {isEventClicked, eventIndex} = this.state;
 
-        
 
         return(
             <div className=" margin-auto main-admin"> 
@@ -42,7 +42,7 @@ export default class AdminMain extends Component{
                 <div className="subtitle"> Numar total de pariuri: {generalStatistics.totalBets} </div>
                 <div className="subtitle"> Profitul total: {generalStatistics.totalProfit} lei </div>
                 <div className="subtitle"> Cei mai activi pariori: </div>
-                <div className="participants margin-bottom">
+                <div className="participants user-results margin-bottom">
                     {
                         userStatistics.map((user, index)=>{
                             return(
@@ -67,8 +67,8 @@ export default class AdminMain extends Component{
                     
                     return (
                         <div key={index} className="event">
-                            {/*<div className={`title margin-bottom ${isEventClicked === true && index === eventIndex && "active"}`} onClick={()=>{this.eventNameClick(index);}}>{event.name}</div>*/}
-                            <div className={`title margin-bottom `}>{event.name}</div>
+                            <div className={`title margin-bottom ${isEventClicked === true && index === eventIndex && "active"}`} onClick={()=>{this.eventNameClick(index);}}>{event.name}</div>
+                      
                                 <div className={`event-info ${isEventClicked == true && index === eventIndex && "active"}`}>
                                     
                                     <div className="date margin-bottom">Data si ora cursei: {new Date(event.timestamp).toLocaleString('en-US')}</div>
@@ -80,8 +80,19 @@ export default class AdminMain extends Component{
                                 {/*<div className="participants margin-bottom">
                                     { isEventClicked === true && index === eventIndex &&
                                         event.pairs.map((pair, index) => {
+
+                                            
                                             return (
-                                                <PairItem key={index} pair={pair.pair} odd={pair.odd} type="short" hideBet={true}/>
+                                                <PairItem page_type="finished"
+                                                          event_id={event._id} 
+                                                          key={index}
+                                                          odd={pair.odd} 
+                                                          type="short" 
+                                                          hideBet={true}
+                                                          pair={pair.pair}
+                                                          place={pair.result}
+                                                          pairs={this.props.pairs} 
+                                                />
                                             );
                                         })
                                     }

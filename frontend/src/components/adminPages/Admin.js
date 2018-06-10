@@ -7,6 +7,7 @@ import RacesHistory from './RacesHistory';
 // import AddRaces from './AddRaces';
 // import AddPairs from './AddPairs';
 import AdminMain from './AdminMain';
+import loader from '../../images/orange_circles.gif';
 
 
 class Admin extends Component{
@@ -62,6 +63,8 @@ class Admin extends Component{
 
       const { type, user, events } = this.props;
       
+
+      const {loading} = events;
       let dEvents = events[type];    
       
 
@@ -74,7 +77,8 @@ class Admin extends Component{
             return (
               <div>
                 <LayoutAdmin user={this.props.user.userInfo}>
-                  <AdminMain events={dEvents} user={user} />
+                  <AdminMain events={dEvents} user={user} pairs={this.props.pairs}/>
+                  {loading === true && <div className="backdrop"><img className="loader" src={loader}/></div>}
                 </LayoutAdmin>
               </div>
             );
@@ -86,6 +90,7 @@ class Admin extends Component{
               <div>
                 <LayoutAdmin user={this.props.user.userInfo}>
                   <NextRaces events={dEvents} pairs={this.props.pairs} />
+                  {loading === true && <div className="backdrop"><img className="loader" src={loader}/></div>}
                 </LayoutAdmin>
               </div>
             );
@@ -97,6 +102,7 @@ class Admin extends Component{
               <div>
                 <LayoutAdmin user={this.props.user.userInfo}>
                   <RacesHistory events={dEvents} pairs={this.props.pairs}/>
+                  {loading === true && <div className="backdrop"><img className="loader" src={loader}/></div>}
                 </LayoutAdmin>
               </div>
             );
@@ -107,7 +113,8 @@ class Admin extends Component{
           return (
             <div>
               <LayoutAdmin user={this.props.user.userInfo}>
-                <AdminMain events={dEvents} user={user}/>
+                <AdminMain events={dEvents} user={user} pairs={this.props.pairs}/>
+                {loading === true && <div className="backdrop"><img className="loader" src={loader}/></div>}
               </LayoutAdmin>
             </div>
           );
@@ -121,7 +128,7 @@ export default class extends Component {
 
     return (
       <Wrapper type={this.props.match.params.type}>
-        <Admin history={this.props.history}/>
+        <Admin history={this.props.history} />
       </Wrapper>
     );
   }
