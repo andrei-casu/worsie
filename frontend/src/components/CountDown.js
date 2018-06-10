@@ -21,7 +21,7 @@ export default class CountDown extends Component {
 
                                 setTimeout(()=>{
                                     this.props.getEvents(this.props.eventType);
-                                }, 2000);
+                                }, 1000);
                                 
                                 // location.reload();
                                 return;

@@ -73,6 +73,9 @@ class Events extends Component{
     const {type, events} = this.props;
     const {loading} = events;
 
+
+  
+    console.log(this.props.pairs);
     // console.log("PROPSSS");
     // console.log(loading);
     let dEvents = events[type];    
@@ -84,7 +87,7 @@ class Events extends Component{
         <Layout news={this.props.news.news} user={this.props.user.userInfo}>
           <div className="page events-page">
           {
-            dEvents !== null && (
+            dEvents !== null && Object.keys(this.props.pairs).length !== 0 &&(
               <div className="events-container">
                 {
                   dEvents.map((event, index) => {
@@ -107,7 +110,7 @@ class Events extends Component{
           }
 
           </div>
-           {loading === true && <div className="backdrop"><img className="loader" src={loader}/></div>}
+           {(loading === true || Object.keys(this.props.pairs).length === 0 )&& <div className="backdrop"><img className="loader" src={loader}/></div>}
         </Layout>
       </div>
     );
