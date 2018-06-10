@@ -25,7 +25,7 @@ module.exports = (() => {
           if (handler.route === '/feed') 
             response.writeHead(200, {'Content-Type': 'application/atom+xml'});
           else
-            response.writeHead(200, {"Content-Type": "application/json"});
+            response.writeHead(200, {"Content-Type": "application/json", 'Access-Control-Allow-Origin': '*'});
           for (j = 0; j < middlewares.length; ++j) {
             const middleware = middlewares[j];
 
