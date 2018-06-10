@@ -13,15 +13,6 @@ export default class EventRender extends Component{
         this.eventNameClick = this.eventNameClick.bind(this);
     }
 
-    componentDidMount(){
-        // console.log("DID MOUNT EVENTITEM");
-    }
-
-    componentWillReceiveProps(){
-
-        this.setState({isEventClicked : false});
-    }
-
     eventNameClick(){
         this.setState({isEventClicked : !this.state.isEventClicked});
     }
@@ -30,10 +21,7 @@ export default class EventRender extends Component{
 
         const {event, userCredit} = this.props;
         const {isEventClicked} = this.state;
-
-        // console.log(event);
-        // console.log(this.props);
-        // console.log(isEventClicked);
+        
         return(
             <div className="event">
                 <div className={`title margin-bottom ${isEventClicked === true && "active"}`} onClick={this.eventNameClick}>{event.name}</div>

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Layout from './Layout';
 import Wrapper from '../Wrapper';
 import PairItem from './PairItem';
+import loader from '../../images/orange_circles.gif';
 
 class Pair extends Component{
   constructor(props) {
@@ -37,7 +38,17 @@ class Pair extends Component{
   
   render() {
     const {id, pairs} = this.props;
-    // console.log(this.props);
+
+    if (pairs[id] === undefined){
+       return (
+          <Layout news={this.props.news.news} user={this.props.user.userInfo}>
+            <div className="page pairs-page">
+                <div className="pairs-container"/>
+            </div>
+            <div className="backdrop"><img className="loader" src={loader}/></div>);
+         </Layout>
+       );
+    }
     const pair = pairs[id];
 
     return (

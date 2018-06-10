@@ -65,8 +65,8 @@ export default class AdminMain extends Component{
                 {
                     events.map((event, index)=>{
 
-                    if (index > 30) return;
-                    if (event.totalBets === 0) return;
+                    
+                    if (event.totalBets < 3) return;
                     
                     return (
                         <div key={index} className="event">

@@ -24,9 +24,6 @@ export default class PairItem extends Component{
 
     componentDidMount(){
 
-
-        // console.log("DID MOUNT PAIR");
-
         if (this.props.type === "short"){
             this.getPairInfo();
         }
@@ -63,8 +60,6 @@ export default class PairItem extends Component{
                         "amount" : parseInt(inputVal)
                     }
                 });
-
-                console.log("DID BET");
             }
 
             if (inputError === true){
@@ -146,7 +141,7 @@ export default class PairItem extends Component{
                 <div className="name margin-bottom">{pair.name}</div>
                 <div className="description margin-bottom">{pair.description}</div>
            
-                <img className="image" src={pair.img_url}/>
+                <img className="image" />
 
                 <div className="history-text"> Istoricul perechii:</div>
                 {pair.history.map((obj, index)=>{

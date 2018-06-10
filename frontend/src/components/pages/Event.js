@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Layout from './Layout';
 import Wrapper from '../Wrapper';
 import EventItem from './EventItem';
+import loader from '../../images/orange_circles.gif';
 
 class Event extends Component{
   constructor(props) {
@@ -37,14 +38,12 @@ class Event extends Component{
   }
 
   render() {
-    const {id, events} = this.props;
+    const {id, events, pairs} = this.props;
     const event = events[id];
 
-  
-    if (event === undefined) return null;
-
-
-    // console.log(this.props);
+    
+    if (event === undefined || Object.keys(pairs).length === 0) 
+      return (<div className="backdrop"><img className="loader" src={loader}/></div>);
     
     return (
       <div>
