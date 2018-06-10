@@ -39,7 +39,7 @@ module.exports = (() => {
         }
       }
       
-      response.writeHead(200, {'Access-Control-Allow-Origin': '*'});
+      response.writeHead(200, {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type,Accept'});
       response.end();
     };
 
