@@ -43,8 +43,10 @@ class Events extends Component{
   componentWillReceiveProps(newProps) {
       // console.log(newProps);
       // console.log("RECEIVE PROPS");
+
       if (newProps.events.loading === false){
           this.getEvents(newProps);
+
       }
       
   }
@@ -64,6 +66,7 @@ class Events extends Component{
 
   sendBet(obj){
     this.props.sendBet(obj);
+    this.props.getUserInfo();
   }
 
   render() {
