@@ -27,7 +27,7 @@ class UserBets extends Component{
         <Layout news={this.props.news.news} user={userInfo}>
            <div className="page">
             <div className="page-title margin-bottom">Pariurile tale</div>
-            <div className="page-money">Suma totala disponibila: {userInfo.credit} lei</div>
+            <div className="page-money">Suma totala disponibila: {userInfo.credit.toFixed(2)} lei</div>
 
 
             {

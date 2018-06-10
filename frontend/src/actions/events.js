@@ -141,6 +141,13 @@ export function getEvents(type) {
               if (a.result > b.result) return 1;
             });
           }
+
+            response.data.events.sort(function(a, b){
+
+              if (a.timestamp > b.timestamp) return -1;
+              if (a.timestamp < b.timestamp) return 1;
+            });
+
           dispatch({
             type: types.EVENTS,
             eventsType: type,
