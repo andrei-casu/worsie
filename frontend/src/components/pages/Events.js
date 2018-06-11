@@ -47,8 +47,7 @@ class Events extends Component{
       if (newProps.events.loading === false){
           this.getEvents(newProps);
 
-      }
-      
+      }  
   }
 
   componentWillUnmount() {
