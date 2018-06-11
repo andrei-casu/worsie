@@ -196,19 +196,19 @@ class Register extends Component{
                 <div className="login">
                     <div className="title">Worsie Register</div>
                     <div className="input">
-                        <input type="text" className="form-control" placeholder="Username" value={username.string} onChange={this.inputChange("username")}/>
+                        <input type="text" className="form-control" placeholder="Username" value={username.string} onChange={this.inputChange("username")}/>{  window.navigator.platform === "MacIntel" && <br/>}
                         {username.status == false && <span className="input span">{username.msg}</span>}
                     </div>
                     <div className="input">
-                        <input type="text" className="form-control" placeholder="Email" value={email.string} onChange={this.inputChange("email")}/>
+                        <input type="text" className="form-control" placeholder="Email" value={email.string} onChange={this.inputChange("email")}/>{  window.navigator.platform === "MacIntel" && <br/>}
                         {email.status == false && <span className="input span">{email.msg}</span>}
                     </div>
                     <div className="input">
-                        <input type="password" className="form-control" placeholder="Password" value={password.string} onChange={this.inputChange("password")}/>
+                        <input type="password" className="form-control" placeholder="Password" value={password.string} onChange={this.inputChange("password")}/>{  window.navigator.platform === "MacIntel" && <br/>}
                         {password.status === false && <span className="input span">{password.msg}</span>}
                     </div>
                     <div className="input">
-                        <input type="password" className="form-control" placeholder="Confirm Password" value={cPassword.string} onChange={this.inputChange("cPassword")}/>
+                        <input type="password" className="form-control" placeholder="Confirm Password" value={cPassword.string} onChange={this.inputChange("cPassword")}/>{ window.navigator.platform === "MacIntel" && <br/>}
                         {cPassword.status === false && <span className="input span">{cPassword.msg}</span>}
                     </div>
 
