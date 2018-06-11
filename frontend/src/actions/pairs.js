@@ -15,8 +15,17 @@ export function getPair(id) {
     axios.get(apiLinkPair)
     .then(function(response ){
 
-        // console.log(response.data);
+        
         if (response.data.success === true){
+
+          console.log(response.data.pair);
+
+          response.data.pair.history.sort(function(a, b){
+
+            if (a.timestamp > b.timestamp) return -1;
+            if (a.timestamp < b.timestamp) return 1;
+          });
+          
           dispatch({
             type: types.PAIR,
             id,

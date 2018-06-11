@@ -146,6 +146,7 @@ export default class PairItem extends Component{
                 <div className="history-text"> Istoricul perechii:</div>
                 {pair.history.map((obj, index)=>{
 
+                    if (index > 30) return;
                     return (
                         <div key={index} className="pair-history">
                             <div className="date margin-bottom">{index+1}. Data si ora cursei: {new Date(obj.timestamp).toLocaleString('en-US')}</div>
