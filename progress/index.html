@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Scholarly HTML</title>
+    <link rel="stylesheet" href="css/scholarly.min.css">
+    <script src="js/scholarly.min.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <!-- <div class="banner">
+        <img src="scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
+        <div class="status">Community Draft</div>
+      </div> -->
+      <h1>Worsie</h1>
+    </header>
+    <!--
+      XXX
+      - check refs
+      - the math example has too much maths
+      - bring back some of the old style
+      - make semantics, validation, processing sub-sections of each structural element
+      - have a section before that for general constructs
+        - explain why use RDFa
+        - explain our patterns: RDFa, roles
+      - figure captions need to get set throughout
+      - dedication? see doc-dedication
+      - syntactic constraints (prefix)
+      - needs more sthenurines
+      - examples of everything
+      - some notes on using Semantic CSS
+      - needs more RDFa in the spec itself
+    -->
+    <div role="contentinfo">
+      <dl>
+        <dt>Authors</dt>
+        <dd>
+          <a href="https://github.com/capsu97">Casuneanu Andrei</a>
+          &amp;
+          <a href="https://github.com/AndreiTimofte96">Timofte Andrei</a>
+        </dd>
+      </dl>
+    </div>
+    
+    <section id="introduction" role="doc-introduction">
+      <!-- review? -->
+      <h2>Introduction</h2>
+      <p>
+        This is the report written to describe the progress and details of the project.
+      </p>
+      <p>
+        <strong>Worsie</strong> is a online betting platform for horse races.
+      </p>
+    </section>
+    <section id="structure">
+      <!-- review? -->
+      <h2>Structure</h2>
+      <p>
+        The project in the current phase has 2 parts frontend and backend
+      </p>
+      <section id="front-end">
+        <h3>Frontend</h3>
+        <p>
+          This are responsible for the user interraction and also a place for the admin to check up on the state of the whole platform.
+        </p>
+        <p>
+          It is written in <code>React</code> with <code>Redux</code> and some other libraries.
+        </p>
+      </section>
+
+      <section id="back-end">
+        <h3>Backend</h3>
+        <p>
+          This has 3 parts
+          <ul>
+            <li>Node api</li>
+            <li>mysql db</li>
+            <li>mongodb db</li>
+          </ul>
+        </p>
+        <p>
+          To be able to create a rest like api and not being able to use express framework a simple library for handling requests and responses was created following the example of express.
+          <pre><code>
+              routing.applyMiddleware('/api', checkAuthenticated);
+
+              routing.post('/authenticate', authenticate);
+              routing.post('/register', register);
+            
+              routing.get('/feed', getAtomFeed);
+            
+            
+              routing.get('/api/user', getUserRoute);
+              
+              routing.get('/api/pairs', getPairsRoute);
+              routing.get('/api/pair', getPairRoute);
+            
+              routing.get('/api/events', getEventsRoute);
+              routing.get('/api/event', getEventRoute);
+            
+              routing.get('/api/statistics_events', getEventsStatistics);
+            
+              routing.post('/api/bet', addBetRoute);
+              routing.get('/api/bets', getBetsRoute);
+              routing.start(port);
+          </code></pre>
+        </p>
+        <p>
+            Authentication and registering is done using the mysql which containts the users. Upon loging in the user receives a token that expires in a day that is used for all the upcoming requests.
+        </p>
+        <p>
+          Also an atom feed was exposed that keeps a fresh list of upcoming events for external use in apps or extensions.
+        </p>
+        <p>
+          Upon moving to a production version, a service like <a href="http://stripe.com/">Stripe</a> will be used on registering and then on handling the money.
+        </p>
+        <p>
+          Mongo is used to handle all the data regarding the events, pairs and bets.
+        </p>
+        <p>
+          Examples of mongo objects
+         </p>
+         <p>
+          Bet:
+          <pre><code>
+            {
+                "_id" : ObjectId("5b114fa4d8b4e7178d4cfb54"),
+                "event_id" : "5b11482d52a94f15e09769ed",
+                "pair_id" : "5b1118ca06f69009ce1f9a9f",
+                "amount" : 5.12,
+                "user_id" : 3,
+                "status" : "pending"
+            }
+          </code></pre>
+        </p>
+        <p>
+          Event
+          <pre><code>
+            {
+                "_id" : ObjectId("5b1baa14bc7fc4cb7cd18ee8"),
+                "name" : "Deserunt ut quod cum.",
+                "description" : "Laudantium cupiditate aliquam dolor nam sed. Minus rem excepturi pariatur molestiae aut quos id doloremque. Sint odit placeat minima consectetur molestiae libero. Voluptatem quo maiores cumque. Non eos vel voluptatum doloribus nisi. Rerum iusto non.",
+                "timestamp" : 1528539668355.0,
+                "pairs" : [ 
+                    {
+                        "pair" : ObjectId("5b1118c4d6e66c09ca89e0ef"),
+                        "odd" : 5.12,
+                        "result" : 1
+                    }, 
+                    {
+                        "pair" : ObjectId("5b111a95d428d30a8b6667c5"),
+                        "odd" : 5.43,
+                        "result" : 3
+                    }, 
+                    {
+                        "pair" : ObjectId("5b1118ca06f69009ce1f9a9f"),
+                        "odd" : 1.02,
+                        "result" : 4
+                    }, 
+                    {
+                        "pair" : ObjectId("5b111a925d78150a88ec60b1"),
+                        "odd" : 5.5,
+                        "result" : 2
+                    }, 
+                    {
+                        "pair" : ObjectId("5b111a8fb149a00a7ca34278"),
+                        "odd" : 1.07,
+                        "result" : 5
+                    }
+                ]
+            }
+          </code></pre>
+        </p>
+        <p>
+          Pair
+          <pre><code>
+            {
+                "_id" : ObjectId("5b1118ae7d873909bd1f85ba"),
+                "name" : "Houston Weimann and Lavada",
+                "description" : "Labore quisquam consequuntur eum rerum aut est.",
+                "full_description" : "Ut aliquam aut. Nihil tempore consequatur unde. Repellendus nam similique quia odio et necessitatibus rerum dolorem consectetur. Neque illo aut voluptas voluptatem velit dolores. Omnis culpa alias quia et ut ut dignissimos et. Nisi quisquam molestias autem odit.",
+                "history" : [ 
+                    {
+                        "place" : 3,
+                        "timestamp" : 1527853610742.0
+                    }, 
+                    {
+                        "place" : 4,
+                        "timestamp" : 1527853665078.0
+                    }, 
+                    {
+                        "place" : 5,
+                        "timestamp" : 1528575727526.0
+                    }, 
+                    {
+                        "place" : 3,
+                        "timestamp" : 1528576015708.0
+                    }
+                ],
+                "img_url" : "http://lorempixel.com/640/480/sports"
+            }
+          </code></pre>
+        </p>
+      </section>
+      
+   
+    </section>
+
+    <section id="progress">
+      <h2>Progress</h2>
+
+      <p>
+        <strong>Work flow:</strong> the project was developed using a version control system (git) and docker was used to develop and later deploy the backend for ease of use and platform independece. 
+        We mostly split up the tasks in both front and back and used a scrum metodology (with really short sprints) but when we worked on sensitive components we would meed for a couple of hours and pai program on the matter until we would finish. (there were 3 or 4 sesssions of pair programming)
+      </p>
+      <section id="sprint-1">
+        <h3>Sprint 1</h3>
+      <p>
+        <strong>Basic setup: </strong> The basic setup of the react project for both develpoment and production (different webpack configs, hot-reloading, minifying, etc.) and the setup of the backend that includes the databases and node app that connects to them. We used docker and docker-compose for that.
+      </p>
+      </section>
+
+      <section id="sprint-2">
+          <h3>Sprint 2</h3>
+        <p>
+          <strong>Front end dummy: </strong> We created dummy data and used that to build a plan for the user interface, then implemented the frontend somewhat functional based on the dummy data
+        </p>
+      </section>
+
+      <section id="sprint-3">
+          <h3>Sprint 3</h3>
+        <p>
+          <strong>Back and front: </strong> We built the databases models and the node api that actually works with that models and exposes them to the users. We then connected the front-end to the actual endpoints.
+        </p>
+      </section>
+
+
+      <section id="sprint-4">
+          <h3>Sprint 4</h3>
+        <p>
+          <strong>Real time: </strong> We built a simulation in the backend of a real time batting system that creates and updates events and bets in real time so that the app becomes functional
+        </p>
+      </section>
+
+      <section id="sprint-5">
+          <h3>Sprint 5</h3>
+        <p>
+          <strong>Finish: </strong> Bug testing and fixes, design fixes. (finishing touches)
+        </p>
+      </section>
+
+    </section>
+
+  </body>
+</html>
