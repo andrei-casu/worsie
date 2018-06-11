@@ -41,8 +41,6 @@ class Event extends Component{
 
   sendBet(obj){
 
-    console.log(obj);
-    console.log("SADASDASDASDASDAS");
     this.props.sendBet(obj);
     this.props.getUserInfo();
   }
@@ -51,8 +49,6 @@ class Event extends Component{
     const {id, events, pairs} = this.props;
     const event = events[id];
 
-
-    console.log(this.props.user);
     if (event === undefined || Object.keys(pairs).length === 0) 
       return (<div className="backdrop"><img className="loader" src={loader}/></div>);
     
