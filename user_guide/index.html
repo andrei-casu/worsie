@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Scholarly HTML</title>
+    <link rel="stylesheet" href="css/scholarly.min.css">
+    <script src="js/scholarly.min.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      
+      <h1>Worsie - Application User Guide</h1>
+    </header>
+    <!--
+      XXX
+      - check refs
+      - the math example has too much maths
+      - bring back some of the old style
+      - make semantics, validation, processing sub-sections of each structural element
+      - have a section before that for general constructs
+        - explain why use RDFa
+        - explain our patterns: RDFa, roles
+      - figure captions need to get set throughout
+      - dedication? see doc-dedication
+      - syntactic constraints (prefix)
+      - needs more sthenurines
+      - examples of everything
+      - some notes on using Semantic CSS
+      - needs more RDFa in the spec itself
+    -->
+    <div role="contentinfo">
+      <dl>
+        <dt>Authors</dt>
+        <dd>
+          Casuneanu Andrei &amp; Timofte Andrei
+
+        </dd>
+        <dt>Bugs &amp; Feedback</dt>
+        <dd>
+          <a href="https://github.com/capsu97/worsie/">Issues and PRs welcome!</a>
+        </dd>
+        
+        
+      </dl>
+    </div>
+  
+    <section id="introduction" role="doc-introduction">
+      <!-- review? -->
+      <h2>Introduction</h2>
+      <p>
+        Worsie is online betting platform focused on horse races. After the bettor has created a new account, he will login and enjoy his credit: 200 lei. The bettor can place bets on a specific race that will always have five different pairs (horse + jockey). After the bet was done, the bettor will see his bet status on the Profile page and a history of all his previous bets.
+      </p>
+     
+    </section>
+    <section id="structure">
+      <!-- review? -->
+      <h2>Structure</h2>
+      <p>
+        Worsie site is structured in two parts: the bettor page and the admin page.
+      </p>
+      
+      <section id="hunk">
+        <!-- review? -->
+        <h3>Admin Elements</h3>
+        <p>
+         The admin page will display several data about the system: general statistics, future list of races, history of races
+        </p>
+       
+        <section id="figures">
+          <!-- review? -->
+          <h4>Header</h4>
+          <p>
+            The Homepage will display general statistics about system: total number of bets, total profit, the most active bettors, biggest betting events.
+          </p>
+          <p>
+            The Future list of races Page will display general statistics next races. For every races, the admin cand see the pairs and their odd.
+          </p>
+          <p>
+            The Races history Page will display races that ended and for every event the winner, date and time of race, winnig pair unique id, winning pair odd, total number event bets, total amount bet, system profit, system loss.
+          </p>
+         
+        </section>
+      </section>
+      <section id="hunk">
+        <!-- review? -->
+        <h3>User Elements</h3>
+        <p>
+          The bettor (user) page will display several parts like: header, profile, an event, a pair and a short section of news.
+        </p>
+        
+        <p>
+          By clicking any of the header's section, the user will see a list of races (finished or incoming).
+          Pressing the name of the event will display a countdown until the race starts the odd of all pairs involved in the race. By clicking the name of a pair will take you to the pair page where will be the pair's history.
+        </p>
+        
+        <section id="figures">
+          <!-- review? -->
+          <h4>Header</h4>
+          <p>
+           The header contains 6 sections: Homepage section where you can see the most important races(hot-races), Finished section, Next Hour, Next 2 Hours, Next 3 Hours.
+          </p>
+          <p>
+           
+        </section>
+        <section id="figures">
+          <!-- review? -->
+          <h4>Profile</h4>
+          <p>
+           The Profile page will display the ballance of your account, the history of your bets, and the bets that are still not finished. After the user will place a bet on any of Header sections except the finished one, we will can see the bet in this section, the event where we did the bet and the pair.
+          </p>
+        </section>
+        <section id="figures">
+          <!-- review? -->
+          <h4>Event and Pair Pages</h4>
+          <p>
+           The Event page will display informations about a specific race. If the race is finished, the user will see the place of each pair, otherwise he can bet on pairs.
+          </p>
+        </section>
+      </section>
+    </section>
+    
+  </body>
+</html>
